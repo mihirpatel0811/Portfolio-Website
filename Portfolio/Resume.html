@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mihir Bhayani | Interactive Resume</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config for Tailwind -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                        },
+                        surface: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(-5%)' },
+                            '50%': { transform: 'translateY(0)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.4)' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'shimmer-gradient': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+        }
+
+        .dark {
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f3e8ff 100%);
+            background-attachment: fixed;
+        }
+
+        .dark body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2e1065 100%);
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        /* Animated Background Gradient */
+        .animated-bg {
+            background: linear-gradient(-45deg, #0ea5e9, #a855f7, #6366f1, #14b8a6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 300px;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #0ea5e9, #a855f7);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #0284c7, #9333ea);
+        }
+
+        /* Navigation Active State */
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(168, 85, 247, 0.15));
+            color: #0ea5e9;
+            border-right: 3px solid #0ea5e9;
+        }
+
+        .dark .nav-item.active {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(168, 85, 247, 0.25));
+            color: #38bdf8;
+        }
+
+        /* Skill Progress Bar */
+        .skill-progress {
+            background: linear-gradient(90deg, #0ea5e9, #a855f7);
+            border-radius: 9999px;
+            transition: width 1s ease-out;
+        }
+
+        /* Project Card Hover Effect */
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* Timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9, #a855f7);
+            border: 3px solid white;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Badge Styles */
+        .badge {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Button Hover Effects */
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Certification Card */
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateX(8px);
+            box-shadow: -8px 8px 30px rgba(168, 85, 247, 0.15);
+        }
+
+        /* KPI Card Hover */
+        .kpi-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* Sidebar Gradient */
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .dark .sidebar-gradient {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        /* Header Glass Effect */
+        .header-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .dark .header-glass {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        /* Social Icons Hover */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px) scale(1.1);
+            background: linear-gradient(135deg, #0ea5e9, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Loading Animation */
+        .loading-dots::after {
+            content: '.';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Filter Button Active */
+        .filter-btn.active {
+            background: linear-gradient(135deg, #0ea5e9, #a855f7);
+            color: white;
+            border: none;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: rgba(14, 165, 233, 0.1);
+            border-color: #0ea5e9;
+        }
+
+        /* Avatar Glow */
+        .avatar-glow {
+            position: relative;
+        }
+
+        .avatar-glow::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, #0ea5e9, #a855f7, #6366f1);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        /* Stats Counter Animation */
+        .stat-number {
+            background: linear-gradient(135deg, #0ea5e9, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased h-screen flex overflow-hidden dark:text-white transition-colors duration-300">
+
+    <!-- Animated Background Particles -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-20 left-20 w-72 h-72 bg-primary-400/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-40 right-20 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-80 h-80 bg-primary-300/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="w-20 md:w-72 sidebar-gradient border-r border-slate-200/50 dark:border-slate-700/50 flex flex-col justify-between transition-all duration-300 z-20 relative">
+        <!-- Profile Section -->
+        <div class="relative">
+            <div class="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-accent-500/10"></div>
+                <div class="avatar-glow w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg z-10">
+                    <img src="/images/home-img.jpg" alt="MB" class="w-full h-full rounded-2xl object-cover">
+                </div>
+                <div class="hidden md:block ml-4 z-10">
+                    <span class="font-bold text-slate-800 dark:text-white text-lg">Mihir</span>
+                    <span class="text-gradient font-bold text-lg block">Bhayani</span>
+                </div>
+            </div>
+
+            <nav class="mt-6 flex flex-col gap-2 px-3 relative z-10">
+                <button onclick="router('summary')" id="nav-summary"
+                    class="nav-item active flex items-center p-3 md:p-4 rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover:bg-gradient-to-br group-hover:from-primary-500 group-hover:to-accent-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <span class="hidden md:block ml-3 font-medium">Executive Summary</span>
+                </button>
+                <button onclick="router('skills')" id="nav-skills"
+                    class="nav-item flex items-center p-3 md:p-4 rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover:bg-gradient-to-br group-hover:from-primary-500 group-hover:to-accent-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <span class="hidden md:block ml-3 font-medium">Technical DNA</span>
+                </button>
+                <button onclick="router('projects')" id="nav-projects"
+                    class="nav-item flex items-center p-3 md:p-4 rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover:bg-gradient-to-br group-hover:from-primary-500 group-hover:to-accent-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <span class="hidden md:block ml-3 font-medium">Project Portfolio</span>
+                </button>
+                <button onclick="router('education')" id="nav-education"
+                    class="nav-item flex items-center p-3 md:p-4 rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover:bg-gradient-to-br group-hover:from-primary-500 group-hover:to-accent-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span class="hidden md:block ml-3 font-medium">Education & Journey</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="p-4 border-t border-slate-200/50 dark:border-slate-700/50 relative z-10">
+            <!-- Theme Toggle -->
+            <button onclick="toggleTheme()" class="theme-toggle w-full mb-4 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-all duration-300 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-moon dark:hidden"></i>
+                <i class="fa-solid fa-sun hidden dark:block"></i>
+                <span class="hidden md:block text-sm font-medium">Toggle Theme</span>
+            </button>
+
+            <!-- Availability Card -->
+            <div class="glass-card rounded-2xl p-4 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10"></div>
+                <p class="text-xs font-bold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-3 relative z-10">Availability</p>
+                <div class="flex items-center gap-2 mb-2 relative z-10">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Ready to Start</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 relative z-10">MCA Student | Pune, MH</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative z-10">
+        <!-- Top Header -->
+        <header class="h-20 header-glass border-b border-slate-200/50 dark:border-slate-700/50 flex items-center justify-between px-6 md:px-10 shrink-0">
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block">
+                    <h1 class="text-2xl font-bold text-slate-800 dark:text-white">Mihir Bhayani</h1>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Full-Stack Developer | MCA Student</p>
+                </div>
+                <div class="md:hidden">
+                    <h1 class="text-lg font-bold text-slate-800 dark:text-white">Mihir Bhayani</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="mailto:mihirbhayani8@gmail.com"
+                    class="social-icon p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                    title="Email">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" target="_blank"
+                    class="social-icon p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                    title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+                <a href="http://github.com/mihirpatel0811" target="_blank"
+                    class="social-icon p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                    title="GitHub">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="tel:+919510457100"
+                    class="social-icon p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                    title="Phone">
+                    <i class="fa-solid fa-phone text-lg"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- Scrollable Content Area -->
+        <div id="content-area" class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+
+            <!-- VIEW: SUMMARY (Dashboard) -->
+            <div id="view-summary" class="space-y-6 animate-fade-in">
+                <!-- Hero Introduction -->
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-accent-500/5"></div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center md:items-start relative z-10">
+                        <div class="avatar-glow shrink-0">
+                            <img src="/images/home-img.jpg" alt="Mihir Bhayani"
+                                class="w-36 h-36 md:w-48 md:h-48 rounded-3xl object-cover shadow-2xl">
+                        </div>
+
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full badge text-primary-600 dark:text-primary-400 text-sm font-medium mb-4">
+                                <i class="fa-solid fa-code"></i> Full-Stack Developer
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-3">
+                                Hi, I'm <span class="text-gradient">Mihir Bhayani</span>
+                            </h2>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                                Passionate <strong>MCA student</strong> at Dr. D. Y. Patil Vidyapeeth, Pune, specializing in building 
+                                <span class="text-primary-600 dark:text-primary-400 font-semibold">scalable web applications</span> 
+                                using PHP, Java, and Python. Expert in modern frameworks like 
+                                <span class="text-accent-600 dark:text-accent-400 font-semibold">Laravel, React, and Flask</span>.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
+                                <span class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-medium shadow-lg shadow-primary-500/30">
+                                    <i class="fa-solid fa-location-dot mr-2"></i>Pune, Maharashtra
+                                </span>
+                                <span class="px-4 py-2 rounded-full bg-gradient-to-r from-accent-500 to-accent-600 text-white text-sm font-medium shadow-lg shadow-accent-500/30">
+                                    <i class="fa-solid fa-envelope mr-2"></i>mihirbhayani8@gmail.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="kpi-card glass-card rounded-2xl p-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-all duration-500"></div>
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <h3 class="text-sm font-medium text-slate-500 dark:text-slate-400">Projects Completed</h3>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                                <i class="fa-solid fa-code-branch text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="stat-number text-4xl font-bold mb-1">3+</p>
+                        <p class="text-xs text-green-600 dark:text-green-400 flex items-center">
+                            <i class="fa-solid fa-arrow-trend-up mr-1"></i> Full-Stack Focused
+                        </p>
+                    </div>
+
+                    <div class="kpi-card glass-card rounded-2xl p-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-purple-600/20 rounded-full blur-2xl group-hover:bg-purple-500/30 transition-all duration-500"></div>
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <h3 class="text-sm font-medium text-slate-500 dark:text-slate-400">Certifications</h3>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/30">
+                                <i class="fa-solid fa-certificate text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="stat-number text-4xl font-bold mb-1">6</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">ML & Analytics Specialization</p>
+                    </div>
+
+                    <div class="kpi-card glass-card rounded-2xl p-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-orange-400/20 to-orange-600/20 rounded-full blur-2xl group-hover:bg-orange-500/30 transition-all duration-500"></div>
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <h3 class="text-sm font-medium text-slate-500 dark:text-slate-400">Primary Stack</h3>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/30">
+                                <i class="fa-brands fa-stack-overflow text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="stat-number text-2xl font-bold mb-1">PHP & Python</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">+ Java & Modern JS</p>
+                    </div>
+
+                    <div class="kpi-card glass-card rounded-2xl p-6 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/20 to-emerald-600/20 rounded-full blur-2xl group-hover:bg-emerald-500/30 transition-all duration-500"></div>
+                        <div class="flex items-center justify-between mb-4 relative z-10">
+                            <h3 class="text-sm font-medium text-slate-500 dark:text-slate-400">Education</h3>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+                                <i class="fa-solid fa-user-graduate text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="stat-number text-2xl font-bold mb-1">MCA Student</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Dr. D. Y. Patil Vidyapeeth</p>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Radar Chart -->
+                    <div class="glass-card rounded-2xl p-6 animate-slide-up" style="animation-delay: 0.1s;">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="font-bold text-xl text-slate-800 dark:text-white">Competency Distribution</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Multi-dimensional skill analysis</p>
+                            </div>
+                            <button onclick="router('skills')" class="px-4 py-2 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                View Details <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="summaryRadarChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart -->
+                    <div class="glass-card rounded-2xl p-6 animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="font-bold text-xl text-slate-800 dark:text-white">Core Language Proficiency</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Based on technical assessment</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-primary-500"></span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400">Proficiency Level</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="summaryBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: SKILLS (Technical DNA) -->
+            <div id="view-skills" class="hidden space-y-6 animate-fade-in">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-primary-500/30">
+                            <i class="fa-solid fa-dna"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Technical DNA Analysis</h2>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                A comprehensive breakdown of technical capabilities spanning 
+                                <span class="text-primary-600 dark:text-primary-400 font-semibold">Frontend</span>, 
+                                <span class="text-accent-600 dark:text-accent-400 font-semibold">Backend</span>, 
+                                and <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Data Science</span> domains.
+                                Demonstrates expertise in enterprise development (Java, PHP) alongside modern data science (Python, ML).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Skill Lists -->
+                    <div class="lg:col-span-1 space-y-4">
+                        <div class="glass-card rounded-2xl p-6 hover:shadow-lg transition-shadow">
+                            <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                Languages
+                            </h3>
+                            <div class="space-y-4" id="skills-list-languages"></div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 hover:shadow-lg transition-shadow">
+                            <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-cubes"></i>
+                                </div>
+                                Frameworks & Libs
+                            </h3>
+                            <div class="space-y-3" id="skills-list-frameworks"></div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Visualization -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="glass-card rounded-2xl p-6">
+                            <div class="flex items-center justify-between mb-4 flex-wrap gap-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-slate-800 dark:text-white">Proficiency Analysis</h3>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">Polar area visualization</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span class="px-3 py-1 rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs font-medium">90%+ Expert</span>
+                                    <span class="px-3 py-1 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-xs font-medium">75%+ Advanced</span>
+                                </div>
+                            </div>
+                            <div class="chart-container h-80">
+                                <canvas id="skillsPolarChart"></canvas>
+                            </div>
+                            <div class="mt-6 p-5 rounded-xl bg-gradient-to-br from-primary-50/80 to-accent-50/80 dark:from-primary-900/30 dark:to-accent-900/30 border border-primary-200/50 dark:border-primary-700/50">
+                                <p class="text-slate-700 dark:text-slate-300">
+                                    <i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <strong>Insight:</strong> 
+                                    Strongest expertise in <span class="text-primary-600 dark:text-primary-400 font-semibold">HTML/JS/CSS (95%)</span> 
+                                    and <span class="text-accent-600 dark:text-accent-400 font-semibold">PHP/Laravel (90%)</span>, 
+                                    demonstrating immediate readiness for full-stack web development roles.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="glass-card rounded-2xl p-6 hover:shadow-lg transition-all group">
+                                <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm">
+                                        <i class="fa-solid fa-database"></i>
+                                    </div>
+                                    Databases
+                                </h3>
+                                <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                                        <i class="fa-solid fa-check text-green-500 text-xs"></i> MySQL
+                                    </li>
+                                    <li class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                                        <i class="fa-solid fa-check text-green-500 text-xs"></i> DBMS Concepts
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="glass-card rounded-2xl p-6 hover:shadow-lg transition-all group">
+                                <h3 class="font-bold text-lg text-slate-800 dark:text-white mb-4 flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-500 to-slate-700 flex items-center justify-center text-white text-sm">
+                                        <i class="fa-solid fa-tools"></i>
+                                    </div>
+                                    Tools & Tech
+                                </h3>
+                                <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                                    <li class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                                        <i class="fa-brands fa-git-alt text-orange-500 text-xs"></i> Git & GitHub
+                                    </li>
+                                    <li class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                                        <i class="fa-brands fa-laravel text-red-400 text-xs"></i> Laravel Framework
+                                    </li>
+                                    <li class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                                        <i class="fa-solid fa-database text-blue-500 text-xs"></i> MySQL
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: PROJECTS -->
+            <div id="view-projects" class="hidden space-y-6 animate-fade-in">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-500 to-primary-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-accent-500/30">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Project Impact Analysis</h2>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Showcasing practical applications with measurable impact. Filter by technology domain to explore 
+                                <span class="text-accent-600 dark:text-accent-400 font-semibold">Python Stack</span>, 
+                                <span class="text-primary-600 dark:text-primary-400 font-semibold">PHP Stack</span>, and 
+                                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Full-Stack implementations</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Filters & Projects -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Filter Buttons -->
+                        <div class="flex gap-3 overflow-x-auto pb-2" id="project-filters">
+                            <button onclick="filterProjects('all')"
+                                class="filter-btn active px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap">
+                                <i class="fa-solid fa-layer-group mr-2"></i> All Projects
+                            </button>
+                            <button onclick="filterProjects('PHP')"
+                                class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap">
+                                <i class="fa-brands fa-php mr-2"></i> PHP Stack
+                            </button>
+                            <button onclick="filterProjects('Python')"
+                                class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap">
+                                <i class="fa-brands fa-python mr-2"></i> Python Stack
+                            </button>
+                        </div>
+
+                        <!-- Project Cards Grid -->
+                        <div id="projects-grid" class="grid grid-cols-1 gap-6">
+                            <!-- Projects injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Visualization -->
+                    <div class="lg:col-span-1">
+                        <div class="glass-card rounded-2xl p-6 sticky top-6">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-chart-pie"></i>
+                                </div>
+                                <h3 class="font-bold text-lg text-slate-800 dark:text-white">Tech Stack Distribution</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="projectStackChart"></canvas>
+                            </div>
+                            <div class="mt-6 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50">
+                                <p class="text-xs text-center text-slate-500 dark:text-slate-400">
+                                    <i class="fa-solid fa-info-circle mr-1"></i>
+                                    Chart updates dynamically based on visible projects
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: EDUCATION (Journey) -->
+            <div id="view-education" class="hidden space-y-6 animate-fade-in">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-emerald-500/30">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Education & Certification Journey</h2>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                A chronological path of <span class="text-emerald-600 dark:text-emerald-400 font-semibold">academic excellence</span> 
+                                and <span class="text-accent-600 dark:text-accent-400 font-semibold">professional certifications</span> 
+                                in Data Analytics and Machine Learning domains.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Timeline -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-bold text-xl text-slate-800 dark:text-white mb-6 flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-white text-lg">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            Academic Journey
+                        </h3>
+                        <div class="relative" id="education-timeline">
+                            <!-- Timeline items injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="space-y-6">
+                        <div class="glass-card rounded-2xl p-6">
+                            <h3 class="font-bold text-xl text-slate-800 dark:text-white mb-6 flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-pink-500 flex items-center justify-center text-white text-lg">
+                                    <i class="fa-solid fa-certificate"></i>
+                                </div>
+                                Professional Certifications
+                            </h3>
+                            <div class="grid grid-cols-1 gap-4" id="certs-list">
+                                <!-- Certs injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Contact Card -->
+                        <div class="rounded-2xl p-6 text-white shadow-2xl relative overflow-hidden">
+                            <div class="absolute inset-0 animated-bg"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary-600/80 to-accent-600/80"></div>
+                            <div class="relative z-10">
+                                <h3 class="font-bold text-xl mb-2 flex items-center gap-3">
+                                    <i class="fa-solid fa-handshake"></i> Let's Connect
+                                </h3>
+                                <p class="text-primary-100 text-sm mb-4">Ready to discuss how my skills can benefit your team?</p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm">
+                                        <i class="fa-solid fa-phone w-5"></i> +91 95104 57100
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm">
+                                        <i class="fa-solid fa-envelope w-5"></i> mihirbhayani8@gmail.com
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm">
+                                        <i class="fa-solid fa-location-dot w-5"></i> Pune, Maharashtra
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // --- Data Storage ---
+        const candidateData = {
+            basics: {
+                name: "Mihir Bhayani",
+                role: "Full-Stack Developer | MCA Student",
+                location: "Pune, Maharashtra, India",
+                email: "mihirbhayani8@gmail.com",
+                phone: "+91 95104 57100",
+                summary: "Dedicated and highly motivated MCA student with a strong foundation in Full-Stack Development. Proficient in building scalable web applications using PHP, Java, and Python. Passionate about creating elegant digital experiences and leveraging data analytics and machine learning."
+            },
+            skills: {
+                languages: [
+                    { name: "HTML/CSS/JS", level: 95 },
+                    { name: "PHP", level: 90 },
+                    { name: "Python", level: 85 },
+                    { name: "Java", level: 75 },
+                    { name: "SQL", level: 80 }
+                ],
+                frameworks: [
+                    { name: "Laravel", category: "Backend" },
+                    { name: "Flask", category: "Backend" },
+                    { name: "React.js", category: "Frontend" },
+                    { name: "Node.js", category: "Backend" },
+                    { name: "Bootstrap/Tailwind", category: "Frontend" }
+                ],
+                tools: ["Git/GitHub", "MySQL", "Laravel"]
+            },
+            projects: [
+                {
+                    title: "BillBuddy",
+                    subtitle: "Energy Consumption Estimator",
+                    desc: "Web app allowing users to log 50+ household appliances to estimate monthly energy costs with detailed analytics.",
+                    stack: ["Python", "Flask", "SQLite", "JavaScript", "HTML/CSS"],
+                    category: "Web"
+                },
+                {
+                    title: "GoParcel",
+                    subtitle: "Logistics Management System",
+                    desc: "Logistics tracking system featuring a Glassmorphism UI and automated cost calculation engine.",
+                    stack: ["HTML/CSS/JS", "Python", "Flask", "SQLite"],
+                    category: "Python"
+                },
+                {
+                    title: "Product Management",
+                    subtitle: "Inventory System",
+                    desc: "Streamlined inventory management system with full CRUD functionality and optimized database schema.",
+                    stack: ["PHP", "MySQL", "Bootstrap", "HTML/CSS/JS"],
+                    category: "PHP"
+                }
+            ],
+            education: [
+                {
+                    degree: "Master of Computer Applications (MCA)",
+                    school: "Dr. D. Y. Patil Vidyapeeth, Pune",
+                    year: "2024 - Present",
+                    status: "Pursuing",
+                    details: "Focus: Software Engineering, Adv Database Management, Web Technologies"
+                },
+                {
+                    degree: "Bachelor of Computer Applications (BCA)",
+                    school: "Marwadi University, Rajkot",
+                    year: "2021 - 2024",
+                    status: "Completed",
+                    details: "Focus: Computer Science Fundamentals"
+                }
+            ],
+            certifications: [
+                { title: "Boosting Machine Learning Models", provider: "Infosys Springboard", year: "Feb 2025", icon: "fa-robot" },
+                { title: "Explore Machine Learning in Python", provider: "Infosys Springboard", year: "Feb 2025", icon: "fa-python" },
+                { title: "Data Analytics Essentials", provider: "Cisco", year: "2025", icon: "fa-chart-line" },
+                { title: "INNOHACK 2.0 Participant", provider: "National Level Hackathon", year: "2025", icon: "fa-trophy" },
+                { title: "INNIXO OVERDRIVE", provider: "Technical Certification", year: "2026", icon: "fa-award" }
+            ]
+        };
+
+        // --- State Management ---
+        let appState = {
+            currentView: 'summary',
+            projectFilter: 'all',
+            charts: {}
+        };
+
+        // --- Theme Toggle ---
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            // Update charts for dark mode
+            updateChartsTheme();
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // --- Core Interaction Handling ---
+        function router(viewName) {
+            // Update State
+            appState.currentView = viewName;
+
+            // Update Nav UI
+            document.querySelectorAll('.nav-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            const activeNav = document.getElementById(`nav-${viewName}`);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+
+            // Update Main Content UI
+            ['summary', 'skills', 'projects', 'education'].forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (v === viewName) {
+                    el.classList.remove('hidden');
+                    // Trigger Chart resize/render if needed when becoming visible
+                    setTimeout(() => {
+                        if (v === 'summary') {
+                            if (appState.charts.summaryRadar) appState.charts.summaryRadar.resize();
+                            if (appState.charts.summaryBar) appState.charts.summaryBar.resize();
+                        }
+                        if (v === 'skills') {
+                            if (appState.charts.skillsPolar) appState.charts.skillsPolar.resize();
+                        }
+                        if (v === 'projects') {
+                            updateProjectChart();
+                        }
+                    }, 100);
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // Scroll to top
+            document.getElementById('content-area').scrollTop = 0;
+        }
+
+        // --- Chart Theme Colors ---
+        function getChartColors() {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                textColor: isDark ? '#e2e8f0' : '#475569',
+                gridColor: isDark ? '#334155' : '#e2e8f0',
+                radarBg: isDark ? 'rgba(14, 165, 233, 0.2)' : 'rgba(14, 165, 233, 0.2)',
+                radarBorder: '#0ea5e9',
+                radarPoint: '#0284c7',
+                barColors: ['#f59e0b', '#6366f1', '#3b82f6', '#ef4444', '#10b981'],
+                polarColors: [
+                    'rgba(245, 158, 11, 0.7)',
+                    'rgba(99, 102, 241, 0.7)',
+                    'rgba(59, 130, 246, 0.7)',
+                    'rgba(239, 68, 68, 0.7)',
+                    'rgba(16, 185, 129, 0.7)'
+                ]
+            };
+        }
+
+        function updateChartsTheme() {
+            const colors = getChartColors();
+            
+            // Update Radar Chart
+            if (appState.charts.summaryRadar) {
+                appState.charts.summaryRadar.options.scales.r.grid.color = colors.gridColor;
+                appState.charts.summaryRadar.options.scales.r.pointLabels.color = colors.textColor;
+                appState.charts.summaryRadar.update();
+            }
+            
+            // Update Bar Chart
+            if (appState.charts.summaryBar) {
+                appState.charts.summaryBar.options.scales.x.grid.color = colors.gridColor;
+                appState.charts.summaryBar.options.scales.x.ticks.color = colors.textColor;
+                appState.charts.summaryBar.options.scales.y.ticks.color = colors.textColor;
+                appState.charts.summaryBar.update();
+            }
+            
+            // Update Polar Chart
+            if (appState.charts.skillsPolar) {
+                appState.charts.skillsPolar.options.plugins.legend.labels.color = colors.textColor;
+                appState.charts.skillsPolar.update();
+            }
+        }
+
+        // --- Render Functions ---
+        function initCharts() {
+            const colors = getChartColors();
+            
+            // 1. Summary Radar Chart
+            const radarCtx = document.getElementById('summaryRadarChart').getContext('2d');
+            appState.charts.summaryRadar = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Frontend', 'Backend', 'Database', 'Data Science', 'Tools', 'Soft Skills'],
+                    datasets: [{
+                        label: 'Competency Level',
+                        data: [90, 85, 80, 70, 85, 90],
+                        backgroundColor: colors.radarBg,
+                        borderColor: colors.radarBorder,
+                        pointBackgroundColor: colors.radarPoint,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: colors.radarPoint,
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: true, color: colors.gridColor },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            grid: { color: colors.gridColor },
+                            pointLabels: {
+                                color: colors.textColor,
+                                font: { size: 12, weight: '500' }
+                            },
+                            ticks: {
+                                color: colors.textColor,
+                                backdropColor: 'transparent'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+
+            // 2. Summary Bar Chart
+            const barCtx = document.getElementById('summaryBarChart').getContext('2d');
+            appState.charts.summaryBar = new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: candidateData.skills.languages.map(l => l.name),
+                    datasets: [{
+                        label: 'Proficiency (%)',
+                        data: candidateData.skills.languages.map(l => l.level),
+                        backgroundColor: colors.barColors,
+                        borderWidth: 0,
+                        borderRadius: 8,
+                        barThickness: 30
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: colors.gridColor },
+                            ticks: { color: colors.textColor }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: colors.textColor, font: { weight: '500' } }
+                        }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+
+            // 3. Skills Polar Area Chart
+            const polarCtx = document.getElementById('skillsPolarChart').getContext('2d');
+            appState.charts.skillsPolar = new Chart(polarCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['HTML/JS', 'PHP/Laravel', 'Python/Flask', 'Java', 'SQL/DB'],
+                    datasets: [{
+                        data: [95, 90, 85, 75, 80],
+                        backgroundColor: colors.polarColors,
+                        borderWidth: 2,
+                        borderColor: document.documentElement.classList.contains('dark') ? '#1e293b' : '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: colors.textColor,
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                font: { size: 12, weight: '500' }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+
+            // 4. Project Stack Doughnut Chart
+            const projectCtx = document.getElementById('projectStackChart').getContext('2d');
+            appState.charts.projectStack = new Chart(projectCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: colors.textColor,
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                font: { size: 11, weight: '500' }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+
+        function renderSkillsLists() {
+            const langContainer = document.getElementById('skills-list-languages');
+            candidateData.skills.languages.forEach(lang => {
+                const div = document.createElement('div');
+                div.className = "space-y-2";
+                div.innerHTML = `
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="font-medium text-slate-700 dark:text-slate-200">${lang.name}</span>
+                        <span class="text-xs font-semibold text-primary-600 dark:text-primary-400">${lang.level}%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+                        <div class="skill-progress h-2.5 rounded-full" style="width: ${lang.level}%"></div>
+                    </div>
+                `;
+                langContainer.appendChild(div);
+            });
+
+            const frameContainer = document.getElementById('skills-list-frameworks');
+            candidateData.skills.frameworks.forEach(fw => {
+                const div = document.createElement('div');
+                div.className = "flex items-center justify-between text-sm p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-accent-50/50 dark:hover:from-primary-900/20 dark:hover:to-accent-900/20 transition-all duration-300 cursor-default";
+                div.innerHTML = `
+                    <span class="font-medium text-slate-700 dark:text-slate-200">${fw.name}</span>
+                    <span class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-primary-500/10 to-accent-500/10 text-primary-600 dark:text-primary-400 border border-primary-200/50 dark:border-primary-700/50">${fw.category}</span>
+                `;
+                frameContainer.appendChild(div);
+            });
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = '';
+
+            const filtered = appState.projectFilter === 'all'
+                ? candidateData.projects
+                : candidateData.projects.filter(p => {
+                    if (appState.projectFilter === 'PHP') return p.stack.includes('PHP');
+                    if (appState.projectFilter === 'Python') return p.stack.includes('Python');
+                    return true;
+                });
+
+            filtered.forEach((p, index) => {
+                const card = document.createElement('div');
+                card.className = "project-card glass-card rounded-2xl p-6 animate-slide-up";
+                card.style.animationDelay = `${index * 0.1}s`;
+
+                // Get gradient color based on category
+                const categoryGradient = p.category === 'PHP' ? 'from-orange-500 to-red-500' : 
+                                         p.category === 'Python' ? 'from-blue-500 to-cyan-500' : 
+                                         'from-primary-500 to-accent-500';
+
+                let badges = p.stack.map(s => `<span class="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 text-slate-600 dark:text-slate-300 border border-slate-200/50 dark:border-slate-600/50">${s}</span>`).join('');
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${categoryGradient} flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-folder-open text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-slate-800 dark:text-white">${p.title}</h3>
+                                    <p class="text-sm text-primary-600 dark:text-primary-400 font-medium">${p.subtitle}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-bold rounded-full bg-gradient-to-r ${categoryGradient} text-white shadow-lg">${p.category}</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">${p.desc}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${badges}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            updateProjectChart(filtered);
+        }
+
+        function filterProjects(filterType) {
+            appState.projectFilter = filterType;
+
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (filterType === 'all' && btn.textContent.includes('All')) {
+                    btn.classList.add('active');
+                } else if (filterType === 'PHP' && btn.textContent.includes('PHP')) {
+                    btn.classList.add('active');
+                } else if (filterType === 'Python' && btn.textContent.includes('Python')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            renderProjects();
+        }
+
+        function updateProjectChart(projects = candidateData.projects) {
+            const colors = getChartColors();
+            
+            // Calculate tech stack frequency
+            const techCounts = {};
+            projects.forEach(p => {
+                p.stack.forEach(tech => {
+                    techCounts[tech] = (techCounts[tech] || 0) + 1;
+                });
+            });
+
+            const labels = Object.keys(techCounts);
+            const data = Object.values(techCounts);
+
+            if (appState.charts.projectStack) {
+                appState.charts.projectStack.data.labels = labels;
+                appState.charts.projectStack.data.datasets = [{
+                    data: data,
+                    backgroundColor: [
+                        '#6366f1', '#3b82f6', '#f59e0b', '#10b981', '#ec4899', '#8b5cf6'
+                    ],
+                    borderWidth: 2,
+                    borderColor: document.documentElement.classList.contains('dark') ? '#1e293b' : '#fff'
+                }];
+                appState.charts.projectStack.update();
+            }
+        }
+
+        function renderEducation() {
+            const tl = document.getElementById('education-timeline');
+            
+            candidateData.education.forEach((edu, index) => {
+                const item = document.createElement('div');
+                item.className = "timeline-item relative pl-8 pb-8";
+                if (index < candidateData.education.length - 1) {
+                    item.innerHTML += `<div class="absolute left-[5px] top-4 bottom-0 w-px bg-gradient-to-b from-primary-500 to-accent-500"></div>`;
+                }
+                item.innerHTML += `
+                    <div class="glass-card rounded-xl p-5 hover:shadow-lg transition-all duration-300 group">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-gradient-to-r from-primary-500/10 to-accent-500/10 text-primary-600 dark:text-primary-400 text-xs font-bold mb-3">
+                            <i class="fa-solid fa-calendar"></i> ${edu.year}
+                        </span>
+                        <h4 class="font-bold text-lg text-slate-800 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">${edu.degree}</h4>
+                        <p class="text-sm font-medium text-slate-600 dark:text-slate-300 mb-2">${edu.school}</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">${edu.details}</p>
+                        <div class="flex items-center gap-2">
+                            ${edu.status === 'Pursuing' 
+                                ? '<span class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold"><i class="fa-solid fa-spinner fa-spin mr-1"></i> Pursuing</span>'
+                                : '<span class="px-3 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold"><i class="fa-solid fa-check mr-1"></i> Completed</span>'
+                            }
+                        </div>
+                    </div>
+                `;
+                tl.appendChild(item);
+            });
+
+            const certs = document.getElementById('certs-list');
+            candidateData.certifications.forEach(cert => {
+                const item = document.createElement('div');
+                item.className = "cert-card flex items-start gap-4 p-4 rounded-xl glass-card hover:shadow-md transition-all duration-300";
+                
+                // Get icon color based on certification type
+                let iconColor = 'from-primary-500 to-primary-600';
+                if (cert.icon.includes('robot') || cert.icon.includes('python')) {
+                    iconColor = 'from-green-500 to-emerald-500';
+                } else if (cert.icon.includes('chart')) {
+                    iconColor = 'from-blue-500 to-cyan-500';
+                } else if (cert.icon.includes('trophy')) {
+                    iconColor = 'from-amber-500 to-orange-500';
+                } else if (cert.icon.includes('award')) {
+                    iconColor = 'from-purple-500 to-pink-500';
+                }
+                
+                item.innerHTML = `
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${iconColor} flex items-center justify-center text-white shadow-lg shrink-0">
+                        <i class="fa-solid ${cert.icon}"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-white mb-1 truncate">${cert.title}</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">${cert.provider} • ${cert.year}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500 shrink-0 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 group-hover:text-primary-500 transition-colors">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                `;
+                certs.appendChild(item);
+            });
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderSkillsLists();
+            renderProjects();
+            renderEducation();
+
+            // Initial Animation Trigger
+            setTimeout(() => {
+                document.getElementById('view-summary').classList.remove('opacity-0');
+            }, 100);
+        });
+
+        // Handle window resize for charts
+        window.addEventListener('resize', () => {
+            Object.values(appState.charts).forEach(chart => {
+                if (chart && typeof chart.resize === 'function') {
+                    chart.resize();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

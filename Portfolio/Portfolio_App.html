@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mihir Bhayani | Full-Stack Developer</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="responsive.css"> -->
+    <!-- EmailJS for Contact Form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <span>MB</span>
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <a href="#" class="logo">
+            <span class="logo-text">M</span>
+            <span class="logo-text">B</span>
+        </a>
+        <nav class="navbar">
+            <a href="#home" class="active">
+                <i class='bx bx-home'></i>
+                <span>Home</span>
+            </a>
+            <a href="#about">
+                <i class='bx bx-user'></i>
+                <span>About</span>
+            </a>
+            <a href="#skills">
+                <i class='bx bx-brain'></i>
+                <span>Skills</span>
+            </a>
+            <a href="#projects">
+                <i class='bx bx-briefcase'></i>
+                <span>Projects</span>
+            </a>
+            <a href="#education">
+                <i class='bx bx-education'></i>
+                <span>Education</span>
+            </a>
+            <a href="#certifications">
+                <i class='bx bx-briefcase'></i>
+                <span>Certificates</span>
+            </a>
+            <a href="#contact">
+                <i class='bx bx-envelope'></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class='bx bx-moon'></i>
+            </button>
+            <button class="mobile-menu-btn">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="home" id="home">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container">
+            <div class="home-content">
+                <div class="hero-text">
+                    <p class="greeting">
+                        <span class="wave">👋</span>
+                        Hello, I'm
+                    </p>
+                    <h1 class="name">
+                        <span class="char">M</span>
+                        <span class="char">i</span>
+                        <span class="char">h</span>
+                        <span class="char">i</span>
+                        <span class="char">r</span>
+                        <span class="space">&nbsp;</span>
+                        <span class="char">B</span>
+                        <span class="char">h</span>
+                        <span class="char">a</span>
+                        <span class="char">y</span>
+                        <span class="char">a</span>
+                        <span class="char">n</span>
+                        <span class="char">i</span>
+                    </h1>
+                    <div class="typing-wrapper">
+                        <h3 class="profession">I'm a <span class="typed-text"></span></h3>
+                    </div>
+                    <p class="hero-description">
+                        Passionate Full-Stack Developer crafting elegant digital experiences.
+                        MCA student at D.Y. Patil Vidyapeeth, Pune. Specialized in building
+                        scalable web applications with modern technologies.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="10">0</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="6">0</span>
+                            <span class="stat-label">Cartifications</span>
+                        </div>
+                        <!-- <div class="stat">
+                            <span class="stat-number" data-target="99">0</span>
+                            <span class="stat-label">% Success</span>
+                        </div> -->
+                    </div>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class='bx bx-arrow-right'></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
+                    <div class="social-media">
+                        <a href="http://github.com/mihirpatel0811" class="social-link github" data-tooltip="GitHub">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-link linkedin"
+                            data-tooltip="LinkedIn">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://wa.me/9510457100" class="social-link whatsapp" data-tooltip="WhatsApp">
+                            <i class='bx bxl-whatsapp'></i>
+                        </a>
+                        <a href="mailto:mihirbhayani8@gmail.com" class="social-link email" data-tooltip="Email">
+                            <i class='bx bx-envelope'></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="home-img">
+                    <div class="img-wrapper">
+                        <div class="img-border"></div>
+                        <img src="images/home-img.jpg" alt="Mihir Bhayani" class="profile-img">
+                        <div class="floating-icons">
+                            <span class="float-icon" data-delay="0"><i class='bx bxl-html5'></i></span>
+                            <span class="float-icon" data-delay="1"><i class='bx bxl-css3'></i></span>
+                            <span class="float-icon" data-delay="2"><i class='bx bxl-javascript'></i></span>
+                            <span class="float-icon" data-delay="3"><i class='bx bxl-python'></i></span>
+                        </div>
+                    </div>
+                    <div class="experience-badge">
+                        <span class="text">Freshers</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-bg">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Get To Know</span>
+                <h2 class="heading">About <span class="highlight">Me</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img" data-aos="fade-right">
+                    <div class="img-frame">
+                        <img src="images/home-img.jpg" alt="Mihir Bhayani">
+                        <div class="frame-decoration"></div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Full-Stack Developer & MCA Student</h3>
+                    <p>
+                        I am an ambitious MCA student and Full-Stack Developer based in Pune, Maharashtra.
+                        With a solid academic foundation, I combine technical expertise with real-world
+                        application to build high-quality software solutions. My journey in technology
+                        is driven by curiosity and a passion for creating meaningful digital experiences.
+                    </p>
+                    <p>
+                        I specialize in modern web technologies and frameworks, focusing on creating
+                        efficient, scalable, and user-centric applications. My approach combines clean
+                        code practices with innovative design to deliver exceptional results.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class='bx bx-user'></i>
+                            <span>Name:</span>
+                            <strong>Mihir Bhayani</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-calendar'></i>
+                            <span>Age:</span>
+                            <strong>23 Years</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-map'></i>
+                            <span>Location:</span>
+                            <strong>Pune, Maharashtra</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-envelope'></i>
+                            <span>Email:</span>
+                            <strong>mihirbhayani8@gmail.com</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-phone'></i>
+                            <span>Phone:</span>
+                            <strong>+91 95104 57100</strong>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-briefcase'></i>
+                            <span>Experience:</span>
+                            <strong>6 Month (Intanship)</strong>
+                        </div>
+                    </div>
+                    <div class="about-btns">
+                        <a href="/images/Resume.pdf" class="btn btn-primary" view>
+                            <i class='bx bx-download'></i>
+                            <span>View Resume Or CV</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-bg">
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">My Expertise</span>
+                <h2 class="heading">Technical <span class="highlight">Skills</span></h2>
+            </div>
+            <div class="skills-content">
+                <div class="skills-text" data-aos="fade-right">
+                    <h3>Programming Languages & Frameworks</h3>
+                    <p>I continuously expand my skill set to stay current with the latest technologies and best
+                        practices in software development.</p>
+                    <div class="skill-bars">
+                        <div class="skill-bar">
+                            <div class="bar-info">
+                                <span><i class="fab fa-html5"></i> HTML/CSS/JavaScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="bar-progress">
+                                <div class="bar-fill" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="bar-info">
+                                <span><i class="fab fa-php"></i> PHP & Laravel</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bar-progress">
+                                <div class="bar-fill" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="bar-info">
+                                <span><i class="fab fa-python"></i> Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bar-progress">
+                                <div class="bar-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="bar-info">
+                                <span><i class="fab fa-java"></i> Java</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="bar-progress">
+                                <div class="bar-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="bar-info">
+                                <span><i class="bx bx-data"></i> MySQL & Database</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="bar-progress">
+                                <div class="bar-fill" data-width="50"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-icons" data-aos="fade-left">
+                    <div class="icon-grid">
+                        <div class="icon-item" data-tooltip="HTML5">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="CSS3">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="JavaScript">
+                            <i class="fab fa-js-square"></i>
+                            <span>JS</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="PHP">
+                            <i class="fab fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Laravel">
+                            <i class="fab fa-laravel"></i>
+                            <span>Laravel</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Python">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Java">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="MySQL">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Git">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="React">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Node.js">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node</span>
+                        </div>
+                        <div class="icon-item" data-tooltip="Bootstrap">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">My Work</span>
+                <h2 class="heading">Recent <span class="highlight">Projects</span></h2>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="desktop">Desktop</button>
+            </div>
+            <div class="project-container">
+                <div class="project-box" data-category="web" data-aos="fade-up">
+                    <div class="project-inner">
+                        <img src="images/project1.jpg" alt="BillBuddy Project">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>BillBuddy</h3>
+                                <p>Full-stack Energy Consumption Estimator. Users log 50+ appliances to calculate
+                                    monthly costs with detailed analytics.</p>
+                                <div class="project-tech">
+                                    <span>HTML/CSS/JS</span>
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>Sqlite</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-box" data-category="web" data-aos="fade-up" data-delay="1">
+                    <div class="project-inner">
+                        <img src="images/project2.jpg" alt="GoParcel Project">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>GoParcel</h3>
+                                <p>Python Flask logistics system featuring Glassmorphism UI and automated cost
+                                    calculation.</p>
+                                <div class="project-tech">
+                                    <span>HTML/CSS/JS</span>
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>Sqlite</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-box" data-category="web" data-aos="fade-up" data-delay="2">
+                    <div class="project-inner">
+                        <img src="images/project3.jpg" alt="Product Management">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Product Management</h3>
+                                <p>PHP/MySQL system for inventory optimization with full CRUD functionality.</p>
+                                <div class="project-tech">
+                                    <span>HTML/CSS/JS</span>
+                                    <span>PHP</span>
+                                    <span>MySQL</span>
+                                    <span>Bootstrap</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="project-box" data-category="web" data-aos="fade-up" data-delay="3">
+                    <div class="project-inner">
+                        <img src="images/project4.jpg" alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>E-Commerce Platform</h3>
+                                <p>Full-featured online store with cart, checkout, and payment integration.</p>
+                                <div class="project-tech">
+                                    <span>Laravel</span>
+                                    <span>Vue.js</span>
+                                    <span>Stripe</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-box" data-category="mobile" data-aos="fade-up" data-delay="4">
+                    <div class="project-inner">
+                        <img src="images/project1.jpg" alt="Task Manager App">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Task Manager App</h3>
+                                <p>Productivity application with real-time sync and team collaboration features.</p>
+                                <div class="project-tech">
+                                    <span>React Native</span>
+                                    <span>Firebase</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-box" data-category="desktop" data-aos="fade-up" data-delay="5">
+                    <div class="project-inner">
+                        <img src="images/project2.jpg" alt="Inventory System">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Inventory System</h3>
+                                <p>Desktop application for business inventory management and reporting.</p>
+                                <div class="project-tech">
+                                    <span>Java</span>
+                                    <span>JavaFX</span>
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class='bx bx-link-external'></i> Live Demo</a>
+                                    <a href="#" class="project-link"><i class='bx bxl-github'></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="section-bg">
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">My Journey</span>
+                <h2 class="heading">Education <!--<span class="highlight">Certifications</span> --></h2>
+            </div>
+            <div class="education-content">
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">
+                            <span>2024 - Present</span>
+                        </div>
+                        <div class="timeline-card">
+                            <i class='bx bxs-graduation'></i>
+                            <h3>Master of Computer Applications (MCA)</h3>
+                            <p class="institution">Dr. D. Y. Patil Vidyapeeth, Pune</p>
+                            <p class="description">Currently pursuing advanced studies in computer applications.
+                                Focusing on software engineering, database management, and web technologies.</p>
+                            <span class="timeline-status">Currently Pursuing</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">
+                            <span>2021 - 2024</span>
+                        </div>
+                        <div class="timeline-card">
+                            <i class='bx bxs-graduation'></i>
+                            <h3>Bachelor's Degree</h3>
+                            <p class="institution">Marwadi University</p>
+                            <p class="description">Completed Bachelor's degree with focus on computer science
+                                fundamentals and programming.</p>
+                            <span class="timeline-status completed">Completed</span>
+                            <!-- <span class="degree"><a href="/images/Bacher-Degree.png"></a></span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="section-bg">
+            <div class="shape shape-7"></div>
+            <div class="shape shape-8"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">My Achievements</span>
+                <h2 class="heading">Professional <span class="highlight">Certifications</span></h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card" data-aos="zoom-in" data-delay="0">
+                    <div class="cert-img">
+                        <img src="images/BMLMP.jpg" alt="Data Analytics Essentials">
+                        <div class="cert-overlay">
+                            <a href="images/BMLMP.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Machine Learning In Python</span>
+                        <h4>Boosting Machine Learning Models In Python</h4>
+                        <p>Mastered advanced optimization techniques by successfully completing this specialized course
+                            on February 10, 2025.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Infosys | Springboard</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card" data-aos="zoom-in" data-delay="0">
+                    <div class="cert-img">
+                        <img src="images/EMLP.jpg" alt="Data Analytics Essentials">
+                        <div class="cert-overlay">
+                            <a href="images/EMLP.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Explore ML In Python</span>
+                        <h4>Explore Machine Learning in Python</h4>
+                        <p>Demonstrated practical proficiency in implementing machine learning workflows with Python,
+                            certified on February 11, 2025.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Infosys | Springboard</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card" data-aos="zoom-in" data-delay="0">
+                    <div class="cert-img">
+                        <img src="images/MLB.jpg" alt="Data Analytics Essentials">
+                        <div class="cert-overlay">
+                            <a href="images/MLB.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">ML Beginner</span>
+                        <h4>Machine Learning Beginner</h4>
+                        <p>Completed a foundational course on February 3, 2025, establishing a core understanding of
+                            machine learning principles through Infosys Springboard.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Infosys | Springboard</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card" data-aos="zoom-in" data-delay="0">
+                    <div class="cert-img">
+                        <img src="images/DAE_page-0001.jpg" alt="Data Analytics Essentials">
+                        <div class="cert-overlay">
+                            <a href="images/DAE_page-0001.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Data Analytics</span>
+                        <h4>Data Analytics Essentials</h4>
+                        <p>Comprehensive training in data analysis techniques, tools, and methodologies for business
+                            intelligence.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Cisco</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card" data-aos="zoom-in" data-delay="1">
+                    <div class="cert-img">
+                        <img src="images/54.6.png" alt="INNOHACK 2.0">
+                        <div class="cert-overlay">
+                            <a href="images/54.6.png" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Hackathon</span>
+                        <h4>INNOHACK 2.0</h4>
+                        <p>Participated in national-level hackathon demonstrating innovative problem-solving and coding
+                            skills.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> INNOHACK</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card" data-aos="zoom-in" data-delay="2">
+                    <div class="cert-img">
+                        <img src="images/certificate 3.1.jpg" alt="INNIXO OVERDRIVE">
+                        <div class="cert-overlay">
+                            <a href="images/certificate 3.1.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Technical</span>
+                        <h4>INNIXO OVERDRIVE</h4>
+                        <p>Advanced technical certification covering industry best practices and emerging technologies.
+                        </p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> INNIXO</span>
+                            <span><i class='bx bx-calendar'></i> 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Certificate 1 -->
+                <!-- <div class="cert-card" data-aos="zoom-in" data-delay="3">
+                    <div class="cert-img">
+                        <img src="images/certificate-new-1.jpg" alt="Web Development Certificate">
+                        <div class="cert-overlay">
+                            <a href="images/certificate-new-1.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Web Development</span>
+                        <h4>Full Stack Web Development</h4>
+                        <p>Comprehensive training in modern web technologies including HTML, CSS, JavaScript, and backend frameworks for building complete web applications.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Coursera</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- New Certificate 2 -->
+                <!-- <div class="cert-card" data-aos="zoom-in" data-delay="4">
+                    <div class="cert-img">
+                        <img src="images/certificate-new-2.jpg" alt="Python Programming Certificate">
+                        <div class="cert-overlay">
+                            <a href="images/certificate-new-2.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Programming</span>
+                        <h4>Python Programming Mastery</h4>
+                        <p>Advanced Python programming concepts including decorators, generators, OOP, and popular libraries for data science and automation.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> Udemy</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- New Certificate 3 -->
+                <!-- <div class="cert-card" data-aos="zoom-in" data-delay="5">
+                    <div class="cert-img">
+                        <img src="images/certificate-new-3.jpg" alt="Database Certificate">
+                        <div class="cert-overlay">
+                            <a href="images/certificate-new-3.jpg" class="cert-view-btn" target="_blank">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="cert-category">Database</span>
+                        <h4>Database Management Systems</h4>
+                        <p>In-depth knowledge of SQL, database design, normalization, indexing, and optimization techniques for efficient data management.</p>
+                        <div class="cert-meta">
+                            <span><i class='bx bx-award'></i> edX</span>
+                            <span><i class='bx bx-calendar'></i> 2025</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Testimonials</span>
+                <h2 class="heading">What People <span class="highlight">Say</span></h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active" data-aos="fade-up">
+                    <div class="quote-icon">
+                        <i class='bx bxs-quote-alt-left'></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mihir is an exceptional developer who consistently delivers high-quality work.
+                        His attention to detail and problem-solving skills are outstanding."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="images/home-img.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Dr. D. Y. Patil Vidyapeeth</h4>
+                            <p>Academic Institution</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="quote-icon">
+                        <i class='bx bxs-quote-alt-left'></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Working with Mihir was a pleasure. He understood our requirements
+                        perfectly and delivered a solution that exceeded our expectations."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="images/home-img.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Marwadi University</h4>
+                            <p>Educational Partner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-bg">
+            <div class="gradient-orb orb-4"></div>
+            <div class="gradient-orb orb-5"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="subtitle">Get In Touch</span>
+                <h2 class="heading">Contact <span class="highlight">Me</span></h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        vision.</p>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="icon">
+                                <i class='bx bx-envelope'></i>
+                            </div>
+                            <div class="text">
+                                <h4>Email</h4>
+                                <p>mihirbhayani8@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">
+                                <i class='bx bx-phone'></i>
+                            </div>
+                            <div class="text">
+                                <h4>Phone</h4>
+                                <p>+91 95104 57100</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">
+                                <i class='bx bx-map'></i>
+                            </div>
+                            <div class="text">
+                                <h4>Location</h4>
+                                <p>Pune, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="icon">
+                                <i class='bx bx-time'></i>
+                            </div>
+                            <div class="text">
+                                <h4>Availability</h4>
+                                <p>Freshers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social-wrapper">
+                        <h4><i class='bx bx-share-alt'></i> Follow Me</h4>
+                        <div class="social-links">
+                            <a href="http://github.com/mihirpatel0811" class="social-link github" data-tooltip="GitHub">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-link linkedin"
+                                data-tooltip="LinkedIn">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                            <a href="https://wa.me/9510457100" class="social-link whatsapp" data-tooltip="WhatsApp">
+                                <i class='bx bxl-whatsapp'></i>
+                            </a>
+                            <a href="mailto:mihirbhayani8@gmail.com" class="social-link email" data-tooltip="Email">
+                                <i class='bx bx-envelope'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name" required>
+                                <label for="name">Your Name</label>
+                                <i class='bx bx-user'></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Your Email</label>
+                                <i class='bx bx-envelope'></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="text" id="subject" name="subject" required>
+                                <label for="subject">Subject</label>
+                                <i class='bx bx-subject'></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message">Your Message</label>
+                                <i class='bx bx-message'></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <i class='bx bx-send'></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- <div class="footer-content">
+                <div class="footer-logo">
+                    <span>MB</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="http://github.com/mihirpatel0811" class="social-link github" data-tooltip="GitHub">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-link linkedin"
+                        data-tooltip="LinkedIn">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://wa.me/9510457100" class="social-link whatsapp" data-tooltip="WhatsApp">
+                        <i class='bx bxl-whatsapp'></i>
+                    </a>
+                </div>
+            </div> -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mihir Bhayani. All rights reserved.</p>
+                <p class="footer-note">Made with <i class='bx bx-heart'></i> and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class='bx bx-up-arrow-alt'></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i class='bx bx-check-circle'></i>
+        </div>
+        <div class="toast-text">
+            <span class="toast-title">Success!</span>
+            <span class="toast-message">Message sent successfully</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
