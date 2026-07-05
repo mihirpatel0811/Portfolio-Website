@@ -17,10 +17,10 @@
  * 8. Performance Tracking & Stats Counters
  * 9. Technical Skills & Progress Visualization
  * 10. Project Management & Filtering System
- * 11. Timeline & Education Logic
+ * 11. Professional Badges Section
  * 12. Certification & Modal Gallery
- * 13. Advanced Contact Form & EmailJS Integration
- * 14. Testimonial Engine
+ * 13. Timeline & Education Logic
+ * 14. Advanced Contact Form & EmailJS Integration
  * 15. Scroll Utilities & Progress Indicators
  * 16. Accessibility & Helper Functions
  */
@@ -279,7 +279,7 @@ const App = {
         this.initTypewriter();
         this.initSkillVisualization();
         this.initAOS();
-        this.initTestimonials();
+        this.initProfessionalBadges();
         this.initCharacterEffects();
         this.initProjectSystem();
     },
@@ -322,21 +322,26 @@ const App = {
        8. PERFORMANCE TRACKING & STATS COUNTERS
        ========================================================================== */
     updateStatsCount: function () {
-        // Count projects dynamically from the DOM
+        // Count projects, certificates, and badges dynamically from the DOM
         const projects = document.querySelectorAll('.project-container .project-box');
         const certificates = document.querySelectorAll('.cert-grid .cert-card');
+        const badges = document.querySelectorAll('.badge-grid .badge-card');
 
-        const projectStats = document.querySelector('.stat-number[data-target]');
-        const certStats = document.querySelectorAll('.stat-number[data-target]');
+        const stats = document.querySelectorAll('.stat-number[data-target]');
 
-        // Update project count
-        if (projectStats && projects.length > 0) {
-            projectStats.dataset.target = projects.length;
+        // Update projects count
+        if (stats.length > 0 && projects.length > 0) {
+            stats[0].dataset.target = projects.length;
         }
 
-        // Update certificate count (second stat element)
-        if (certStats.length > 1 && certificates.length > 0) {
-            certStats[1].dataset.target = certificates.length;
+        // Update certificate count
+        if (stats.length > 1 && certificates.length > 0) {
+            stats[1].dataset.target = certificates.length;
+        }
+
+        // Update badge count
+        if (stats.length > 2 && badges.length > 0) {
+            stats[2].dataset.target = badges.length;
         }
     },
 
@@ -419,7 +424,7 @@ const App = {
 
     /* ==========================================================================
        10. PROJECT MANAGEMENT & FILTERING SYSTEM
-        ========================================================================== */
+       ========================================================================== */
     initProjectSystem: function () {
         const filters = Array.from(document.querySelectorAll('.filter-btn'));
         const projects = Array.from(document.querySelectorAll('#projects .project-box'));
@@ -453,15 +458,16 @@ const App = {
                 const matches = activeFilter === 'all' || activeFilter === category;
 
                 project.classList.toggle('filter-hidden', !matches);
-                project.classList.remove('hidden');
+                project.classList.remove('expanding', 'collapsing');
 
-                if (!matches) return;
-
-                const shouldHide = !expanded && matchingIndex >= visibleLimit;
-                project.classList.toggle('hidden', shouldHide);
-                project.classList.add('aos-animate');
-                matchingIndex += 1;
-                matchingCount += 1;
+                if (matches) {
+                    const shouldHide = !expanded && matchingIndex >= visibleLimit;
+                    project.classList.toggle('hidden', shouldHide);
+                    matchingIndex += 1;
+                    matchingCount += 1;
+                } else {
+                    project.classList.add('hidden');
+                }
             });
 
             updateButton(matchingCount);
@@ -488,14 +494,48 @@ const App = {
         if (showMoreBtn) {
             showMoreBtn.addEventListener('click', () => {
                 expanded = !expanded;
-                renderProjects();
+                
+                let matchingIndex = 0;
+                let matchingCount = 0;
+
+                projects.forEach(project => {
+                    const category = project.getAttribute('data-category');
+                    const matches = activeFilter === 'all' || activeFilter === category;
+                    if (!matches) return;
+
+                    if (expanded) {
+                        if (matchingIndex >= visibleLimit) {
+                            project.classList.remove('hidden');
+                            project.classList.add('expanding');
+                            setTimeout(() => {
+                                project.classList.remove('expanding');
+                            }, 400);
+                        }
+                    } else {
+                        if (matchingIndex >= visibleLimit) {
+                            project.classList.add('collapsing');
+                            setTimeout(() => {
+                                project.classList.remove('collapsing');
+                                project.classList.add('hidden');
+                            }, 300);
+                        }
+                    }
+                    matchingIndex += 1;
+                    matchingCount += 1;
+                });
+
+                updateButton(matchingCount);
 
                 if (!expanded) {
-                    const section = document.getElementById('projects');
-                    const header = section ? section.querySelector('.section-header') : null;
-                    if (header) {
-                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    setTimeout(() => {
+                        const section = document.getElementById('projects');
+                        if (section) {
+                            const header = section.querySelector('.section-header');
+                            if (header) {
+                                header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
+                    }, 350);
                 }
             });
         }
@@ -504,7 +544,91 @@ const App = {
     },
 
     /* ==========================================================================
-       11. CERTIFICATION & MODAL GALLERY
+       11. PROFESSIONAL BADGES SECTION
+       ========================================================================== */
+    initProfessionalBadges: function () {
+        const badgeCards = Array.from(document.querySelectorAll(".badge-card"));
+        const filterButtons = Array.from(document.querySelectorAll("[data-badge-filter]"));
+        const badgeCounter = document.getElementById("badge-count");
+
+        if (!badgeCards.length) return;
+
+        if (badgeCounter) {
+            badgeCounter.textContent = badgeCards.length;
+        }
+
+        filterButtons.forEach(button => {
+            button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+        });
+
+        const revealCard = (card, index = 0) => {
+            card.style.animationDelay = `${index * 70}ms`;
+            card.classList.add("loaded", "show-badge");
+        };
+
+        if ("IntersectionObserver" in window) {
+            const badgeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    const visibleIndex = badgeCards
+                        .filter(card => !card.classList.contains("is-hidden"))
+                        .indexOf(entry.target);
+
+                    revealCard(entry.target, Math.max(visibleIndex, 0));
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.18 });
+
+            badgeCards.forEach(card => badgeObserver.observe(card));
+        } else {
+            badgeCards.forEach(revealCard);
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const activeFilter = button.dataset.badgeFilter;
+                let visibleIndex = 0;
+
+                filterButtons.forEach(filterButton => {
+                    const isActive = filterButton === button;
+                    filterButton.classList.toggle("active", isActive);
+                    filterButton.setAttribute("aria-pressed", String(isActive));
+                });
+
+                badgeCards.forEach(card => {
+                    const isVisible = activeFilter === "all" || card.dataset.badgeCategory === activeFilter;
+                    card.classList.toggle("is-hidden", !isVisible);
+
+                    if (isVisible) {
+                        revealCard(card, visibleIndex);
+                        visibleIndex += 1;
+                    }
+                });
+            });
+        });
+
+        const allSpotlightCards = document.querySelectorAll(".badge-card, .project-card, .cert-card");
+        allSpotlightCards.forEach(card => {
+            card.addEventListener("pointermove", event => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
+                card.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
+            });
+
+            card.addEventListener("pointerleave", () => {
+                card.style.setProperty("--mouse-x", "50%");
+                card.style.setProperty("--mouse-y", "0%");
+            });
+        });
+
+        if (PortfolioConfig.debug) {
+            console.log("%c Professional Badges Ready ", "background:#4f46e5;color:#ffffff;padding:6px 12px;border-radius:8px;");
+        }
+    },
+
+    /* ==========================================================================
+       12. CERTIFICATION & MODAL GALLERY
        ========================================================================== */
     initCharacterEffects: function () {
         const chars = document.querySelectorAll('.char');
@@ -514,7 +638,7 @@ const App = {
     },
 
     /* ==========================================================================
-       12. ADVANCED CONTACT FORM & EMAILJS INTEGRATION
+       13. ADVANCED CONTACT FORM & EMAILJS INTEGRATION
        ========================================================================== */
     initFormHandlers: function () {
         const form = document.getElementById('contactForm');
@@ -540,8 +664,6 @@ const App = {
 
             try {
                 this.toggleBtnState(btn, true);
-
-                /* Inside initFormHandlers in script.js */
 
                 const templateParams = {
                     name: form.name.value,     // Matches {{name}} in your template
@@ -587,24 +709,6 @@ const App = {
 
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 4000);
-    },
-
-    /* ==========================================================================
-       13. TESTIMONIAL ENGINE
-       ========================================================================== */
-    initTestimonials: function () {
-        const cards = document.querySelectorAll('.testimonial-card');
-        if (cards.length === 0) return;
-
-        let current = 0;
-        const rotate = () => {
-            cards.forEach(c => c.classList.remove('active'));
-            cards[current].classList.add('active');
-            current = (current + 1) % cards.length;
-        };
-
-        rotate();
-        setInterval(rotate, 5000);
     },
 
     /* ==========================================================================
@@ -737,39 +841,10 @@ const App = {
 };
 
 /* ==========================================================================
-   16. ADDITIONAL LOGIC FOR CODE VOLUME (Lines 500-660+)
-   Extending the system with specialized data handlers and UI observers.
+   16. ADDITIONAL LOGIC FOR CODE VOLUME & HELPERS
    ========================================================================== */
 
-/**
- * Data Observer for Dynamic Project Loading
- * This section ensures that project cards respond to hover and dynamic state changes.
- */
-class ProjectCardObserver {
-    constructor(element) {
-        this.element = element;
-        this.overlay = element.querySelector('.project-overlay');
-        this.bindEvents();
-    }
 
-    bindEvents() {
-        this.element.addEventListener('mouseenter', () => this.handleHover(true));
-        this.element.addEventListener('mouseleave', () => this.handleHover(false));
-    }
-
-    handleHover(isHovered) {
-        if (isHovered) {
-            this.overlay.style.opacity = '1';
-            this.overlay.querySelector('.overlay-content').style.transform = 'translateY(0)';
-        } else {
-            this.overlay.style.opacity = '0';
-            this.overlay.querySelector('.overlay-content').style.transform = 'translateY(30px)';
-        }
-    }
-}
-
-// Instantiate Observers
-document.querySelectorAll('.project-box').forEach(box => new ProjectCardObserver(box));
 
 /**
  * Timeline Logic Extension
@@ -926,97 +1001,3 @@ document.addEventListener('keydown', function (e) {
         closeDegreeModal();
     }
 });
-
-// End of File - Lines successfully extended to support advanced portfolio functionality.
-
-/* ==========================================================
-   PROFESSIONAL BADGES
-========================================================== */
-
-(function initProfessionalBadges() {
-    const setupBadges = () => {
-        const badgeCards = Array.from(document.querySelectorAll(".badge-card"));
-        const filterButtons = Array.from(document.querySelectorAll("[data-badge-filter]"));
-        const badgeCounter = document.getElementById("badge-count");
-
-        if (!badgeCards.length) return;
-
-        if (badgeCounter) {
-            badgeCounter.textContent = badgeCards.length;
-        }
-
-        filterButtons.forEach(button => {
-            button.setAttribute("aria-pressed", String(button.classList.contains("active")));
-        });
-
-        const revealCard = (card, index = 0) => {
-            card.style.animationDelay = `${index * 70}ms`;
-            card.classList.add("loaded", "show-badge");
-        };
-
-        if ("IntersectionObserver" in window) {
-            const badgeObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-
-                    const visibleIndex = badgeCards
-                        .filter(card => !card.classList.contains("is-hidden"))
-                        .indexOf(entry.target);
-
-                    revealCard(entry.target, Math.max(visibleIndex, 0));
-                    observer.unobserve(entry.target);
-                });
-            }, { threshold: 0.18 });
-
-            badgeCards.forEach(card => badgeObserver.observe(card));
-        } else {
-            badgeCards.forEach(revealCard);
-        }
-
-        filterButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                const activeFilter = button.dataset.badgeFilter;
-                let visibleIndex = 0;
-
-                filterButtons.forEach(filterButton => {
-                    const isActive = filterButton === button;
-                    filterButton.classList.toggle("active", isActive);
-                    filterButton.setAttribute("aria-pressed", String(isActive));
-                });
-
-                badgeCards.forEach(card => {
-                    const isVisible = activeFilter === "all" || card.dataset.badgeCategory === activeFilter;
-                    card.classList.toggle("is-hidden", !isVisible);
-
-                    if (isVisible) {
-                        revealCard(card, visibleIndex);
-                        visibleIndex += 1;
-                    }
-                });
-            });
-        });
-
-        badgeCards.forEach(card => {
-            card.addEventListener("pointermove", event => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
-                card.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
-            });
-
-            card.addEventListener("pointerleave", () => {
-                card.style.setProperty("--mouse-x", "50%");
-                card.style.setProperty("--mouse-y", "0%");
-            });
-        });
-
-        if (PortfolioConfig.debug) {
-            console.log("%c Professional Badges Ready ", "background:#4f46e5;color:#ffffff;padding:6px 12px;border-radius:8px;");
-        }
-    };
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", setupBadges);
-    } else {
-        setupBadges();
-    }
-})();
