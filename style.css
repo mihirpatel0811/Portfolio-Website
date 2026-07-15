@@ -1593,12 +1593,12 @@ body.dark-mode .skills {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
   width: 100%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1676,6 +1676,41 @@ body.dark-mode .skills-cat-icon {
 
 body.dark-mode .skills-card-header h3 {
   color: var(--white);
+}
+
+.skills-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-group h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+body.dark-mode .skill-group h4 {
+  color: var(--gray-400);
+}
+
+.skill-group h4 i {
+  color: var(--primary-500);
+  font-size: 1.1rem;
+}
+
+body.dark-mode .skill-group h4 i {
+  color: var(--primary-400);
 }
 
 .skills-list {
@@ -3289,6 +3324,7 @@ body.dark-mode .footer-brand h3 {
 .footer-brand h3 span {
   background: var(--gradient-text);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -3713,4 +3749,49 @@ body.dark-mode ::-webkit-scrollbar-track {
 ::selection {
   background: var(--primary-500);
   color: white;
+}
+
+/* Development Tools */
+
+.tools-category{
+    display:flex;
+    flex-direction:column;
+    gap:1.8rem;
+    margin-top:1rem;
+}
+
+.tool-group h4{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--main-color);
+    margin-bottom:.8rem;
+}
+
+.tool-group .skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.8rem;
+}
+
+.tool-group .skill-pill{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.6rem 1rem;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.3s ease;
+}
+
+.tool-group .skill-pill:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(99,102,241,.25);
+}
+
+.tool-group .skill-pill i{
+    font-size:1.2rem;
 }
