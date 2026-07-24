@@ -38,9 +38,11 @@ Portfolio-Website/
 ├── style.css           # Stylesheet with CSS variables and animations
 ├── script.js           # JavaScript for interactivity
 ├── images/
-│   ├── home-img.jpg    # Profile image
-│   ├── projects/       # Project screenshots
-│   └── certificates/   # Certification images
+│   ├── mihir-bhayani-profile.jpg    # Profile image
+│   ├── bachelors-degree.png         # Bachelor's Degree certificate
+│   ├── oracle-java-foundations-badge.png # Oracle badge
+│   ├── projects/                    # Project screenshots
+│   └── certificates/                # Certification images
 └── README.md
 ```
 
@@ -51,7 +53,7 @@ Portfolio-Website/
 3. **Skills** - Technical skills with icon showcase
 4. **Projects** - 6 featured projects with filtering capability
 5. **Education** - Academic timeline
-6. **Certifications** - Professional certifications (6 total)
+6. **Certifications** - Professional certifications (7 total)
 7. **Contact** - Contact form with EmailJS integration
 
 ## 💼 Projects Featured

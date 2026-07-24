@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,13 +28,17 @@
     <div class="cursor-glow"></div>
 
     <header class="header">
-        <a href="#home" class="logo" aria-label="Mihir Bhayani home">
-            <span class="logo-text">M</span>
-            <span class="logo-text">B</span>
+        <a href="#home" class="logo" aria-label="Mihir Bhayani Home">
+            <div class="logo-badge-avatar">
+                <span class="logo-text">M</span>
+                <span class="logo-text">B</span>
+            </div>
+            <span class="logo-dev-name">Mihir Bhayani</span>
         </a>
+
         <nav class="navbar">
             <a href="#home" class="active">
-                <i class='bx bx-home'></i>
+                <i class='bx bx-home-alt-2'></i>
                 <span>Home</span>
             </a>
             <a href="#about">
@@ -42,34 +46,31 @@
                 <span>About</span>
             </a>
             <a href="#skills">
-                <i class='bx bx-brain'></i>
+                <i class='bx bx-code-alt'></i>
                 <span>Skills</span>
             </a>
             <a href="#projects">
-                <i class='bx bx-briefcase'></i>
+                <i class='bx bx-layer'></i>
                 <span>Projects</span>
             </a>
             <a href="#certifications">
-                <i class='bx bx-briefcase'></i>
+                <i class='bx bx-award'></i>
                 <span>Certificates</span>
             </a>
             <a href="#badges">
-                <i class='bx bxs-badge-check'></i>
+                <i class='bx bx-check-shield'></i>
                 <span>Badges</span>
             </a>
             <a href="#education">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
-                    <path
-                        d="m21.45 8.61-9-4.5a1 1 0 0 0-.89 0l-6 3-3 1.5-1 .5a1 1 0 0 0-.55.89v6h2v-5.38l2 1v3.83c0 2.06 3.12 4.56 7 4.56s7-2.49 7-4.56v-3.83l2.45-1.22c.34-.17.55-.52.55-.89s-.21-.72-.55-.89Zm-15 .29L12 6.12l6.76 3.38L12 12.88 5.24 9.5l1.21-.61ZM17 15.45c0 .76-2.11 2.56-5 2.56s-5-1.79-5-2.56v-2.83l4.55 2.28c.14.07.29.11.45.11s.31-.04.45-.11L17 12.62z">
-                    </path>
-                </svg> <span>Education</span>
+                <i class='bx bxs-graduation'></i>
+                <span>Education</span>
             </a>
             <a href="#contact">
-                <i class='bx bx-envelope'></i>
+                <i class='bx bx-paper-plane'></i>
                 <span>Contact</span>
             </a>
         </nav>
+
         <div class="nav-actions">
             <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                 <i class='bx bx-moon'></i>
@@ -80,175 +81,258 @@
         </div>
     </header>
 
-    <section class="home" id="home">
-        <div class="hero-bg">
+    <!-- ==========================================================
+     REDESIGNED HOME (HERO) SECTION V2
+    =========================================================== -->
+    <section class="home-v2" id="home">
+        <div class="hero-bg-v2">
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
             <div class="gradient-orb orb-3"></div>
         </div>
         <div class="hero-particles" id="heroParticles"></div>
         <div class="container">
-            <div class="home-content">
-                <div class="hero-text">
-                    <p class="greeting">
-                        <span class="wave"><i class='bx bx-sparkles'></i></span>
+            <div class="home-grid-v2">
+                <!-- Left: Hero Text & Information -->
+                <div class="hero-text-v2" data-aos="fade-right">
+                    <!-- Live Availability Beacon -->
+                    <div class="hero-status-tag">
+                        <span class="live-beacon-dot"></span>
+                        <span>Available for Full-Stack & Web Development Roles</span>
+                    </div>
+
+                    <!-- Greeting & Animated Character Name -->
+                    <p class="greeting-v2">
+                        <span class="sparkle-pulse"><i class='bx bx-sparkles'></i></span>
                         Hello, I'm
                     </p>
-                    <h1 class="name">
-                        <span class="char">M</span>
-                        <span class="char">i</span>
-                        <span class="char">h</span>
-                        <span class="char">i</span>
-                        <span class="char">r</span>
+                    <h1 class="hero-name-v2">
+                        <span class="char">M</span><span class="char">i</span><span class="char">h</span><span class="char">i</span><span class="char">r</span>
                         <span class="space">&nbsp;</span>
-                        <span class="char">B</span>
-                        <span class="char">h</span>
-                        <span class="char">a</span>
-                        <span class="char">y</span>
-                        <span class="char">a</span>
-                        <span class="char">n</span>
-                        <span class="char">i</span>
+                        <span class="char highlight">B</span><span class="char highlight">h</span><span class="char highlight">a</span><span class="char highlight">y</span><span class="char highlight">a</span><span class="char highlight">n</span><span class="char highlight">i</span>
                     </h1>
-                    <div class="typing-wrapper">
-                        <h3 class="profession">I'm a <span class="typed-text"></span></h3>
+
+                    <!-- Animated Typewriter Profession -->
+                    <div class="typing-wrapper-v2">
+                        <h3 class="profession-v2">I craft <span class="typed-text"></span></h3>
                     </div>
-                    <p class="hero-description">
-                        Passionate Full-Stack Developer crafting elegant digital experiences.
-                        MCA student at D.Y. Patil Vidyapeeth, Pune. Specialized in building
-                        scalable web applications with modern technologies.
+
+                    <!-- Hero Description -->
+                    <p class="hero-description-v2">
+                        Full-Stack Java Software Engineer & MCA Postgraduate at D.Y. Patil Vidyapeeth, Pune.
+                        Specialized in building high-performance enterprise Java applications, Spring Boot microservices, and modern React web solutions.
                     </p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-target="0">0</span>
-                            <span class="stat-label">Projects</span>
+
+                    <!-- Interactive Glassmorphic Stats Grid -->
+                    <div class="hero-stats-grid-v2">
+                        <div class="h-stat-card">
+                            <div class="h-stat-icon p-icon"><i class='bx bx-folder-open'></i></div>
+                            <div class="h-stat-info">
+                                <span class="h-stat-num" data-stat-type="projects" data-target="0">0+</span>
+                                <span class="h-stat-lbl">Projects Built</span>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-target="0">0</span>
-                            <span class="stat-label">Certifications</span>
+                        <div class="h-stat-card">
+                            <div class="h-stat-icon c-icon"><i class='bx bx-certification'></i></div>
+                            <div class="h-stat-info">
+                                <span class="h-stat-num" data-stat-type="certifications" data-target="0">0+</span>
+                                <span class="h-stat-lbl">Certifications</span>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-target="0">0</span>
-                            <span class="stat-label">Badges</span>
+                        <div class="h-stat-card">
+                            <div class="h-stat-icon b-icon"><i class='bx bx-badge-check'></i></div>
+                            <div class="h-stat-info">
+                                <span class="h-stat-num" data-stat-type="badges" data-target="0">0+</span>
+                                <span class="h-stat-lbl">Credly Badges</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="hero-btns">
-                        <a href="#projects" class="btn btn-primary">
-                            <span>View My Work</span>
-                            <i class='bx bx-arrow-right'></i>
+
+                    <!-- Action Buttons -->
+                    <div class="hero-actions-v2">
+                        <a href="#projects" class="hero-primary-btn">
+                            <span class="btn-shine-sweep"></span>
+                            <span>Explore My Work</span>
+                            <i class='bx bx-right-arrow-alt hero-arrow-icon'></i>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
+                        <a href="#contact" class="hero-secondary-btn">
+                            <i class='bx bx-paper-plane hero-plane-icon'></i>
                             <span>Get In Touch</span>
                         </a>
                     </div>
-                    <div class="social-media">
-                        <a href="https://github.com/mihirpatel0811" class="social-link github" data-tooltip="GitHub"
-                            aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                            <i class='bx bxl-github'></i>
+
+                    <!-- Social Connectivity Bar -->
+                    <div class="hero-social-bar-v2">
+                        <a href="https://github.com/mihirpatel0811" class="h-social-pill github" data-tooltip="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                            <span class="pill-shine"></span>
+                            <i class='bx bxl-github social-brand-icon'></i>
+                            <span>GitHub</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-link linkedin"
-                            data-tooltip="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <i class='bx bxl-linkedin'></i>
+                        <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="h-social-pill linkedin" data-tooltip="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <span class="pill-shine"></span>
+                            <i class='bx bxl-linkedin social-brand-icon'></i>
+                            <span>LinkedIn</span>
                         </a>
-                        <a href="https://wa.me/9510457100" class="social-link whatsapp" data-tooltip="WhatsApp"
-                            aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                            <i class='bx bxl-whatsapp'></i>
+                        <a href="https://wa.me/9510457100" class="h-social-pill whatsapp" data-tooltip="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                            <span class="pill-shine"></span>
+                            <i class='bx bxl-whatsapp social-brand-icon'></i>
+                            <span>WhatsApp</span>
                         </a>
-                        <a href="mailto:mihirbhayani0811@outlook.com" class="social-link email" data-tooltip="Email"
-                            aria-label="Email">
-                            <i class='bx bx-envelope'></i>
+                        <a href="mailto:mihirbhayani0811@outlook.com" class="h-social-pill email" data-tooltip="Email" aria-label="Email">
+                            <span class="pill-shine"></span>
+                            <i class='bx bx-envelope social-brand-icon'></i>
+                            <span>Email</span>
                         </a>
                     </div>
                 </div>
-                <div class="home-img">
-                    <div class="img-wrapper">
-                        <div class="img-border"></div>
-                        <img src="images/home-img.jpg" alt="Mihir Bhayani" class="profile-img">
-                        <div class="floating-icons">
-                            <span class="float-icon" data-delay="0"><i class='bx bxl-html5'></i></span>
-                            <span class="float-icon" data-delay="1"><i class='bx bxl-css3'></i></span>
-                            <span class="float-icon" data-delay="2"><i class='bx bxl-javascript'></i></span>
-                            <span class="float-icon" data-delay="3"><i class='bx bxl-python'></i></span>
+
+                <!-- Right: Profile Visual & Orbiting Tech Badges -->
+                <div class="hero-visual-v2" data-aos="fade-left">
+                    <div class="hero-avatar-frame-v2">
+                        <div class="avatar-glow-ring"></div>
+                        <div class="avatar-img-wrapper">
+                            <img src="images/mihir-bhayani-profile.jpg" alt="Mihir Bhayani" class="hero-profile-img">
                         </div>
-                    </div>
-                    <div class="experience-badge">
-                        <span class="text">Fresher</span>
+
+                        <!-- Orbiting Floating Tech Icons -->
+                        <div class="floating-tech-orbits">
+                            <div class="orbit-badge java-orbit" data-tooltip="Java 17">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-java brand-icon-spin'></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="orbit-badge spring-orbit" data-tooltip="Spring Boot">
+                                <span class="pill-shine"></span>
+                                <i class='bx bx-cog brand-icon-spin'></i>
+                                <span>Spring</span>
+                            </div>
+                            <div class="orbit-badge python-orbit" data-tooltip="Python">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-python brand-icon-spin'></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="orbit-badge php-orbit" data-tooltip="PHP">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-php brand-icon-spin'></i>
+                                <span>PHP</span>
+                            </div>
+                            <div class="orbit-badge react-orbit" data-tooltip="React.js">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-react brand-icon-spin'></i>
+                                <span>React</span>
+                            </div>
+                            <div class="orbit-badge mysql-orbit" data-tooltip="MySQL">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxs-data brand-icon-spin'></i>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+
+                        <!-- MCA Qualification Badge -->
+                        <div class="hero-edu-badge-v2">
+                            <div class="edu-badge-icon">
+                                <i class='bx bxs-graduation'></i>
+                            </div>
+                            <div class="edu-badge-text">
+                                <span class="e-title">MCA Scholar</span>
+                                <span class="e-sub">D.Y. Patil Vidyapeeth</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="section-bg">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
+    <!-- ==========================================================
+     REDESIGNED ABOUT SECTION V2 (CLEAN & STREAMLINED)
+    =========================================================== -->
+    <section class="about-v2" id="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="subtitle">Get To Know</span>
                 <h2 class="heading">About <span class="highlight">Me</span></h2>
             </div>
-            <div class="about-content">
-                <div class="about-img" data-aos="fade-right">
-                    <div class="img-frame">
-                        <img src="images/home-img.jpg" alt="Mihir Bhayani">
-                        <div class="frame-decoration"></div>
+
+            <div class="about-clean-card" data-aos="fade-up">
+                <div class="about-clean-grid">
+                    <!-- Left: Bio Story -->
+                    <div class="about-bio-block">
+                        <h3 class="about-headline-v2">
+                            Full-Stack Developer & <span class="highlight-text">MCA Student</span>
+                        </h3>
+                        <p class="about-bio-lead">
+                            I am an ambitious MCA student and Full-Stack Developer based in Pune, Maharashtra. With a solid academic foundation, I combine technical expertise with real-world application to build high-quality software solutions. My journey in technology is driven by curiosity and a passion for creating meaningful digital experiences.
+                        </p>
+                        <p class="about-bio-secondary">
+                            I specialize in modern web technologies and frameworks, focusing on creating efficient, scalable, and user-centric applications. My approach combines clean code practices with innovative design to deliver exceptional results.
+                        </p>
                     </div>
-                </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Full-Stack Developer & MCA Student</h3>
-                    <p>
-                        I am an ambitious MCA student and Full-Stack Developer based in Pune, Maharashtra.
-                        With a solid academic foundation, I combine technical expertise with real-world
-                        application to build high-quality software solutions. My journey in technology
-                        is driven by curiosity and a passion for creating meaningful digital experiences.
-                    </p>
-                    <p>
-                        I specialize in modern web technologies and frameworks, focusing on creating
-                        efficient, scalable, and user-centric applications. My approach combines clean
-                        code practices with innovative design to deliver exceptional results.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class='bx bx-user'></i>
-                            <span>Name:</span>
-                            <strong>Mihir Bhayani</strong>
+
+                    <!-- Right: Info Grid & Action Buttons -->
+                    <div class="about-details-block">
+                        <div class="about-info-grid-v2">
+                            <div class="a-info-card name-card">
+                                <div class="a-info-icon"><i class='bx bx-user'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Name</span>
+                                    <strong class="a-val">Mihir Bhayani</strong>
+                                </div>
+                            </div>
+
+                            <div class="a-info-card age-card">
+                                <div class="a-info-icon"><i class='bx bx-calendar'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Age</span>
+                                    <strong class="a-val" id="age-display">22 Years</strong>
+                                </div>
+                            </div>
+
+                            <div class="a-info-card location-card">
+                                <div class="a-info-icon"><i class='bx bx-map-pin'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Location</span>
+                                    <strong class="a-val">Pune, Maharashtra</strong>
+                                </div>
+                            </div>
+
+                            <div class="a-info-card email-card">
+                                <div class="a-info-icon"><i class='bx bx-envelope'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Email</span>
+                                    <strong class="a-val">mihirbhayani0811@outlook.com</strong>
+                                </div>
+                            </div>
+
+                            <div class="a-info-card phone-card">
+                                <div class="a-info-icon"><i class='bx bx-phone'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Phone</span>
+                                    <strong class="a-val">+91 95104 57100</strong>
+                                </div>
+                            </div>
+
+                            <div class="a-info-card exp-card">
+                                <div class="a-info-icon"><i class='bx bx-briefcase'></i></div>
+                                <div class="a-info-text">
+                                    <span class="a-label">Experience</span>
+                                    <strong class="a-val">6 Months (Internship)</strong>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <i class='bx bx-calendar'></i>
-                            <span>Age:</span>
-                            <strong id="age-display">23 Years</strong>
+
+                        <!-- Action Buttons -->
+                        <div class="about-actions-v2">
+                            <a href="images/resume.pdf" class="about-resume-btn" target="_blank" rel="noopener noreferrer" aria-label="View Mihir Bhayani Resume PDF">
+                                <span class="btn-shine-sweep"></span>
+                                <i class='bx bx-file-blank resume-file-icon'></i>
+                                <span>View Resume</span>
+                            </a>
+                            <a href="#contact" class="about-contact-btn">
+                                <i class='bx bx-paper-plane contact-plane-icon'></i>
+                                <span>Contact Me</span>
+                            </a>
                         </div>
-                        <div class="info-item">
-                            <i class='bx bx-map'></i>
-                            <span>Location:</span>
-                            <strong>Pune, Maharashtra</strong>
-                        </div>
-                        <div class="info-item">
-                            <i class='bx bx-envelope'></i>
-                            <span>Email:</span>
-                            <strong>mihirbhayani0811@outlook.com</strong>
-                        </div>
-                        <div class="info-item">
-                            <i class='bx bx-phone'></i>
-                            <span>Phone:</span>
-                            <strong>+91 95104 57100</strong>
-                        </div>
-                        <div class="info-item">
-                            <i class='bx bx-briefcase'></i>
-                            <span>Experience:</span>
-                            <strong>6 Months (Internship)</strong>
-                        </div>
-                    </div>
-                    <div class="about-btns">
-                        <a href="images/resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
-                            aria-label="View Mihir Bhayani resume PDF">
-                            <i class='bx bx-file'></i>
-                            <span>View Resume</span>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Contact Me</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -263,201 +347,374 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="subtitle">My Expertise</span>
-                <h2 class="heading">Technical <span class="highlight">Skills</span></h2>
+                <h2 class="heading">Technical <span class="highlight">Skills & Stack</span></h2>
+                <p class="skills-section-desc">
+                    Comprehensive full-stack developer toolkit spanning Java Spring Boot, Python AI/ML, React.js, databases, and modern developer tooling.
+                </p>
             </div>
+
+            <!-- Skills Category Filter Tabs -->
+            <div class="skills-filter-toolbar" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="skills-tab-btn active" data-skill-category="all">
+                    <i class='bx bx-grid-alt'></i>
+                    <span>All Stack</span>
+                </button>
+                <button type="button" class="skills-tab-btn" data-skill-category="frontend">
+                    <i class='bx bx-laptop'></i>
+                    <span>Frontend</span>
+                </button>
+                <button type="button" class="skills-tab-btn" data-skill-category="backend">
+                    <i class='bx bx-server'></i>
+                    <span>Backend</span>
+                </button>
+                <button type="button" class="skills-tab-btn" data-skill-category="database">
+                    <i class='bx bx-data'></i>
+                    <span>Databases</span>
+                </button>
+                <button type="button" class="skills-tab-btn" data-skill-category="ai">
+                    <i class='bx bx-brain'></i>
+                    <span>AI & Analytics</span>
+                </button>
+                <button type="button" class="skills-tab-btn" data-skill-category="tools">
+                    <i class='bx bx-wrench'></i>
+                    <span>Tools & Utilities</span>
+                </button>
+            </div>
+
             <div class="skills-content">
                 <div class="skills-grid">
                     <!-- Frontend Card -->
-                    <div class="skills-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="card-glow-accent"
-                            style="background: linear-gradient(135deg, #087ea4 0%, #06b6d4 100%);"></div>
-                        <div class="skills-card-header">
-                            <div class="skills-cat-icon"><i class='bx bx-laptop'></i></div>
-                            <h3>Frontend Development</h3>
+                    <div class="skills-card-v3" data-skill-card="frontend" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card-top-accent" style="background: linear-gradient(135deg, #087ea4, #06b6d4);"></div>
+                        <div class="skills-card-header-v3">
+                            <div class="skills-cat-icon-v3 frontend-bg">
+                                <i class='bx bx-laptop'></i>
+                            </div>
+                            <div>
+                                <h3>Frontend Engineering</h3>
+                                <span class="skills-count-tag">5 Modern Technologies</span>
+                            </div>
                         </div>
-                        <div class="skills-card-body">
-                            <div class="skill-group">
-                                <h4><i class='bx bx-code-alt'></i> Core Technologies</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #e34c26;">
-                                        <i class="fab fa-html5"></i>
-                                        <span>HTML5</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #264de4;">
-                                        <i class="fab fa-css3-alt"></i>
-                                        <span>CSS3</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #f7df1e;">
-                                        <i class="fab fa-js-square"></i>
-                                        <span>JavaScript</span>
-                                    </div>
+
+                        <div class="tech-tiles-grid">
+                            <div class="tech-tile" style="--tile-accent: #087ea4;">
+                                <div class="tech-icon-box" style="background: rgba(8, 126, 164, 0.1); color: #087ea4;">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>React.js</h4>
+                                    <span>Single Page Applications & Component Architecture</span>
                                 </div>
                             </div>
-                            <div class="skill-group">
-                                <h4><i class='bx bx-layer'></i> Libraries & Frameworks</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #087ea4;">
-                                        <i class="fab fa-react"></i>
-                                        <span>React</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #7952b3;">
-                                        <i class="fab fa-bootstrap"></i>
-                                        <span>Bootstrap</span>
-                                    </div>
+
+                            <div class="tech-tile" style="--tile-accent: #f7df1e;">
+                                <div class="tech-icon-box" style="background: rgba(247, 223, 30, 0.15); color: #eab308;">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>JavaScript (ES6+)</h4>
+                                    <span>Async/Await, DOM & Modern Event Logic</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #e34c26;">
+                                <div class="tech-icon-box" style="background: rgba(227, 76, 38, 0.1); color: #e34c26;">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>HTML5 & Web Standards</h4>
+                                    <span>Semantic Structure, SEO & Accessibility</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #264de4;">
+                                <div class="tech-icon-box" style="background: rgba(38, 77, 228, 0.1); color: #264de4;">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>CSS3 & Glassmorphism</h4>
+                                    <span>Flexbox, Grid & Dynamic Dark Modes</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #7952b3;">
+                                <div class="tech-icon-box" style="background: rgba(121, 82, 179, 0.1); color: #7952b3;">
+                                    <i class="fab fa-bootstrap"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Bootstrap Framework</h4>
+                                    <span>Responsive Layout Grids & UI Kits</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Backend Card -->
-                    <div class="skills-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-glow-accent"
-                            style="background: linear-gradient(135deg, #3776ab 0%, #db2777 100%);"></div>
-                        <div class="skills-card-header">
-                            <div class="skills-cat-icon"><i class='bx bx-server'></i></div>
-                            <h3>Backend Development</h3>
+                    <div class="skills-card-v3" data-skill-card="backend" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-top-accent" style="background: linear-gradient(135deg, #f89820, #6DB33F);"></div>
+                        <div class="skills-card-header-v3">
+                            <div class="skills-cat-icon-v3 backend-bg">
+                                <i class='bx bx-server'></i>
+                            </div>
+                            <div>
+                                <h3>Backend & Microservices</h3>
+                                <span class="skills-count-tag">5 Frameworks & Runtimes</span>
+                            </div>
                         </div>
-                        <div class="skills-card-body">
-                            <div class="skill-group">
-                                <h4><i class='bx bx-code'></i> Core Languages</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #3776ab;">
-                                        <i class="fab fa-python"></i>
-                                        <span>Python</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #f89820;">
-                                        <i class="fab fa-java"></i>
-                                        <span>Java</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #777bb4;">
-                                        <i class="fab fa-php"></i>
-                                        <span>PHP</span>
-                                    </div>
+
+                        <div class="tech-tiles-grid">
+                            <div class="tech-tile" style="--tile-accent: #f89820;">
+                                <div class="tech-icon-box" style="background: rgba(248, 152, 32, 0.1); color: #f89820;">
+                                    <i class="fab fa-java"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Java (Core & OOP)</h4>
+                                    <span>Oracle Certified OOP Principles & Multi-threading</span>
                                 </div>
                             </div>
-                            <div class="skill-group">
-                                <h4><i class='bx bx-git-repo-forked'></i> Frameworks & Runtimes</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #6DB33F;">
-                                        <i class="fas fa-leaf"></i>
-                                        <span>Spring Boot</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #ff2d20;">
-                                        <i class="fab fa-laravel"></i>
-                                        <span>Laravel</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #68a063;">
-                                        <i class="fab fa-node-js"></i>
-                                        <span>Node.js</span>
-                                    </div>
+
+                            <div class="tech-tile" style="--tile-accent: #6DB33F;">
+                                <div class="tech-icon-box" style="background: rgba(109, 179, 63, 0.1); color: #6DB33F;">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Spring Boot & REST APIs</h4>
+                                    <span>DPU Certified Microservices & Hibernate/JPA</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #3776ab;">
+                                <div class="tech-icon-box" style="background: rgba(55, 118, 171, 0.1); color: #3776ab;">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Python & Flask</h4>
+                                    <span>Web Backends, Data Scripts & AI API Services</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #777bb4;">
+                                <div class="tech-icon-box" style="background: rgba(119, 123, 180, 0.1); color: #777bb4;">
+                                    <i class="fab fa-php"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>PHP & Laravel</h4>
+                                    <span>Server-side Scripting & MVC Full CRUD Systems</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #68a063;">
+                                <div class="tech-icon-box" style="background: rgba(104, 160, 99, 0.1); color: #68a063;">
+                                    <i class="fab fa-node-js"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Node.js & Express</h4>
+                                    <span>Event-driven Backend APIs & Middleware</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Databases Card -->
-                    <div class="skills-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-glow-accent"
-                            style="background: linear-gradient(135deg, #00758f 0%, #47a248 100%);"></div>
-                        <div class="skills-card-header">
-                            <div class="skills-cat-icon"><i class='bx bx-data'></i></div>
-                            <h3>Database Ecosystem</h3>
+                    <!-- Database Card -->
+                    <div class="skills-card-v3" data-skill-card="database" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-top-accent" style="background: linear-gradient(135deg, #00758f, #47a248);"></div>
+                        <div class="skills-card-header-v3">
+                            <div class="skills-cat-icon-v3 database-bg">
+                                <i class='bx bx-data'></i>
+                            </div>
+                            <div>
+                                <h3>Database Systems</h3>
+                                <span class="skills-count-tag">4 Storage Engines & Admin Tools</span>
+                            </div>
                         </div>
-                        <div class="skills-card-body">
-                            <div class="skill-group">
-                                <h4><i class='bx bx-hdd'></i> Databases</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #00758f;">
-                                        <i class="fas fa-database"></i>
-                                        <span>MySQL</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #47a248;">
-                                        <i class="fab fa-envira"></i>
-                                        <span>MongoDB</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #003b57;">
-                                        <i class="fas fa-database"></i>
-                                        <span>SQLite</span>
-                                    </div>
+
+                        <div class="tech-tiles-grid">
+                            <div class="tech-tile" style="--tile-accent: #00758f;">
+                                <div class="tech-icon-box" style="background: rgba(0, 117, 143, 0.1); color: #00758f;">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>MySQL Database</h4>
+                                    <span>Relational Schema Design, SQL & Indexing</span>
                                 </div>
                             </div>
-                            <div class="skill-group">
-                                <h4><i class='bx bx-customize'></i> Management Tools</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #00758f;">
-                                        <i class='bx bx-data'></i>
-                                        <span>MySQL Workbench</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #003b57;">
-                                        <i class='bx bx-data'></i>
-                                        <span>SQLite Studio</span>
-                                    </div>
+
+                            <div class="tech-tile" style="--tile-accent: #47a248;">
+                                <div class="tech-icon-box" style="background: rgba(71, 162, 72, 0.1); color: #47a248;">
+                                    <i class="fab fa-envira"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>MongoDB (NoSQL)</h4>
+                                    <span>Document Store, Collections & Aggregation</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #003b57;">
+                                <div class="tech-icon-box" style="background: rgba(0, 59, 87, 0.1); color: #003b57;">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>SQLite Database</h4>
+                                    <span>Lightweight Embedded Storage Engine</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #00758f;">
+                                <div class="tech-icon-box" style="background: rgba(0, 117, 143, 0.1); color: #00758f;">
+                                    <i class='bx bx-data'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Workbench & SQLite Studio</h4>
+                                    <span>Visual SQL Modeling & Database Admin</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- AI & Analytics Card (Mihir's Certified Skills) -->
+                    <!-- <div class="skills-card-v3" data-skill-card="ai" data-aos="fade-up" data-aos-delay="250">
+                        <div class="card-top-accent" style="background: linear-gradient(135deg, #4285F4, #A855F7);"></div>
+                        <div class="skills-card-header-v3">
+                            <div class="skills-cat-icon-v3" style="background: linear-gradient(135deg, #4285F4, #A855F7);">
+                                <i class='bx bx-brain'></i>
+                            </div>
+                            <div>
+                                <h3>AI, Machine Learning & Analytics</h3>
+                                <span class="skills-count-tag">4 Certified Competencies</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-tiles-grid">
+                            <div class="tech-tile" style="--tile-accent: #4285F4;">
+                                <div class="tech-icon-box" style="background: rgba(66, 133, 244, 0.1); color: #4285F4;">
+                                    <i class='bx bx-bot'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Generative AI & Gemini API</h4>
+                                    <span>Gemini 2.5 Flash API Multi-modal Integration</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #34A853;">
+                                <div class="tech-icon-box" style="background: rgba(52, 168, 83, 0.1); color: #34A853;">
+                                    <i class='bx bx-cloud'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Google Cloud Vertex AI</h4>
+                                    <span>Google Certified Prompt Engineering & Workflows</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #0284c7;">
+                                <div class="tech-icon-box" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">
+                                    <i class='bx bx-chip'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Machine Learning (Python)</h4>
+                                    <span>Infosys Certified Supervised Learning & Boosting</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #1ba0d7;">
+                                <div class="tech-icon-box" style="background: rgba(27, 160, 215, 0.1); color: #1ba0d7;">
+                                    <i class='bx bx-line-chart'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Data Analytics Essentials</h4>
+                                    <span>Cisco Certified Data Visualization & Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <!-- Tools Card -->
-                    <div class="skills-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-glow-accent"
-                            style="background: linear-gradient(135deg, #f1502f 0%, #8B5CF6 100%);"></div>
-                        <div class="skills-card-header">
-                            <div class="skills-cat-icon"><i class='bx bx-wrench'></i></div>
-                            <h3>Developer Tools</h3>
-                        </div>
-                        <div class="skills-card-body">
-                            <div class="skill-group">
-                                <h4><i class='bx bx-git-branch'></i> Version Control</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #f1502f;">
-                                        <i class="fab fa-git-alt"></i>
-                                        <span>Git</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #6e5494;">
-                                        <i class="fab fa-github"></i>
-                                        <span>GitHub</span>
-                                    </div>
-                                </div>
+                    <div class="skills-card-v3" data-skill-card="tools" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-top-accent" style="background: linear-gradient(135deg, #f1502f, #8B5CF6);"></div>
+                        <div class="skills-card-header-v3">
+                            <div class="skills-cat-icon-v3 tools-bg">
+                                <i class='bx bx-wrench'></i>
                             </div>
-                            <div class="skill-group">
-                                <h4><i class='bx bx-code-alt'></i> IDEs & Editors</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #007ACC;">
-                                        <i class='bx bxl-visual-studio'></i>
-                                        <span>VS Code</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #FE315D;">
-                                        <i class='bx bx-code-block'></i>
-                                        <span>IntelliJ IDEA</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #21D789;">
-                                        <i class='bx bx-terminal'></i>
-                                        <span>PyCharm</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-group">
-                                <h4><i class='bx bx-cog'></i> API, Build & Server</h4>
-                                <div class="skills-list">
-                                    <div class="skill-pill" style="--skill-color: #FF6C37;">
-                                        <i class='bx bx-paper-plane'></i>
-                                        <span>Postman</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #3F51B5;">
-                                        <i class='bx bx-network-chart'></i>
-                                        <span>APIdog</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #C71A36;">
-                                        <i class='bx bx-package'></i>
-                                        <span>Maven</span>
-                                    </div>
-                                    <div class="skill-pill" style="--skill-color: #FB7A24;">
-                                        <i class='bx bx-server'></i>
-                                        <span>XAMPP</span>
-                                    </div>
-                                </div>
+                            <div>
+                                <h3>Developer Tools & DevOps</h3>
+                                <span class="skills-count-tag">6 Engineering Tools</span>
                             </div>
                         </div>
+
+                        <div class="tech-tiles-grid">
+                            <div class="tech-tile" style="--tile-accent: #f1502f;">
+                                <div class="tech-icon-box" style="background: rgba(241, 80, 47, 0.1); color: #f1502f;">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Git & GitHub</h4>
+                                    <span>Distributed Version Control & Workflows</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #007ACC;">
+                                <div class="tech-icon-box" style="background: rgba(0, 122, 204, 0.1); color: #007ACC;">
+                                    <i class='bx bxl-visual-studio'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>VS Code</h4>
+                                    <span>Primary Web & Scripting IDE</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #FE315D;">
+                                <div class="tech-icon-box" style="background: rgba(254, 49, 93, 0.1); color: #FE315D;">
+                                    <i class='bx bx-code-block'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>IntelliJ IDEA & PyCharm</h4>
+                                    <span>Java Enterprise & Python IDEs</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #FF6C37;">
+                                <div class="tech-icon-box" style="background: rgba(255, 108, 55, 0.1); color: #FF6C37;">
+                                    <i class='bx bx-paper-plane'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Postman & APIdog</h4>
+                                    <span>API Endpoint Testing & Documentation</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #C71A36;">
+                                <div class="tech-icon-box" style="background: rgba(199, 26, 54, 0.1); color: #C71A36;">
+                                    <i class='bx bx-package'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>Maven Build Tool</h4>
+                                    <span>Java Dependency & Package Automation</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tile" style="--tile-accent: #FB7A24;">
+                                <div class="tech-icon-box" style="background: rgba(251, 122, 36, 0.1); color: #FB7A24;">
+                                    <i class='bx bx-server'></i>
+                                </div>
+                                <div class="tech-tile-info">
+                                    <h4>XAMPP Local Server</h4>
+                                    <span>Local Apache & MySQL Web Stack</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Competencies Highlight Banner -->
+                <div class="skills-competencies-banner" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="banner-title"><i class='bx bx-chip'></i> Core Technical Competencies</h4>
+                    <div class="competency-tags">
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> Java & Spring Boot Microservices</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> Generative AI & Gemini API Integration</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> Python Machine Learning & Analytics</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> React.js & Glassmorphism UI Engineering</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> MySQL & MongoDB Schema Design</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> RESTful API Architecture & Postman</span>
+                        <span class="comp-tag"><i class='bx bx-check-circle'></i> Git Version Control & Maven Pipelines</span>
                     </div>
                 </div>
             </div>
@@ -467,255 +724,244 @@
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="subtitle">My Work</span>
-                <h2 class="heading">Recent <span class="highlight">Projects</span></h2>
+                <span class="subtitle">My Portfolio</span>
+                <h2 class="heading">Featured <span class="highlight">Projects</span></h2>
+                <p class="skills-section-desc">
+                    Explore my real-world full-stack applications, enterprise platforms, and AI-powered web solutions.
+                </p>
             </div>
-            <div class="project-filters">
-                <button type="button" class="filter-btn active" data-filter="all">All</button>
-                <button type="button" class="filter-btn" data-filter="python">Python</button>
-                <button type="button" class="filter-btn" data-filter="php">PHP</button>
-                <button type="button" class="filter-btn" data-filter="java">Java</button>
-                <button type="button" class="filter-btn" data-filter="react">React</button>
+
+            <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="filter-btn active" data-filter="all">All Projects</button>
+                <button type="button" class="filter-btn" data-filter="python">Python & AI</button>
+                <button type="button" class="filter-btn" data-filter="java">Java Systems</button>
+                <button type="button" class="filter-btn" data-filter="react">React & Node</button>
+                <button type="button" class="filter-btn" data-filter="php">PHP Systems</button>
             </div>
+
             <div class="project-container">
+                <!-- Project 1: BillBuddy -->
                 <div class="project-box show-more-item" data-category="python" data-aos="fade-up">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon python" aria-hidden="true">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/billbuddy-energy-estimator.jpg" alt="BillBuddy energy estimator project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge python-badge">Python / Analytics</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">Python</span>
-                            <h3 class="project-title">BillBuddy</h3>
-                            <p class="project-text">
-                                Full-stack Energy Consumption Estimator. Users log 50+ appliances to calculate
-                                monthly costs with detailed analytics.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-bolt-circle'></i> Energy & Utility Analytics</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">BillBuddy</h3>
+                            <p class="project-desc-v2">
+                                Full-stack Energy Consumption Estimator empowering users to calculate monthly power costs across 50+ appliances with detailed analytical charts.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-1.jpg" alt="BillBuddy energy estimator project"
-                                loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">Python</span>
+                                <span class="p-tech-tag">Data Analytics</span>
+                                <span class="p-tech-tag">Full-Stack</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/Energy-Consumption-Estimator---Python.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View BillBuddy project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/Energy-Consumption-Estimator---Python.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View BillBuddy source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-delay="1">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon python" aria-hidden="true">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+
+                <!-- Project 2: GoParcel -->
+                <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/goparcel-courier-service.jpg" alt="GoParcel courier service project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge python-badge">Python / Flask</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">Python</span>
-                            <h3 class="project-title">GoParcel</h3>
-                            <p class="project-text">
-                                Python Flask logistics system featuring Glassmorphism UI and automated cost
-                                calculation.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-package'></i> Logistics & Courier Solution</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">GoParcel</h3>
+                            <p class="project-desc-v2">
+                                Modern Flask-powered courier service logistics platform featuring Glassmorphism UI design, real-time parcel tracking, and automated pricing algorithms.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-2.jpg" alt="GoParcel courier service project"
-                                loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">Python</span>
+                                <span class="p-tech-tag">Flask</span>
+                                <span class="p-tech-tag">Glassmorphism UI</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/Courier-Service---Python.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View GoParcel project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/Courier-Service---Python.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View GoParcel source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-box show-more-item" data-category="php" data-aos="fade-up" data-delay="2">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon php" aria-hidden="true">
-                                <i class="fab fa-php"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+
+                <!-- Project 3: Insurance MS System -->
+                <div class="project-box show-more-item" data-category="java" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/insurance-management-system.jpg" alt="Insurance management system project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge java-badge">Java / Spring Boot</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">PHP</span>
-                            <h3 class="project-title">Product Management</h3>
-                            <p class="project-text">
-                                PHP/MySQL system for inventory optimization with full CRUD functionality.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-shield-quarter'></i> Enterprise Policy Platform</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">Insurance MS System</h3>
+                            <p class="project-desc-v2">
+                                Enterprise Java platform streamlining policy administration, customer management, and claims processing through a centralized data-driven dashboard.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-3.jpg" alt="Product management system project"
-                                loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">Java</span>
+                                <span class="p-tech-tag">Spring Boot</span>
+                                <span class="p-tech-tag">OOP Architecture</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/Product-Management-System.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View Product Management project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/Insurance-Management-System.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Insurance MS System source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-box show-more-item" data-category="java" data-aos="fade-up" data-delay="1">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon java" aria-hidden="true">
-                                <i class="fab fa-java"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+
+                <!-- Project 4: Exam Portal -->
+                <div class="project-box show-more-item" data-category="react" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/exam-portal.jpg" alt="Exam portal project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge react-badge">React / MERN</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">Java</span>
-                            <h3 class="project-title">Insurance MS System</h3>
-                            <p class="project-text">
-                                An Advanced Java platform streamlining policy administration, customer management, and
-                                claims processing through a centralized, data-driven dashboard.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-select-multiple'></i> Assessment Engine</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">Exam Portal</h3>
+                            <p class="project-desc-v2">
+                                Full-stack React.js, Express, and MongoDB assessment platform featuring role-based authentication, real-time timed exams, and automated analytics.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-4.jpg" alt="Insurance management system project"
-                                loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">React.js</span>
+                                <span class="p-tech-tag">Express.js</span>
+                                <span class="p-tech-tag">MongoDB</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/Insurance-Management-System.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View Insurance MS System project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/exam-portal-project-main.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Exam Portal source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-box show-more-item" data-category="react" data-aos="fade-up" data-delay="1">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon react" aria-hidden="true">
-                                <i class="fab fa-react"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+
+                <!-- Project 5: Image Caption Generator -->
+                <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/image-caption-generator.jpg" alt="Image caption generator project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge ai-badge">Python / Gemini AI</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">React</span>
-                            <h3 class="project-title">Exam Portal</h3>
-                            <p class="project-text">
-                                A secure Express.js and MongoDB assessment tool featuring role-based access,
-                                real-time timed exams, and automated performance analytics.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-brain'></i> Generative AI Application</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">Image Caption Generator</h3>
+                            <p class="project-desc-v2">
+                                AI-powered Flask application integrating Gemini 2.5 Flash API to produce platform-tailored captions, accessibility alt-text, and searchable media galleries.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-5.jpg" alt="Exam portal project" loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">Gemini 2.5 AI</span>
+                                <span class="p-tech-tag">Python Flask</span>
+                                <span class="p-tech-tag">Computer Vision</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/exam-portal-project-main.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View Exam Portal project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/Image-Caption-Generator.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Image Caption Generator source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-delay="1">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <div class="project-icon python" aria-hidden="true">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div>
-                                <span class="project-provider">GitHub Project</span>
-                                <span class="project-status">
-                                    <i class='bx bx-check-circle'></i>
-                                    Active
-                                </span>
-                            </div>
+
+                <!-- Project 6: Product Management -->
+                <div class="project-box show-more-item" data-category="php" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card-v2">
+                        <div class="project-card-banner">
+                            <img src="images/projects/product-management-system.jpg" alt="Product management system project" loading="lazy">
+                            <div class="project-overlay-gradient"></div>
+                            <span class="project-category-badge php-badge">PHP / MySQL</span>
                         </div>
 
-                        <div class="project-card-body">
-                            <span class="project-category">Python</span>
-                            <h3 class="project-title">Image Caption Generator</h3>
-                            <p class="project-text">
-                                An AI-powered Flask app using Gemini 2.5 Flash to generate platform-specific
-                                captions, accessibility alt-text, and searchable image galleries.
+                        <div class="project-card-content">
+                            <div class="project-meta-header">
+                                <span class="project-provider-title"><i class='bx bx-store-alt'></i> Inventory & Supply System</span>
+                                <span class="project-status-pill"><i class='bx bx-check-circle'></i> Active</span>
+                            </div>
+
+                            <h3 class="project-title-v2">Product Management</h3>
+                            <p class="project-desc-v2">
+                                Dynamic PHP & MySQL inventory optimization platform featuring full CRUD operations, stock level tracking, and relational database schema integration.
                             </p>
-                        </div>
 
-                        <div class="project-embed">
-                            <img src="images/projects/project-6.jpg" alt="Image caption generator project"
-                                loading="lazy">
-                        </div>
+                            <div class="project-tech-tags">
+                                <span class="p-tech-tag">PHP</span>
+                                <span class="p-tech-tag">MySQL</span>
+                                <span class="p-tech-tag">CRUD Engine</span>
+                            </div>
 
-                        <div class="project-actions">
-                            <a href="https://github.com/mihirpatel0811/Image-Caption-Generator.git"
-                                class="btn project-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="View Image Caption Generator project source code">
-                                <i class='bx bx-link-external'></i>
-                                <span>View Source</span>
-                            </a>
+                            <div class="project-card-footer">
+                                <a href="https://github.com/mihirpatel0811/Product-Management-System.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Product Management source code">
+                                    <i class='bx bxl-github'></i>
+                                    <span>View Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="show-more-wrapper">
-                    <button type="button" class="btn btn-toggle show-more-btn" data-section="projects">
-                        <span class="btn-text">Show More</span>
-                        <i class='bx bx-chevron-down'></i>
-                    </button>
-                </div>
+            </div>
+
+            <div class="show-more-wrapper" data-aos="fade-up" style="margin-top: 40px; text-align: center;">
+                <button type="button" class="btn btn-toggle show-more-btn" data-section="projects">
+                    <span class="btn-text">Show More Projects</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
             </div>
         </div>
     </section>
@@ -729,269 +975,362 @@
             <div class="section-header" data-aos="fade-up">
                 <span class="subtitle">My Achievements</span>
                 <h2 class="heading">Professional <span class="highlight">Certifications</span></h2>
+                <p class="skills-section-desc">
+                    Verified industry credentials across Java full-stack engineering, machine learning, data analytics, and national hackathons.
+                </p>
             </div>
+
+            <!-- Certifications Category Filter Toolbar -->
+            <div class="skills-filter-toolbar cert-filters-toolbar" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="cert-tab-btn active" data-cert-category="all">
+                    <i class='bx bx-award'></i>
+                    <span>All Certifications</span>
+                </button>
+                <button type="button" class="cert-tab-btn" data-cert-category="fullstack">
+                    <i class='bx bx-code-alt'></i>
+                    <span>Full-Stack & Java</span>
+                </button>
+                <button type="button" class="cert-tab-btn" data-cert-category="ai-ml">
+                    <i class='bx bx-brain'></i>
+                    <span>AI & Machine Learning</span>
+                </button>
+                <button type="button" class="cert-tab-btn" data-cert-category="analytics">
+                    <i class='bx bx-line-chart'></i>
+                    <span>Data Analytics</span>
+                </button>
+                <button type="button" class="cert-tab-btn" data-cert-category="hackathons">
+                    <i class='bx bx-trophy'></i>
+                    <span>Hackathons & Events</span>
+                </button>
+            </div>
+
             <div class="cert-grid">
-                <div class="cert-card show-more-item" data-category="programming" data-aos="zoom-in" data-delay="2">
-                    <div class="cert-card-header">
-                        <div class="cert-icon unstop" aria-hidden="true">
-                            <i class='bx bx-award'></i>
+                <!-- Cert 1: Java Full-Stack Training -->
+                <div class="cert-card-v2 show-more-item" data-category="fullstack" data-aos="fade-up">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon dpu-glow">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">DPU | Dr. D.Y. Patil</span>
+                                <h3 class="cert-title-v2">Java Full-Stack Training</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">Unstop</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Programming</span>
-                        <h3 class="cert-title">Basics Java</h3>
-                        <p class="cert-text">
-                            Successfully completed the Java Basics course provided by Unstop, covering fundamental Java
-                            programming concepts including OOP.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/java-fullstack-training-certificate.jpeg" alt="Java Full-Stack Training Program certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/java-fullstack-training-certificate.jpeg')" aria-label="Preview Java Full-Stack certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Full-Stack Development</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Comprehensive full-stack program covering Core & Advanced Java, Spring Boot microservices, Hibernate/JPA, REST APIs, React, and MySQL database design.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/Basics Java.jpg" alt="Java Basics Certificate" loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/Basics Java.jpg')"
-                            aria-label="View Java Basics certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/java-fullstack-training-certificate.jpeg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="technical" data-aos="zoom-in" data-delay="2">
-                    <div class="cert-card-header">
-                        <div class="cert-icon innixo" aria-hidden="true">
-                            <i class="fas fa-laptop-code"></i>
+
+                <!-- Cert 2: Unstop Java Basics -->
+                <div class="cert-card-v2 show-more-item" data-category="fullstack" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon unstop-glow">
+                                <i class='bx bx-award'></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">Unstop</span>
+                                <h3 class="cert-title-v2">Java Basics Certificate</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">INNIXO</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Technical</span>
-                        <h3 class="cert-title">INNIXO OVERDRIVE</h3>
-                        <p class="cert-text">
-                            Advanced technical certification covering industry best practices and emerging technologies.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/java-basics-certificate.jpg" alt="Java Basics Certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/java-basics-certificate.jpg')" aria-label="Preview Java Basics certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Programming</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Foundational certification from Unstop establishing core competency in Java syntax, object-oriented programming, and algorithm logic.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/certificate 3.1.jpg" alt="INNIXO OVERDRIVE certificate"
-                            loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/certificate 3.1.jpg')"
-                            aria-label="View INNIXO OVERDRIVE certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/java-basics-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="hackathon" data-aos="zoom-in" data-delay="1">
-                    <div class="cert-card-header">
-                        <div class="cert-icon innohack" aria-hidden="true">
-                            <i class="fas fa-shield-alt"></i>
+
+                <!-- Cert 3: INNIXO OVERDRIVE -->
+                <div class="cert-card-v2 show-more-item" data-category="hackathons" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon innixo-glow">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">INNIXO</span>
+                                <h3 class="cert-title-v2">INNIXO OVERDRIVE</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">INNOHACK</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Hackathon</span>
-                        <h3 class="cert-title">INNOHACK 2.0</h3>
-                        <p class="cert-text">
-                            Participated in national-level hackathon demonstrating innovative problem-solving and coding
-                            skills.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/innixo-overdrive-certificate.jpg" alt="INNIXO OVERDRIVE certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/innixo-overdrive-certificate.jpg')" aria-label="Preview INNIXO OVERDRIVE certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Technical Excellence</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Advanced technical certification demonstrating expertise in software engineering best practices and practical application development.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/54.6.png" alt="INNOHACK 2.0 certificate" loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/54.6.png')"
-                            aria-label="View INNOHACK 2.0 certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/innixo-overdrive-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="analytics" data-aos="zoom-in" data-delay="0">
-                    <div class="cert-card-header">
-                        <div class="cert-icon cisco" aria-hidden="true">
-                            <i class="fab fa-cisco"></i>
+
+                <!-- Cert 4: INNOHACK 2.0 -->
+                <div class="cert-card-v2 show-more-item" data-category="hackathons" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon innohack-glow">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">INNOHACK</span>
+                                <h3 class="cert-title-v2">INNOHACK 2.0</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">Cisco</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Data Analytics</span>
-                        <h3 class="cert-title">Data Analytics Essentials</h3>
-                        <p class="cert-text">
-                            Comprehensive training in data analysis techniques, tools, and methodologies for business
-                            intelligence.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/innohack-2.0-certificate.png" alt="INNOHACK 2.0 certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/innohack-2.0-certificate.png')" aria-label="Preview INNOHACK 2.0 certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">National Hackathon</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            National-level hackathon credential awarded for building innovative rapid-prototype software under strict competitive deadlines.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/dae_page-0001.jpg" alt="Data Analytics Essentials certificate"
-                            loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/dae_page-0001.jpg')"
-                            aria-label="View Data Analytics Essentials certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/innohack-2.0-certificate.png')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="ml" data-aos="zoom-in" data-delay="0">
-                    <div class="cert-card-header">
-                        <div class="cert-icon infosys" aria-hidden="true">
-                            <i class="fas fa-award"></i>
+
+                <!-- Cert 5: Cisco Data Analytics -->
+                <div class="cert-card-v2 show-more-item" data-category="analytics" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon cisco-glow">
+                                <i class="fab fa-cisco"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">Cisco Networking Academy</span>
+                                <h3 class="cert-title-v2">Data Analytics Essentials</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">Infosys | Springboard</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">ML Beginner</span>
-                        <h3 class="cert-title">Machine Learning Beginner</h3>
-                        <p class="cert-text">
-                            Completed a foundational course on February 3, 2025, establishing a core understanding of
-                            machine learning principles.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/data-analytics-essentials-certificate.jpg" alt="Data Analytics Essentials certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/data-analytics-essentials-certificate.jpg')" aria-label="Preview Cisco Data Analytics certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Data Analytics</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Professional certification from Cisco in data transformation, statistical visual analytical techniques, and data-driven decision making.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/mlb.jpg" alt="Machine Learning Beginner certificate"
-                            loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/mlb.jpg')"
-                            aria-label="View Machine Learning Beginner certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/data-analytics-essentials-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="ml" data-aos="zoom-in" data-delay="0">
-                    <div class="cert-card-header">
-                        <div class="cert-icon infosys" aria-hidden="true">
-                            <i class="fas fa-award"></i>
+
+                <!-- Cert 6: Infosys ML Beginner -->
+                <div class="cert-card-v2 show-more-item" data-category="ai-ml" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon infosys-glow">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">Infosys | Springboard</span>
+                                <h3 class="cert-title-v2">Machine Learning Beginner</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">Infosys | Springboard</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Explore ML in Python</span>
-                        <h3 class="cert-title">Explore Machine Learning in Python</h3>
-                        <p class="cert-text">
-                            Demonstrated practical proficiency in implementing machine learning workflows with Python.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/machine-learning-beginner-certificate.jpg" alt="Machine Learning Beginner certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/machine-learning-beginner-certificate.jpg')" aria-label="Preview Machine Learning Beginner certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Machine Learning</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Foundational machine learning certification covering core supervised algorithms, model training principles, and feature engineering fundamentals.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/emlp.jpg" alt="Explore Machine Learning in Python certificate"
-                            loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/emlp.jpg')"
-                            aria-label="View Explore Machine Learning in Python certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/machine-learning-beginner-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="cert-card show-more-item" data-category="ml" data-aos="zoom-in" data-delay="0">
-                    <div class="cert-card-header">
-                        <div class="cert-icon infosys" aria-hidden="true">
-                            <i class="fas fa-award"></i>
+
+                <!-- Cert 7: Infosys Explore ML in Python -->
+                <div class="cert-card-v2 show-more-item" data-category="ai-ml" data-aos="fade-up" data-aos-delay="0">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon infosys-glow">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">Infosys | Springboard</span>
+                                <h3 class="cert-title-v2">Explore ML in Python</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cert-provider">Infosys | Springboard</span>
-                            <span class="cert-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="cert-card-body">
-                        <span class="cert-category">Machine Learning in Python</span>
-                        <h3 class="cert-title">Boosting Machine Learning Models in Python</h3>
-                        <p class="cert-text">
-                            Mastered advanced optimization techniques by successfully completing this specialized
-                            course.
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/explore-ml-python-certificate.jpg" alt="Explore Machine Learning in Python certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/explore-ml-python-certificate.jpg')" aria-label="Preview Explore ML in Python certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Python & Machine Learning</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Practical machine learning implementation course using Python, Scikit-learn, and numerical data processing pipelines.
                         </p>
                     </div>
 
-                    <div class="cert-embed">
-                        <img src="images/certificates/bmlmp.jpg"
-                            alt="Boosting Machine Learning Models in Python certificate" loading="lazy">
-                    </div>
-
-                    <div class="cert-actions">
-                        <button type="button" class="btn cert-link"
-                            onclick="openDegreeModal('images/certificates/bmlmp.jpg')"
-                            aria-label="View Boosting Machine Learning Models in Python certificate">
-                            <i class='bx bx-search-alt'></i>
-                            <span>View Certificate</span>
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/explore-ml-python-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
                         </button>
                     </div>
                 </div>
-                <div class="show-more-wrapper">
-                    <button type="button" class="btn btn-toggle show-more-btn" data-section="certifications">
-                        <span class="btn-text">Show More</span>
-                        <i class='bx bx-chevron-down'></i>
-                    </button>
+
+                <!-- Cert 8: Infosys Boosting ML Models -->
+                <div class="cert-card-v2 show-more-item" data-category="ai-ml" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-card-header-v2">
+                        <div class="cert-provider-box">
+                            <div class="cert-brand-icon infosys-glow">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <span class="cert-provider-name">Infosys | Springboard</span>
+                                <h3 class="cert-title-v2">Boosting ML Models</h3>
+                            </div>
+                        </div>
+                        <span class="cert-status-badge"><i class='bx bx-check-shield'></i> Verified</span>
+                    </div>
+
+                    <div class="cert-banner-box">
+                        <img src="images/certificates/boosting-ml-python-certificate.jpg" alt="Boosting Machine Learning Models in Python certificate" loading="lazy">
+                        <div class="cert-banner-overlay">
+                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/boosting-ml-python-certificate.jpg')" aria-label="Preview Boosting ML Models certificate">
+                                <i class='bx bx-fullscreen'></i>
+                                <span>Preview</span>
+                            </button>
+                        </div>
+                        <span class="cert-domain-tag">Advanced Machine Learning</span>
+                    </div>
+
+                    <div class="cert-card-body-v2">
+                        <p class="cert-desc-v2">
+                            Advanced model boosting and hyperparameter optimization techniques for enhancing predictive accuracy in Python machine learning workflows.
+                        </p>
+                    </div>
+
+                    <div class="cert-card-footer-v2">
+                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/boosting-ml-python-certificate.jpg')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Full Certificate</span>
+                        </button>
+                    </div>
                 </div>
+            </div>
+
+            <div class="show-more-wrapper" data-aos="fade-up" style="margin-top: 40px; text-align: center;">
+                <button type="button" class="btn btn-toggle show-more-btn" data-section="certifications">
+                    <span class="btn-text">Show More Certificates</span>
+                    <i class='bx bx-chevron-down'></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1007,143 +1346,148 @@
 
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="subtitle">Verified Credentials</span>
-                <h2 class="heading">Professional <span class="highlight">Badges</span></h2>
+                <span class="subtitle">Verified Digital Credentials</span>
+                <h2 class="heading">Professional <span class="highlight">Skill Badges</span></h2>
+                <p class="skills-section-desc">
+                    Globally recognized digital badges issued by Google Cloud, Cisco, and Oracle verifying hands-on technical proficiency.
+                </p>
             </div>
 
-            <div class="badge-toolbar" data-aos="fade-up" data-aos-delay="150" aria-label="Badge filters">
-                <button type="button" class="badge-filter-btn active" data-badge-filter="all">
+            <div class="skills-filter-toolbar badge-filters-toolbar" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="badge-tab-btn active" data-badge-category="all">
                     <i class='bx bx-grid-alt'></i>
-                    <span>All</span>
+                    <span>All Badges</span>
                 </button>
-                <button type="button" class="badge-filter-btn" data-badge-filter="cloud">
+                <button type="button" class="badge-tab-btn" data-badge-category="cloud">
                     <i class='bx bx-cloud'></i>
-                    <span>Cloud AI</span>
+                    <span>Cloud & Generative AI</span>
                 </button>
-                <button type="button" class="badge-filter-btn" data-badge-filter="analytics">
+                <button type="button" class="badge-tab-btn" data-badge-category="analytics">
                     <i class='bx bx-bar-chart-alt-2'></i>
-                    <span>Analytics</span>
+                    <span>Data & Analytics</span>
                 </button>
-                <button type="button" class="badge-filter-btn" data-badge-filter="programming">
+                <button type="button" class="badge-tab-btn" data-badge-category="programming">
                     <i class='bx bx-code-alt'></i>
-                    <span>Programming</span>
+                    <span>Core Programming</span>
                 </button>
             </div>
 
-            <div class="badge-grid" aria-live="polite">
-                <article class="badge-card" data-badge-category="cloud" data-aos="zoom-in">
-                    <div class="badge-card-header">
-                        <div class="badge-icon google" aria-hidden="true">
-                            <i class="fab fa-google"></i>
+            <div class="badge-grid-v2" aria-live="polite">
+                <!-- Badge 1: Google Cloud Vertex AI -->
+                <article class="badge-card-v2" data-category="cloud" data-aos="fade-up">
+                    <div class="badge-card-header-v2">
+                        <div class="badge-provider-box">
+                            <div class="badge-brand-icon google-glow">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div>
+                                <span class="badge-provider-name">Google Cloud</span>
+                                <h3 class="badge-title-v2">Prompt Design in Vertex AI</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="badge-provider">Google Cloud</span>
-                            <span class="badge-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="badge-status-pill"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="badge-card-body">
-                        <span class="badge-category">Cloud AI</span>
-                        <h3 class="badge-title">Prompt Design in Vertex AI</h3>
-                        <p class="badge-text">
-                            Skill badge for building effective generative AI prompts and applying
-                            prompt design patterns inside Vertex AI.
-                        </p>
-                    </div>
-
-                    <div class="badge-embed">
-                        <div data-iframe-width="170" data-iframe-height="255"
+                    <div class="badge-embed-container">
+                        <div data-iframe-width="180" data-iframe-height="270"
                             data-share-badge-id="f5b1b19e-b76a-4d8d-8712-0de0cd0832c4"
                             data-share-badge-host="https://www.credly.com">
                         </div>
                     </div>
 
-                    <div class="badge-actions">
-                        <a href="https://www.credly.com/badges/f5b1b19e-b76a-4d8d-8712-0de0cd0832c4" target="_blank"
-                            rel="noopener noreferrer" class="btn badge-link"
-                            aria-label="View Google Cloud Prompt Design in Vertex AI badge">
-                            <i class='bx bx-link-external'></i>
-                            <span>View Badge</span>
+                    <div class="badge-card-body-v2">
+                        <p class="badge-desc-v2">
+                            Official Google Cloud skill badge validating hands-on expertise in prompt engineering, Gemini 1.5/2.5 parameter tuning, and multimodal prompt design in Vertex AI.
+                        </p>
+                        <div class="badge-tags">
+                            <span class="b-tag">Vertex AI</span>
+                            <span class="b-tag">Generative AI</span>
+                            <span class="b-tag">LLM Prompting</span>
+                        </div>
+                    </div>
+
+                    <div class="badge-card-footer-v2">
+                        <a href="https://www.credly.com/badges/f5b1b19e-b76a-4d8d-8712-0de0cd0832c4" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                            <i class='bx bx-award'></i>
+                            <span>Verify Credly Badge</span>
                         </a>
                     </div>
                 </article>
 
-                <article class="badge-card" data-badge-category="analytics" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="badge-card-header">
-                        <div class="badge-icon cisco" aria-hidden="true">
-                            <i class="fas fa-chart-line"></i>
+                <!-- Badge 2: Cisco Data Analytics -->
+                <article class="badge-card-v2" data-category="analytics" data-aos="fade-up" data-aos-delay="100">
+                    <div class="badge-card-header-v2">
+                        <div class="badge-provider-box">
+                            <div class="badge-brand-icon cisco-glow">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <span class="badge-provider-name">Cisco Networking Academy</span>
+                                <h3 class="badge-title-v2">Data Analytics Essentials</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="badge-provider">Cisco</span>
-                            <span class="badge-status">
-                                <i class='bx bx-check-circle'></i>
-                                Verified
-                            </span>
-                        </div>
+                        <span class="badge-status-pill"><i class='bx bx-check-shield'></i> Verified</span>
                     </div>
 
-                    <div class="badge-card-body">
-                        <span class="badge-category">Analytics</span>
-                        <h3 class="badge-title">Data Analytics Essentials</h3>
-                        <p class="badge-text">
-                            Credential covering data analysis, visualization, business intelligence,
-                            and data-driven decision making.
-                        </p>
-                    </div>
-
-                    <div class="badge-embed">
-                        <div data-iframe-width="170" data-iframe-height="255"
+                    <div class="badge-embed-container">
+                        <div data-iframe-width="180" data-iframe-height="270"
                             data-share-badge-id="aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f"
                             data-share-badge-host="https://www.credly.com">
                         </div>
                     </div>
 
-                    <div class="badge-actions">
-                        <a href="https://www.credly.com/badges/aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f" target="_blank"
-                            rel="noopener noreferrer" class="btn badge-link"
-                            aria-label="View Cisco Data Analytics Essentials badge">
-                            <i class='bx bx-link-external'></i>
-                            <span>View Badge</span>
+                    <div class="badge-card-body-v2">
+                        <p class="badge-desc-v2">
+                            Verified Cisco digital credential certifying proficiency in exploratory data analysis, data cleaning pipelines, statistical modeling, and business intelligence reporting.
+                        </p>
+                        <div class="badge-tags">
+                            <span class="b-tag">Data Analytics</span>
+                            <span class="b-tag">Visualization</span>
+                            <span class="b-tag">Cisco Academy</span>
+                        </div>
+                    </div>
+
+                    <div class="badge-card-footer-v2">
+                        <a href="https://www.credly.com/badges/aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                            <i class='bx bx-award'></i>
+                            <span>Verify Credly Badge</span>
                         </a>
                     </div>
                 </article>
 
-                <article class="badge-card" data-badge-category="programming" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="badge-card-header">
-                        <div class="badge-icon oracle" aria-hidden="true">
-                            <i class="fab fa-java"></i>
+                <!-- Badge 3: Oracle Java Foundations -->
+                <article class="badge-card-v2" data-category="programming" data-aos="fade-up" data-aos-delay="200">
+                    <div class="badge-card-header-v2">
+                        <div class="badge-provider-box">
+                            <div class="badge-brand-icon oracle-glow">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div>
+                                <span class="badge-provider-name">Oracle University</span>
+                                <h3 class="badge-title-v2">Oracle Java Foundations</h3>
+                            </div>
                         </div>
-                        <div>
-                            <span class="badge-provider">Oracle University</span>
-                            <span class="badge-status">
-                                <i class='bx bx-check-circle'></i>
-                                Completed
-                            </span>
-                        </div>
+                        <span class="badge-status-pill"><i class='bx bx-check-shield'></i> Completed</span>
                     </div>
 
-                    <div class="badge-card-body">
-                        <span class="badge-category">Programming</span>
-                        <h3 class="badge-title">Oracle Java Foundations</h3>
-                        <p class="badge-text">
-                            Learning path covering Java fundamentals, object-oriented programming,
-                            arrays, inheritance, exception handling, and application development.
+                    <div class="badge-embed-container oracle-badge-container">
+                        <img src="images/oracle-java-foundations-badge.png" alt="Oracle Java Foundations Learning Path badge" class="oracle-badge-img-v2">
+                    </div>
+
+                    <div class="badge-card-body-v2">
+                        <p class="badge-desc-v2">
+                            Official Oracle University learning path badge confirming mastery in Core Java syntax, Object-Oriented Programming (OOP) paradigms, collections, and exception handling.
                         </p>
+                        <div class="badge-tags">
+                            <span class="b-tag">Java OOP</span>
+                            <span class="b-tag">Oracle SE</span>
+                            <span class="b-tag">Data Structures</span>
+                        </div>
                     </div>
 
-                    <figure class="oracle-badge">
-                        <img src="images/Oracle Java Foundations Learning Path.png"
-                            alt="Oracle Java Foundations Learning Path badge" class="oracle-badge-img">
-                    </figure>
-
-                    <div class="badge-actions">
-                        <a href="https://mylearn.oracle.com/ou/learning-path/oracle-java-foundations-training-and-assessment/152239"
-                            target="_blank" rel="noopener noreferrer" class="btn badge-link"
-                            aria-label="View Oracle Java Foundations learning path">
-                            <i class='bx bx-link-external'></i>
+                    <div class="badge-card-footer-v2">
+                        <a href="https://mylearn.oracle.com/ou/learning-path/oracle-java-foundations-training-and-assessment/152239" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                            <i class='bx bx-book-open'></i>
                             <span>View Learning Path</span>
                         </a>
                     </div>
@@ -1152,6 +1496,9 @@
         </div>
     </section>
 
+    <!-- ==========================================================
+     ACADEMIC EDUCATION SECTION
+    =========================================================== -->
     <section class="education" id="education">
         <div class="section-bg">
             <div class="shape shape-5"></div>
@@ -1159,41 +1506,94 @@
         </div>
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="subtitle">My Journey</span>
-                <h2 class="heading">Education</h2>
+                <span class="subtitle">Academic Excellence</span>
+                <h2 class="heading">Education <span class="highlight">Journey</span></h2>
+                <p class="skills-section-desc">
+                    Formal academic foundation in Computer Applications and Software Engineering from premier universities.
+                </p>
             </div>
-            <div class="education-content">
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">
-                            <span>2025 - Present</span>
-                        </div>
-                        <div class="timeline-card">
+
+            <div class="edu-timeline-v2">
+                <!-- Timeline Stem Line -->
+                <div class="edu-timeline-stem"></div>
+
+                <!-- Education Entry 1: MCA -->
+                <div class="edu-timeline-item-v2" data-aos="fade-up">
+                    <div class="edu-node-box">
+                        <div class="edu-node-icon active-node">
                             <i class='bx bxs-graduation'></i>
-                            <h3>Master of Computer Applications (MCA)</h3>
-                            <p class="institution">Dr. D. Y. Patil Vidyapeeth, Pune</p>
-                            <p class="description">Currently pursuing advanced studies in computer applications.
-                                Focusing on software engineering, database management, and web technologies.</p>
-                            <span class="timeline-status">Currently Pursuing</span>
                         </div>
                     </div>
-                    <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">
-                            <span>2022 - 2025</span>
+
+                    <div class="edu-card-v2">
+                        <div class="edu-card-header-v2">
+                            <div class="edu-inst-box">
+                                <div class="edu-brand-icon dpu-edu-glow">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div>
+                                    <span class="edu-year-tag"><i class='bx bx-calendar'></i> 2025 - Present</span>
+                                    <h3 class="edu-degree-title">Master of Computer Applications (MCA)</h3>
+                                    <p class="edu-institution-name">Dr. D. Y. Patil Vidyapeeth, Pune</p>
+                                </div>
+                            </div>
+                            <span class="edu-status-pill pursuing"><i class='bx bx-loader-circle bx-spin'></i> Currently Pursuing</span>
                         </div>
-                        <div class="timeline-card">
-                            <i class='bx bxs-graduation'></i>
-                            <h3>Bachelor's Degree</h3>
-                            <p class="institution">Marwadi University</p>
-                            <p class="description">Completed Bachelor's degree with focus on computer science
-                                fundamentals and programming.</p>
-                            <span class="timeline-status completed">Completed</span>
-                            <button type="button" class="view-degree-btn"
-                                onclick="openDegreeModal('images/bacher-degree.png')">
-                                View Degree
-                            </button>
+
+                        <div class="edu-card-body-v2">
+                            <p class="edu-desc-v2">
+                                Pursuing postgraduate specialization in Software Engineering, Enterprise Java Spring Boot microservices, Cloud Architecture, and advanced full-stack web application development.
+                            </p>
+                            <div class="edu-spec-tags">
+                                <span class="e-tag">Software Engineering</span>
+                                <span class="e-tag">Java Full-Stack</span>
+                                <span class="e-tag">Cloud & Microservices</span>
+                                <span class="e-tag">Database Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Entry 2: Bachelor's Degree -->
+                <div class="edu-timeline-item-v2" data-aos="fade-up" data-aos-delay="150">
+                    <div class="edu-node-box">
+                        <div class="edu-node-icon completed-node">
+                            <i class='bx bx-award'></i>
+                        </div>
+                    </div>
+
+                    <div class="edu-card-v2">
+                        <div class="edu-card-header-v2">
+                            <div class="edu-inst-box">
+                                <div class="edu-brand-icon marwadi-edu-glow">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <span class="edu-year-tag"><i class='bx bx-calendar'></i> 2022 - 2025</span>
+                                    <h3 class="edu-degree-title">Bachelor of Computer Applications (BCA)</h3>
+                                    <p class="edu-institution-name">Marwadi University, Rajkot</p>
+                                </div>
+                            </div>
+                            <div class="edu-header-actions">
+                                <span class="edu-status-pill completed"><i class='bx bx-check-double'></i> Graduated</span>
+                                <button type="button" class="edu-degree-view-pill" onclick="openDegreeModal('images/bachelors-degree.png')" aria-label="View Bachelor's Degree Certificate">
+                                    <i class='bx bx-show-alt pill-icon-pulse'></i>
+                                    <span>View Degree</span>
+                                    <i class='bx bx-export pill-arrow'></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="edu-card-body-v2">
+                            <p class="edu-desc-v2">
+                                Graduated with core grounding in Computer Science fundamentals, Object-Oriented Programming (Java/Python), Data Structures & Algorithms, Web Technologies, and Relational Database Systems.
+                            </p>
+                            <div class="edu-spec-tags">
+                                <span class="e-tag">Computer Science</span>
+                                <span class="e-tag">Data Structures</span>
+                                <span class="e-tag">Relational MySQL</span>
+                                <span class="e-tag">OOP & Algorithms</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1201,114 +1601,160 @@
         </div>
     </section>
 
+    <!-- ==========================================================
+     GET IN TOUCH / CONTACT SECTION
+    =========================================================== -->
     <section class="contact" id="contact">
         <div class="contact-bg">
             <div class="gradient-orb orb-4"></div>
             <div class="gradient-orb orb-5"></div>
         </div>
+
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="subtitle">Get In Touch</span>
-                <h2 class="heading">Contact <span class="highlight">Me</span></h2>
+                <span class="subtitle">Let's Connect</span>
+                <h2 class="heading">Get In <span class="highlight">Touch</span></h2>
+                <p class="skills-section-desc">
+                    Have a project in mind, an opportunity to discuss, or just want to connect? Send me a message below!
+                </p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Let's Talk About Your Project</h3>
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                        vision.</p>
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="icon">
-                                <i class='bx bx-envelope'></i>
+
+            <div class="contact-grid-v2">
+                <!-- Left: Contact Details & Social Links -->
+                <div class="contact-info-v2" data-aos="fade-right">
+                    <h3 class="contact-subtitle-v2">Let's Build Something Amazing</h3>
+                    <p class="contact-intro-v2">
+                        I am currently seeking full-stack engineering roles and project collaborations. Feel free to reach out directly via email, phone, or LinkedIn!
+                    </p>
+
+                    <div class="contact-cards-grid-v2">
+                        <!-- Email Card -->
+                        <a href="mailto:mihirbhayani0811@outlook.com" class="contact-card-v2 email-card-glow" data-aos="fade-up" data-aos-delay="100">
+                            <span class="card-shine"></span>
+                            <div class="contact-brand-icon c-glow-email">
+                                <i class='bx bx-envelope icon-pulse'></i>
                             </div>
-                            <div class="text">
-                                <h4>Email</h4>
-                                <p>mihirbhayani0811@outlook.com</p>
+                            <div class="contact-card-text">
+                                <span class="c-label">Email Address</span>
+                                <h4 class="c-value">mihirbhayani0811@outlook.com</h4>
+                            </div>
+                            <i class='bx bx-chevron-right c-arrow'></i>
+                        </a>
+
+                        <!-- Phone Card -->
+                        <a href="tel:+919510457100" class="contact-card-v2 phone-card-glow" data-aos="fade-up" data-aos-delay="200">
+                            <span class="card-shine"></span>
+                            <div class="contact-brand-icon c-glow-phone">
+                                <i class='bx bx-phone-call icon-pulse'></i>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="c-label">Phone & WhatsApp</span>
+                                <h4 class="c-value">+91 95104 57100</h4>
+                            </div>
+                            <i class='bx bx-chevron-right c-arrow'></i>
+                        </a>
+
+                        <!-- Location Card -->
+                        <div class="contact-card-v2 location-card-glow" data-aos="fade-up" data-aos-delay="300">
+                            <span class="card-shine"></span>
+                            <div class="contact-brand-icon c-glow-location">
+                                <i class='bx bx-map-pin icon-pulse'></i>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="c-label">Current Location</span>
+                                <h4 class="c-value">Pune, Maharashtra, India</h4>
                             </div>
                         </div>
-                        <div class="info-card">
-                            <div class="icon">
-                                <i class='bx bx-phone'></i>
+
+                        <!-- Availability Card -->
+                        <div class="contact-card-v2 status-card-glow" data-aos="fade-up" data-aos-delay="400">
+                            <span class="card-shine"></span>
+                            <div class="contact-brand-icon c-glow-status">
+                                <i class='bx bx-briefcase-alt-2 icon-pulse'></i>
                             </div>
-                            <div class="text">
-                                <h4>Phone</h4>
-                                <p>+91 95104 57100</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="icon">
-                                <i class='bx bx-map'></i>
-                            </div>
-                            <div class="text">
-                                <h4>Location</h4>
-                                <p>Pune, Maharashtra, India</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="icon">
-                                <i class='bx bx-time'></i>
-                            </div>
-                            <div class="text">
-                                <h4>Availability</h4>
-                                <p>Freshers</p>
+                            <div class="contact-card-text">
+                                <span class="c-label">Work Status</span>
+                                <span class="contact-status-chip">
+                                    <span class="live-status-dot"></span>
+                                    <span>Available for Roles</span>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-social-wrapper">
-                        <h4><i class='bx bx-share-alt'></i> Follow Me</h4>
-                        <div class="social-links">
-                            <a href="https://github.com/mihirpatel0811" class="social-link github" data-tooltip="GitHub"
-                                aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                                <i class='bx bxl-github'></i>
+
+                    <!-- Social Connect -->
+                    <div class="contact-social-bar-v2" data-aos="fade-up" data-aos-delay="450">
+                        <span class="social-bar-title"><i class='bx bx-share-alt animated-share-icon'></i> Connect Across Platforms</span>
+                        <div class="social-links-v2">
+                            <a href="https://github.com/mihirpatel0811" class="social-pill github" data-tooltip="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-github social-brand-icon'></i>
+                                <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-link linkedin"
-                                data-tooltip="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                                <i class='bx bxl-linkedin'></i>
+                            <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" class="social-pill linkedin" data-tooltip="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-linkedin social-brand-icon'></i>
+                                <span>LinkedIn</span>
                             </a>
-                            <a href="https://wa.me/9510457100" class="social-link whatsapp" data-tooltip="WhatsApp"
-                                aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                                <i class='bx bxl-whatsapp'></i>
+                            <a href="https://wa.me/9510457100" class="social-pill whatsapp" data-tooltip="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                                <span class="pill-shine"></span>
+                                <i class='bx bxl-whatsapp social-brand-icon'></i>
+                                <span>WhatsApp</span>
                             </a>
-                            <a href="mailto:mihirbhayani0811@outlook.com" class="social-link email" data-tooltip="Email"
-                                aria-label="Email">
-                                <i class='bx bx-envelope'></i>
+                            <a href="mailto:mihirbhayani0811@outlook.com" class="social-pill email" data-tooltip="Email" aria-label="Email">
+                                <span class="pill-shine"></span>
+                                <i class='bx bx-envelope social-brand-icon'></i>
+                                <span>Email</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <div class="input-wrapper">
-                                <input type="text" id="name" name="name" required>
-                                <label for="name">Your Name</label>
-                                <i class='bx bx-user'></i>
+
+                <!-- Right: Glassmorphic Contact Form -->
+                <div class="contact-form-card-v2" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="form-card-title"><i class='bx bx-paper-plane'></i> Send A Message</h3>
+                    <form class="contact-form-v2" id="contactForm">
+                        <div class="form-group-v2">
+                            <label for="name" class="input-label-v2">Your Full Name <span class="label-asterisk">*</span></label>
+                            <div class="input-field-wrapper-v2">
+                                <i class='bx bx-user field-icon'></i>
+                                <input type="text" id="name" name="name" placeholder="e.g. Alex Morgan" required>
+                                <span class="field-focus-line"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-wrapper">
-                                <input type="email" id="email" name="email" required>
-                                <label for="email">Email ID</label>
-                                <i class='bx bx-envelope'></i>
+
+                        <div class="form-group-v2">
+                            <label for="email" class="input-label-v2">Your Email Address <span class="label-asterisk">*</span></label>
+                            <div class="input-field-wrapper-v2">
+                                <i class='bx bx-envelope field-icon'></i>
+                                <input type="email" id="email" name="email" placeholder="e.g. alex@example.com" required>
+                                <span class="field-focus-line"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-wrapper">
-                                <input type="text" id="subject" name="subject" required>
-                                <label for="subject">Subject</label>
-                                <i class='bx bx-subject'></i>
+
+                        <div class="form-group-v2">
+                            <label for="subject" class="input-label-v2">Subject <span class="label-asterisk">*</span></label>
+                            <div class="input-field-wrapper-v2">
+                                <i class='bx bx-detail field-icon'></i>
+                                <input type="text" id="subject" name="subject" placeholder="e.g. Full-Stack Role / Project Inquiry" required>
+                                <span class="field-focus-line"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-wrapper">
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                                <label for="message">Message....</label>
-                                <i class='bx bx-message'></i>
+
+                        <div class="form-group-v2">
+                            <label for="message" class="input-label-v2">Message <span class="label-asterisk">*</span></label>
+                            <div class="input-field-wrapper-v2">
+                                <i class='bx bx-message-square-detail field-icon textarea-icon'></i>
+                                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                                <span class="field-focus-line"></span>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span>Send Message</span>
-                            <i class='bx bx-send'></i>
+
+                        <button type="submit" class="contact-submit-btn-animated">
+                            <span class="btn-shine-sweep"></span>
+                            <i class='bx bx-paper-plane send-paper-plane'></i>
+                            <span class="btn-label-text">Send Message</span>
+                            <i class='bx bx-right-arrow-alt send-arrow-slide'></i>
                         </button>
                     </form>
                 </div>
@@ -1316,28 +1762,113 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- ==========================================================
+     REDESIGNED FOOTER SECTION V2
+    =========================================================== -->
+    <footer class="footer-v2">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <h3>Mihir <span>Bhayani</span></h3>
-                    <p>Full-Stack Developer crafting premium web experiences.</p>
+            <!-- CTA Floating Banner -->
+            <div class="footer-cta-card" data-aos="fade-up">
+                <div class="cta-text">
+                    <span class="cta-subtitle"><i class='bx bxs-zap'></i> Let's Collaborate</span>
+                    <h3 class="cta-title">Have an exciting project or hiring opportunity?</h3>
                 </div>
-                <div class="footer-nav">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#certifications">Certificates</a>
-                    <a href="#badges">Badges</a>
-                    <a href="#education">Education</a>
-                    <a href="#contact">Contact</a>
+                <a href="#contact" class="footer-cta-btn">
+                    <span class="cta-btn-shine"></span>
+                    <span>Let's Talk</span>
+                    <i class='bx bx-paper-plane cta-plane-icon'></i>
+                </a>
+            </div>
+
+            <!-- Footer 4-Column Grid -->
+            <div class="footer-grid-v2">
+                <!-- Column 1: Brand & Bio -->
+                <div class="footer-col brand-col">
+                    <div class="footer-brand-v2">
+                        <h3>Mihir <span class="highlight">Bhayani</span></h3>
+                        <span class="footer-status-pill">
+                            <span class="live-dot-green"></span>
+                            <span>Open for Roles</span>
+                        </span>
+                    </div>
+                    <p class="footer-bio-v2">
+                        Full-Stack Java Software Engineer crafting high-performance enterprise applications, cloud microservices, and modern web experiences.
+                    </p>
+                    <div class="footer-social-v2">
+                        <a href="https://github.com/mihirpatel0811" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="f-social-icon github">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mihir-bhayani-6777352b1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="f-social-icon linkedin">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://wa.me/9510457100" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="f-social-icon whatsapp">
+                            <i class='bx bxl-whatsapp'></i>
+                        </a>
+                        <a href="mailto:mihirbhayani0811@outlook.com" aria-label="Email" class="f-social-icon email">
+                            <i class='bx bx-envelope'></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Navigation Links -->
+                <div class="footer-col nav-col">
+                    <h4 class="f-col-title"><i class='bx bx-navigation'></i> Quick Links</h4>
+                    <ul class="footer-nav-v2">
+                        <li><a href="#home"><i class='bx bx-chevron-right'></i> Home</a></li>
+                        <li><a href="#about"><i class='bx bx-chevron-right'></i> About Me</a></li>
+                        <li><a href="#skills"><i class='bx bx-chevron-right'></i> Tech Skills</a></li>
+                        <li><a href="#projects"><i class='bx bx-chevron-right'></i> Projects</a></li>
+                        <li><a href="#certifications"><i class='bx bx-chevron-right'></i> Certificates</a></li>
+                        <li><a href="#badges"><i class='bx bx-chevron-right'></i> Badges</a></li>
+                        <li><a href="#education"><i class='bx bx-chevron-right'></i> Education</a></li>
+                        <li><a href="#contact"><i class='bx bx-chevron-right'></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Tech Competencies -->
+                <div class="footer-col tech-col">
+                    <h4 class="f-col-title"><i class='bx bx-code-alt'></i> Tech Stack</h4>
+                    <div class="footer-tech-chips">
+                        <span class="f-chip">Java 17</span>
+                        <span class="f-chip">Spring Boot</span>
+                        <span class="f-chip">React.js</span>
+                        <span class="f-chip">REST APIs</span>
+                        <span class="f-chip">MySQL</span>
+                        <span class="f-chip">Git / GitHub</span>
+                        <span class="f-chip">Maven</span>
+                        <span class="f-chip">Microservices</span>
+                    </div>
+                </div>
+
+                <!-- Column 4: Contact Reach -->
+                <div class="footer-col contact-col">
+                    <h4 class="f-col-title"><i class='bx bx-phone-call'></i> Direct Reach</h4>
+                    <div class="f-contact-info">
+                        <a href="mailto:mihirbhayani0811@outlook.com" class="f-contact-item">
+                            <i class='bx bx-envelope'></i>
+                            <span>mihirbhayani0811@outlook.com</span>
+                        </a>
+                        <a href="tel:+919510457100" class="f-contact-item">
+                            <i class='bx bx-phone'></i>
+                            <span>+91 95104 57100</span>
+                        </a>
+                        <div class="f-contact-item">
+                            <i class='bx bx-map-pin'></i>
+                            <span>Pune, Maharashtra, India</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-divider"></div>
-            <div class="footer-bottom">
+
+            <!-- Divider -->
+            <div class="footer-divider-v2"></div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom-v2">
                 <p>&copy; 2026 Mihir Bhayani. All rights reserved.</p>
-                <p class="footer-note">Crafted with <i class='bx bxs-heart' style="color: #ec4899;"></i> and Passion</p>
+                <p class="footer-credit-v2">
+                    Crafted with <i class='bx bxs-heart heart-pulse-icon'></i> and Java Full-Stack Passion
+                </p>
             </div>
         </div>
     </footer>
@@ -1362,7 +1893,7 @@
                 aria-label="Close certificate preview">
                 <i class='bx bx-x'></i>
             </button>
-            <img src="images/bacher-degree.png" alt="Bachelor's Degree" id="modalImage">
+            <img src="images/bachelors-degree.png" alt="Bachelor's Degree" id="modalImage">
         </div>
     </div>
 

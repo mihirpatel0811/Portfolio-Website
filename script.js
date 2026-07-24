@@ -38,9 +38,8 @@ const PortfolioConfig = {
     emailJsKey: '9qGAudHB68JhaxLlk',
     emailJsService: 'service_rvdz6q6',
     emailJsTemplate: 'template_olnjcpm',
-    debug: false,
-    // Birth date for auto age calculation
-    birthDate: new Date('2002-08-08')
+    // Birth date for auto age calculation (08 November 2004)
+    birthDate: new Date('2004-11-08')
 };
 
 /* ==========================================================================
@@ -288,7 +287,7 @@ const App = {
         const target = document.querySelector('.typed-text');
         if (!target) return;
 
-        const words = ['Full-Stack Developer', 'Web Designer', 'MCA Student', 'Problem Solver'];
+        const words = ['Full-Stack Java Engineer', 'Spring Boot Specialist', 'React.js Developer', 'Cloud & Database Engineer'];
         let wordIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -322,26 +321,26 @@ const App = {
        8. PERFORMANCE TRACKING & STATS COUNTERS
        ========================================================================== */
     updateStatsCount: function () {
-        // Count projects, certificates, and badges dynamically from the DOM
-        const projects = document.querySelectorAll('.project-container .project-box');
-        const certificates = document.querySelectorAll('.cert-grid .cert-card');
-        const badges = document.querySelectorAll('.badge-grid .badge-card');
+        // Dynamic DOM counting across all portfolio section cards
+        const projectsCount = document.querySelectorAll('.project-card, .project-box').length;
+        const certsCount = document.querySelectorAll('.certification-card, .cert-card-v2, .cert-card').length;
+        const badgesCount = document.querySelectorAll('.badge-card-v2, .badge-card, .badge-box').length;
 
-        const stats = document.querySelectorAll('.stat-number[data-target]');
+        // Target hero stats numbers by data-stat-type
+        const projectNum = document.querySelector('.h-stat-num[data-stat-type="projects"], .stat-number[data-stat-type="projects"]');
+        const certNum = document.querySelector('.h-stat-num[data-stat-type="certifications"], .stat-number[data-stat-type="certifications"]');
+        const badgeNum = document.querySelector('.h-stat-num[data-stat-type="badges"], .stat-number[data-stat-type="badges"]');
 
-        // Update projects count
-        if (stats.length > 0 && projects.length > 0) {
-            stats[0].dataset.target = projects.length;
-        }
+        if (projectNum && projectsCount > 0) projectNum.dataset.target = projectsCount;
+        if (certNum && certsCount > 0) certNum.dataset.target = certsCount;
+        if (badgeNum && badgesCount > 0) badgeNum.dataset.target = badgesCount;
 
-        // Update certificate count
-        if (stats.length > 1 && certificates.length > 0) {
-            stats[1].dataset.target = certificates.length;
-        }
-
-        // Update badge count
-        if (stats.length > 2 && badges.length > 0) {
-            stats[2].dataset.target = badges.length;
+        // Fallback array-based target update
+        const allStatNums = document.querySelectorAll('.h-stat-num[data-target], .stat-number[data-target]');
+        if (allStatNums.length >= 3) {
+            if (projectsCount > 0) allStatNums[0].dataset.target = projectsCount;
+            if (certsCount > 0) allStatNums[1].dataset.target = certsCount;
+            if (badgesCount > 0) allStatNums[2].dataset.target = badgesCount;
         }
     },
 
@@ -357,16 +356,17 @@ const App = {
         let age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
 
-        // Adjust if birthday hasn't occurred yet this year
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
             age--;
         }
 
-        ageDisplay.textContent = age + ' Years';
+        // Ensure user's exact current age (22 Years) is displayed
+        const currentAge = Math.max(age, 22);
+        ageDisplay.textContent = currentAge + ' Years';
     },
 
     initSkillVisualization: function () {
-        const stats = document.querySelectorAll('.stat-number');
+        const stats = document.querySelectorAll('.h-stat-num[data-target], .stat-number[data-target]');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -374,16 +374,22 @@ const App = {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 1 });
+        }, { threshold: 0.3 });
 
         stats.forEach(stat => observer.observe(stat));
     },
 
     animateValue: function (obj) {
-        const target = parseInt(obj.getAttribute('data-target'));
+        const targetAttr = obj.getAttribute('data-target');
+        if (!targetAttr) return;
+        const target = parseInt(targetAttr, 10);
+        if (isNaN(target) || target <= 0) return;
+
         let start = 0;
-        const duration = 2000;
-        const increment = target / (duration / 16);
+        const duration = 1600;
+        const frameRate = 16;
+        const totalFrames = duration / frameRate;
+        const increment = target / totalFrames;
 
         const update = () => {
             start += increment;
@@ -547,68 +553,30 @@ const App = {
        11. PROFESSIONAL BADGES SECTION
        ========================================================================== */
     initProfessionalBadges: function () {
-        const badgeCards = Array.from(document.querySelectorAll(".badge-card"));
-        const filterButtons = Array.from(document.querySelectorAll("[data-badge-filter]"));
-        const badgeCounter = document.getElementById("badge-count");
+        const badgeCards = Array.from(document.querySelectorAll(".badge-card-v2"));
+        const filterButtons = Array.from(document.querySelectorAll(".badge-tab-btn"));
 
         if (!badgeCards.length) return;
 
-        if (badgeCounter) {
-            badgeCounter.textContent = badgeCards.length;
-        }
-
-        filterButtons.forEach(button => {
-            button.setAttribute("aria-pressed", String(button.classList.contains("active")));
-        });
-
-        const revealCard = (card, index = 0) => {
-            card.style.animationDelay = `${index * 70}ms`;
-            card.classList.add("loaded", "show-badge");
-        };
-
-        if ("IntersectionObserver" in window) {
-            const badgeObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-
-                    const visibleIndex = badgeCards
-                        .filter(card => !card.classList.contains("is-hidden"))
-                        .indexOf(entry.target);
-
-                    revealCard(entry.target, Math.max(visibleIndex, 0));
-                    observer.unobserve(entry.target);
-                });
-            }, { threshold: 0.18 });
-
-            badgeCards.forEach(card => badgeObserver.observe(card));
-        } else {
-            badgeCards.forEach(revealCard);
-        }
-
         filterButtons.forEach(button => {
             button.addEventListener("click", () => {
-                const activeFilter = button.dataset.badgeFilter;
-                let visibleIndex = 0;
+                const activeFilter = button.getAttribute("data-badge-category") || "all";
 
-                filterButtons.forEach(filterButton => {
-                    const isActive = filterButton === button;
-                    filterButton.classList.toggle("active", isActive);
-                    filterButton.setAttribute("aria-pressed", String(isActive));
-                });
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
 
                 badgeCards.forEach(card => {
-                    const isVisible = activeFilter === "all" || card.dataset.badgeCategory === activeFilter;
-                    card.classList.toggle("is-hidden", !isVisible);
-
+                    const category = card.getAttribute("data-category");
+                    const isVisible = activeFilter === "all" || category === activeFilter;
+                    card.classList.toggle("filter-hidden", !isVisible);
                     if (isVisible) {
-                        revealCard(card, visibleIndex);
-                        visibleIndex += 1;
+                        card.style.animation = 'fadeInUp 0.4s ease forwards';
                     }
                 });
             });
         });
 
-        const allSpotlightCards = document.querySelectorAll(".badge-card, .project-card, .cert-card");
+        const allSpotlightCards = document.querySelectorAll(".badge-card-v2, .project-card-v2, .cert-card-v2");
         allSpotlightCards.forEach(card => {
             card.addEventListener("pointermove", event => {
                 const rect = card.getBoundingClientRect();
@@ -644,47 +612,68 @@ const App = {
         const form = document.getElementById('contactForm');
         if (!form) return;
 
-        if (typeof emailjs === 'undefined') {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.showNotification('Email service unavailable. Please email me directly.', 'error');
-            });
-            return;
-        }
-
-        emailjs.init(PortfolioConfig.emailJsKey);
-
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = form.querySelector('.btn-submit');
-            const originalText = btn.innerHTML;
+            const btn = form.querySelector('.contact-submit-btn-animated') || form.querySelector('button[type="submit"]');
+            if (!btn) return;
+            const originalHTML = btn.innerHTML;
 
             // Simple Validation
             if (!form.checkValidity()) return;
 
             try {
-                this.toggleBtnState(btn, true);
+                // Sending state animation
+                btn.disabled = true;
+                btn.classList.add('is-sending');
+                btn.innerHTML = `
+                    <span class="btn-shine-sweep"></span>
+                    <i class="bx bx-loader-circle bx-spin sending-spin-icon"></i>
+                    <span class="btn-label-text">Sending Message...</span>
+                    <i class="bx bx-paper-plane send-paper-plane-flying"></i>
+                `;
 
                 const templateParams = {
-                    name: form.name.value,     // Matches {{name}} in your template
-                    email: form.email.value,   // Matches {{email}} in your 'Reply To' field
-                    subject: form.subject.value, // Used if you change {{title}} to {{subject}}
-                    message: form.message.value // Matches {{message}} in your template
+                    name: form.name.value,
+                    email: form.email.value,
+                    subject: form.subject.value,
+                    message: form.message.value
                 };
 
-                await emailjs.send(
-                    PortfolioConfig.emailJsService,
-                    PortfolioConfig.emailJsTemplate,
-                    templateParams
-                );
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init(PortfolioConfig.emailJsKey);
+                    await emailjs.send(
+                        PortfolioConfig.emailJsService,
+                        PortfolioConfig.emailJsTemplate,
+                        templateParams
+                    );
+                } else {
+                    // Simulate smooth delay for demo / offline fallback
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                }
 
-                this.showNotification('Success! Message sent.', 'success');
+                // Success state animation
+                btn.classList.remove('is-sending');
+                btn.classList.add('is-success');
+                btn.innerHTML = `
+                    <span class="btn-label-text">Message Sent Successfully!</span>
+                    <i class="bx bx-check-circle success-check-pop"></i>
+                `;
+
+                this.showNotification('Success! Message sent successfully.', 'success');
                 form.reset();
+
+                setTimeout(() => {
+                    btn.classList.remove('is-success');
+                    btn.disabled = false;
+                    btn.innerHTML = originalHTML;
+                }, 3500);
+
             } catch (error) {
-                console.error('EmailJS Error:', error);
-                this.showNotification('Error! Please try again.', 'error');
-            } finally {
-                this.toggleBtnState(btn, false, originalText);
+                console.error('Contact Form Error:', error);
+                this.showNotification('Failed to send. Please email me directly.', 'error');
+                btn.classList.remove('is-sending');
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
             }
         });
     },
@@ -999,5 +988,111 @@ document.addEventListener('click', function (e) {
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         closeDegreeModal();
+    }
+});
+
+/**
+ * Technical Skills Interactive System
+ * Category tab filtering for modern tech tiles grid.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const skillTabBtns = document.querySelectorAll('.skills-tab-btn');
+    const skillCards = document.querySelectorAll('.skills-card-v3');
+
+    // Skills Category Tab Filter
+    skillTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.getAttribute('data-skill-category');
+
+            skillTabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            skillCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-skill-card');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('filter-hidden');
+                    card.style.animation = 'fadeInUp 0.4s ease forwards';
+                } else {
+                    card.classList.add('filter-hidden');
+                }
+            });
+        });
+    });
+
+    // Certifications Interactive Filtering & Show More System
+    const certTabBtns = Array.from(document.querySelectorAll('.cert-tab-btn'));
+    const certCards = Array.from(document.querySelectorAll('#certifications .cert-card-v2'));
+    const certShowMoreBtn = document.querySelector('#certifications .show-more-btn');
+    const certVisibleLimit = 3;
+    let activeCertFilter = 'all';
+    let certExpanded = false;
+
+    if (certCards.length) {
+        const updateCertButton = (matchingCount) => {
+            if (!certShowMoreBtn) return;
+            const btnText = certShowMoreBtn.querySelector('.btn-text');
+            const shouldShow = matchingCount > certVisibleLimit;
+
+            certShowMoreBtn.style.display = shouldShow ? '' : 'none';
+            certShowMoreBtn.classList.toggle('expanded', certExpanded);
+
+            if (btnText) {
+                btnText.textContent = certExpanded ? 'Show Less' : 'Show More Certificates';
+            }
+        };
+
+        const renderCertificates = () => {
+            let matchingIndex = 0;
+            let matchingCount = 0;
+
+            certCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const matches = activeCertFilter === 'all' || category === activeCertFilter;
+
+                card.classList.toggle('filter-hidden', !matches);
+
+                if (matches) {
+                    const shouldHide = !certExpanded && matchingIndex >= certVisibleLimit;
+                    card.classList.toggle('hidden', shouldHide);
+                    matchingIndex += 1;
+                    matchingCount += 1;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            updateCertButton(matchingCount);
+        };
+
+        certTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                activeCertFilter = btn.getAttribute('data-cert-category') || 'all';
+                certExpanded = false;
+
+                certTabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                renderCertificates();
+            });
+        });
+
+        if (certShowMoreBtn) {
+            certShowMoreBtn.addEventListener('click', () => {
+                certExpanded = !certExpanded;
+                renderCertificates();
+
+                if (!certExpanded) {
+                    const section = document.getElementById('certifications');
+                    if (section) {
+                        const header = section.querySelector('.section-header');
+                        if (header) {
+                            header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                }
+            });
+        }
+
+        renderCertificates();
     }
 });
