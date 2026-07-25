@@ -173,18 +173,10 @@ const App = {
                 body.classList.add('dark-mode');
                 document.documentElement.classList.add('dark-mode');
                 document.documentElement.setAttribute('data-theme', 'dark');
-                if (themeToggle) {
-                    const icon = themeToggle.querySelector('i');
-                    if (icon) icon.className = 'bx bx-sun';
-                }
             } else {
                 body.classList.remove('dark-mode');
                 document.documentElement.classList.remove('dark-mode');
                 document.documentElement.setAttribute('data-theme', 'light');
-                if (themeToggle) {
-                    const icon = themeToggle.querySelector('i');
-                    if (icon) icon.className = 'bx bx-moon';
-                }
             }
         };
 
@@ -705,30 +697,38 @@ const App = {
        ========================================================================== */
     initScrollEngine: function () {
         const scrollTopBtn = document.getElementById('scrollTop');
+        if (!scrollTopBtn) return;
 
-        // Scroll Progress Bar
-        const progressBar = document.createElement('div');
-        progressBar.className = 'scroll-progress-bar';
-        progressBar.style.cssText = `
-            position: fixed; top: 0; left: 0; height: 4px; 
-            background: var(--gradient-primary); z-index: 9999; transition: width 0.1s;
-        `;
-        document.body.appendChild(progressBar);
+        const progressPath = scrollTopBtn.querySelector('path');
+        let pathLength = 0;
+        if (progressPath) {
+            pathLength = progressPath.getTotalLength();
+            progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+            progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+            progressPath.style.strokeDashoffset = pathLength;
+            progressPath.getBoundingClientRect();
+            progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+        }
 
-        window.addEventListener('scroll', () => {
-            // Update Progress Bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const updateProgress = () => {
+            const scroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-
-            // Show/Hide Top Button
-            if (window.scrollY > 500) {
+            
+            // Show/Hide Scroll-to-top Button
+            if (scroll > 150) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
             }
-        });
+
+            if (progressPath && height > 0) {
+                const progress = pathLength - (scroll * pathLength / height);
+                progressPath.style.strokeDashoffset = progress;
+            }
+        };
+
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
 
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
