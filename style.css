@@ -3159,6 +3159,34 @@ body.dark-mode .cert-title-v2 {
   white-space: nowrap;
 }
 
+.cert-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cert-issued-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--primary-600);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+body.dark-mode .cert-issued-tag {
+  color: var(--primary-400);
+  background: rgba(129, 140, 248, 0.12);
+  border-color: rgba(129, 140, 248, 0.25);
+}
+
 /* Certificate Banner Box */
 .cert-banner-box {
   position: relative;
@@ -3656,6 +3684,15 @@ body.dark-mode .cert-embed {
 
 .dpu {
   background: linear-gradient(135deg, #700018, #f89820);
+}
+
+.be10x {
+  background: linear-gradient(135deg, #09090b, #27272a);
+}
+
+.be10x-glow {
+  background: linear-gradient(135deg, #0f172a, #0284c7, #38bdf8);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
 }
 
 /* Project specific layout */
