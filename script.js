@@ -62,7 +62,7 @@ const App = {
         this.initNavigation();
         this.updateStatsCount();
         this.updateAge(); // Auto calculate age based on birth date
-        this.initLocationSystem(); // Automatic live location detection
+        this.initLocationSystem(); // Apply manual base location
         this.initVisualEffects();
         this.initContentLogic();
         this.initFormHandlers();
@@ -360,76 +360,18 @@ const App = {
     },
 
     /* ==========================================================================
-       AUTOMATIC GEOLOCATION SYSTEM
-       Format: (main area name, city name, state name and country name)
+       MANUAL LOCATION DISPLAY SYSTEM
+       Set manual location in PortfolioConfig.baseLocation or directly in index.html
        ========================================================================== */
     initLocationSystem: function () {
         const locationElements = document.querySelectorAll('#about-location-display, #about-bio-location-display, #contact-location-display, #footer-location-display, [data-location-display]');
         if (!locationElements.length) return;
 
-        const baseLocation = PortfolioConfig.baseLocation || 'Pune, Maharashtra, India';
-
-        const updateLocationUI = (locationStr) => {
-            if (!locationStr) return;
+        if (PortfolioConfig.baseLocation) {
             locationElements.forEach(el => {
-                el.textContent = locationStr;
+                el.textContent = PortfolioConfig.baseLocation;
             });
-        };
-
-        // Initialize immediately with true base location (Pune, Maharashtra, India)
-        updateLocationUI(baseLocation);
-
-        const formatLocationString = (city, state, country) => {
-            const clean = (s) => (s || '').trim().replace(/^(district|taluka|tehsil)\s+/i, '').replace(/\s+/g, ' ');
-            let c = clean(city);
-            const st = clean(state);
-            const co = clean(country);
-
-            // Normalize local Pune suburbs / PCMC to Pune
-            if (/pimpri|chinchwad|tathawade|wakad|hinjewadi|baner|hadapsar|kothrud|haveli/i.test(c)) {
-                c = 'Pune';
-            }
-
-            const parts = [];
-
-            if (c) parts.push(c);
-            if (st && st.toLowerCase() !== c.toLowerCase()) parts.push(st);
-            if (co) parts.push(co);
-
-            return parts.join(', ');
-        };
-
-        // Device GPS Geolocation (Only runs if user explicitly allows GPS positioning)
-        const fetchGPSLocation = () => {
-            if ('geolocation' in navigator) {
-                navigator.geolocation.getCurrentPosition(
-                    async (position) => {
-                        const { latitude, longitude } = position.coords;
-                        try {
-                            const bdcUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
-                            const res = await fetch(bdcUrl);
-                            if (res.ok) {
-                                const data = await res.json();
-                                const rawCity = data.city || data.locality || '';
-                                const state = data.principalSubdivision || 'Maharashtra';
-                                const country = data.countryName || 'India';
-
-                                const formatted = formatLocationString(rawCity, state, country);
-                                if (formatted) updateLocationUI(formatted);
-                            }
-                        } catch (err) {
-                            // Retain Pune, Maharashtra, India
-                        }
-                    },
-                    (error) => {
-                        // User declined or GPS timeout: retain Pune, Maharashtra, India
-                    },
-                    { timeout: 8000, maximumAge: 300000, enableHighAccuracy: true }
-                );
-            }
-        };
-
-        fetchGPSLocation();
+        }
     },
 
     initSkillVisualization: function () {
