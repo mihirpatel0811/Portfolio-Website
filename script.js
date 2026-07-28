@@ -478,6 +478,12 @@ const App = {
                 if (matches) {
                     const shouldHide = !expanded && matchingIndex >= visibleLimit;
                     project.classList.toggle('hidden', shouldHide);
+
+                    if (!shouldHide) {
+                        project.style.animation = 'none';
+                        void project.offsetWidth; // trigger reflow
+                        project.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${matchingIndex * 0.08}s forwards`;
+                    }
                     matchingIndex += 1;
                     matchingCount += 1;
                 } else {
@@ -585,7 +591,7 @@ const App = {
             });
         });
 
-        const allSpotlightCards = document.querySelectorAll(".badge-card-v2, .project-card-v2, .cert-card-v2");
+        const allSpotlightCards = document.querySelectorAll(".badge-card-v2, .project-card-v2, .project-card-v3, .cert-card-v2");
         allSpotlightCards.forEach(card => {
             card.addEventListener("pointermove", event => {
                 const rect = card.getBoundingClientRect();
@@ -999,14 +1005,248 @@ document.addEventListener('click', function (e) {
     if (modal && e.target === modal) {
         closeDegreeModal();
     }
+
+    const projectModal = document.getElementById('projectModal');
+    if (projectModal && e.target === projectModal) {
+        closeProjectModal();
+    }
 });
 
 // Close modal on Escape key
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         closeDegreeModal();
+        closeProjectModal();
     }
 });
+
+/* ==========================================================================
+   PROJECT DETAILS MODAL SYSTEM & COMPREHENSIVE METADATA
+   ========================================================================== */
+const ProjectsData = {
+    'billbuddy': {
+        name: 'BillBuddy',
+        subtitle: 'Energy & Utility Analytics Platform',
+        category: 'Python / Analytics',
+        badgeClass: 'python-badge',
+        level: 'Intermediate / Full-Stack',
+        stackType: 'Python / Web Analytics',
+        status: 'Active',
+        image: 'images/projects/billbuddy-energy-estimator.jpg',
+        github: 'https://github.com/mihirpatel0811/Energy-Consumption-Estimator---Python.git',
+        overview: 'Full-stack Energy Consumption Estimator empowering users to calculate monthly power costs across 50+ household and commercial appliances. Designed with an intuitive analytical interface that visualizes peak versus off-peak power usage, tier-based tariff calculations, and interactive cost breakdown charts.',
+        highlights: [
+            'Empowers users to estimate energy bills across 50+ household and commercial appliances accurately.',
+            'Features multi-tier tariff engines with customizable wattage & hourly daily consumption sliders.',
+            'Generates visual analytical charts breaking down high-power appliance consumption trends.'
+        ],
+        features: [
+            'Appliance Wattage Calculator',
+            'Custom Tariff Rate Selector',
+            'Interactive Chart.js Visualizations',
+            'Monthly & Annual Expense Projections',
+            'Exportable PDF Energy Reports',
+            'Smart Energy Saving Recommendations'
+        ],
+        technologies: ['Python', 'Data Analytics', 'Chart.js', 'HTML5 & CSS3', 'JavaScript', 'Flask Framework']
+    },
+    'goparcel': {
+        name: 'GoParcel',
+        subtitle: 'Logistics & Courier Delivery Solution',
+        category: 'Python / Flask',
+        badgeClass: 'python-badge',
+        level: 'Full-Stack Web Application',
+        stackType: 'Python / Flask Stack',
+        status: 'Active',
+        image: 'images/projects/goparcel-courier-service.jpg',
+        github: 'https://github.com/mihirpatel0811/Courier-Service---Python.git',
+        overview: 'Modern Flask-powered courier service logistics platform engineered with a Glassmorphism UI design. Features automated weight and distance pricing algorithms, real-time parcel tracking with status timeline stages, and a centralized booking dashboard.',
+        highlights: [
+            'Built with ultra-modern Glassmorphism UI design, frosted glass aesthetic, and glowing hover states.',
+            'Automates logistics delivery fee calculation based on parcel weight, volume, and destination zone.',
+            'Provides end-to-end shipment lifecycle tracking from dispatch to doorstep delivery.'
+        ],
+        features: [
+            'Dynamic Parcel Price Estimator',
+            'Real-Time Tracking Timeline',
+            'Admin Shipment Management Portal',
+            'Automated Tracking ID Generator',
+            'Responsive Mobile-First Interface',
+            'SQLite Database Schema'
+        ],
+        technologies: ['Python', 'Flask', 'Glassmorphism UI', 'Jinja2 Templates', 'SQLite', 'CSS Grid & Flexbox']
+    },
+    'insurance-ms': {
+        name: 'Insurance Management System',
+        subtitle: 'Enterprise Policy & Claims Platform',
+        category: 'Java / Spring Boot',
+        badgeClass: 'java-badge',
+        level: 'Enterprise / Advanced Backend',
+        stackType: 'Java Enterprise Architecture',
+        status: 'Active',
+        image: 'images/projects/insurance-management-system.jpg',
+        github: 'https://github.com/mihirpatel0811/Insurance-Management-System.git',
+        overview: 'Enterprise Java platform designed to streamline policy administration, customer management, claims processing, and agent assignments through a centralized data-driven architecture. Adheres strictly to Object-Oriented Programming (OOP) principles and enterprise design patterns.',
+        highlights: [
+            'Architected using Spring Boot backend standards with strict MVC patterns and relational database JPA layer.',
+            'Supports multi-role user management (Policyholder, Customer Support Agent, Claims Assessor, Administrator).',
+            'Streamlines policy renewals, customer policy binding, and automated claims audit trails.'
+        ],
+        features: [
+            'Policy Administration Dashboard',
+            'Claim Lifecycle Assessor Engine',
+            'Multi-Role Authentication Portal',
+            'Customer Profile & Policy Binder',
+            'Automated Invoice & Billing Engine',
+            'Relational Schema Data Layer'
+        ],
+        technologies: ['Java', 'Spring Boot', 'OOP Architecture', 'MySQL', 'Hibernate / JPA', 'Thymeleaf UI']
+    },
+    'exam-portal': {
+        name: 'Exam Portal',
+        subtitle: 'Online Assessment & Grading Engine',
+        category: 'React / MERN',
+        badgeClass: 'react-badge',
+        level: 'Advanced / Full-Stack MERN',
+        stackType: 'React.js / Node / MongoDB',
+        status: 'Active',
+        image: 'images/projects/exam-portal.jpg',
+        github: 'https://github.com/mihirpatel0811/exam-portal-project-main.git',
+        overview: 'Full-stack React.js, Express, and MongoDB online assessment platform featuring secure role-based JWT authentication, real-time timed test taking, automated score calculation, anti-cheating mechanisms, and visual analytics dashboards for instructors.',
+        highlights: [
+            'Delivers a seamless real-time examination environment with countdown timers and auto-submit features.',
+            'Comprehensive instructor panel for question bank creation, categorization, and score distribution charts.',
+            'Implements secure JWT token authorization and state persistence across examination sessions.'
+        ],
+        features: [
+            'Timed Online Exam Engine',
+            'Instant Auto-Grading & Scorecard',
+            'Question Bank Categorization',
+            'JWT Secure Multi-Role Portal',
+            'Performance Analytics Dashboard',
+            'Responsive Single-Page App (SPA)'
+        ],
+        technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT Auth', 'RESTful API']
+    },
+    'image-caption': {
+        name: 'Image Caption Generator',
+        subtitle: 'Generative AI & Computer Vision App',
+        category: 'Python / Gemini AI',
+        badgeClass: 'ai-badge',
+        level: 'Advanced / GenAI & Vision',
+        stackType: 'Python / Multimodal AI',
+        status: 'Active',
+        image: 'images/projects/image-caption-generator.jpg',
+        github: 'https://github.com/mihirpatel0811/Image-Caption-Generator.git',
+        overview: 'AI-powered Flask application integrating Google Gemini 2.5 Flash API to analyze user-uploaded media and produce platform-tailored social captions, accessibility alt-text, trending hashtag suggestions, and searchable media descriptions.',
+        highlights: [
+            'Integrates Google Gemini 2.5 Flash Vision API for deep semantic understanding of image contents.',
+            'Generates tailored text across multiple tones: Professional, Casual, Instagram, LinkedIn, and Accessibility Alt-Text.',
+            'Drag-and-drop client interface with live preview, batch processing, and instant clipboard copy.'
+        ],
+        features: [
+            'Multimodal Vision AI Analysis',
+            'Multi-Tone Caption Customization',
+            'Accessibility Alt-Text Generator',
+            'Trending Hashtag Recommender',
+            'One-Click Clipboard Copy',
+            'Drag-and-Drop Image Uploader'
+        ],
+        technologies: ['Gemini 2.5 AI API', 'Python', 'Flask', 'Computer Vision', 'JavaScript', 'REST API']
+    },
+    'product-ms': {
+        name: 'Product Management System',
+        subtitle: 'Inventory & Supply Chain Platform',
+        category: 'PHP / MySQL',
+        badgeClass: 'php-badge',
+        level: 'Intermediate / Database System',
+        stackType: 'PHP / Relational Database',
+        status: 'Active',
+        image: 'images/projects/product-management-system.jpg',
+        github: 'https://github.com/mihirpatel0811/Product-Management-System.git',
+        overview: 'Dynamic PHP & MySQL inventory optimization platform featuring full Create, Read, Update, Delete (CRUD) operations, stock level tracking, category management, and prepared statement database security.',
+        highlights: [
+            'Complete CRUD inventory management built with secure prepared SQL statements.',
+            'Real-time low stock notification system providing visibility into product reorder requirements.',
+            'Clean filterable database table view with instant search and category categorization.'
+        ],
+        features: [
+            'Full CRUD Operations Engine',
+            'Low-Stock Automated Warnings',
+            'Category & Brand Manager',
+            'SQL Injection Protected Backend',
+            'Search & Table Filter Toolbar',
+            'Exportable Inventory Reports'
+        ],
+        technologies: ['PHP', 'MySQL Database', 'Prepared Statements', 'Bootstrap 5', 'JavaScript', 'SQL Queries']
+    }
+};
+
+function openProjectModal(projectId) {
+    const data = ProjectsData[projectId];
+    if (!data) return;
+
+    const modal = document.getElementById('projectModal');
+    if (!modal) return;
+
+    // Populate data
+    document.getElementById('pmImage').src = data.image;
+    document.getElementById('pmImage').alt = data.name + ' preview';
+
+    const catBadge = document.getElementById('pmCategoryBadge');
+    catBadge.textContent = data.category;
+    catBadge.className = 'pm-banner-badge ' + data.badgeClass;
+
+    document.getElementById('pmSubtitle').innerHTML = `<i class='bx bx-layer'></i> ${data.subtitle}`;
+    document.getElementById('pmTitle').textContent = data.name;
+    document.getElementById('pmStatus').innerHTML = `<i class='bx bx-check-circle'></i> ${data.status}`;
+
+    document.getElementById('pmCategory').textContent = data.category;
+    document.getElementById('pmLevel').textContent = data.level;
+    document.getElementById('pmStackType').textContent = data.stackType;
+
+    document.getElementById('pmOverview').textContent = data.overview;
+
+    // Populate Highlights
+    const highlightsContainer = document.getElementById('pmHighlights');
+    highlightsContainer.innerHTML = data.highlights.map(item => `
+        <div class="pm-highlight-item">
+            <i class='bx bx-check-circle pm-hl-icon'></i>
+            <span>${item}</span>
+        </div>
+    `).join('');
+
+    // Populate Features
+    const featuresContainer = document.getElementById('pmFeatures');
+    featuresContainer.innerHTML = data.features.map(item => `
+        <div class="pm-feature-item">
+            <i class='bx bx-star pm-ft-icon'></i>
+            <span>${item}</span>
+        </div>
+    `).join('');
+
+    // Populate Tech Tags
+    const techContainer = document.getElementById('pmTechTags');
+    techContainer.innerHTML = data.technologies.map(tech => `
+        <span class="pm-tech-badge">${tech}</span>
+    `).join('');
+
+    // Populate GitHub link
+    const githubBtn = document.getElementById('pmGithubBtn');
+    githubBtn.href = data.github;
+
+    // Show modal with animation
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
 
 /**
  * Technical Skills Interactive System
@@ -1112,4 +1352,322 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderCertificates();
     }
+});
+
+/* ==========================================================================
+   CERTIFICATE DETAILS MODAL DIALOG SYSTEM
+   ========================================================================== */
+const CertsData = {
+    'ai-tools-workshop': {
+        title: 'AI Tools & ChatGPT Workshop',
+        issuer: 'be10x',
+        category: 'AI & Generative AI',
+        org: 'be10x Academy',
+        date: 'July 26, 2026',
+        type: 'Hands-On Professional Workshop',
+        image: 'images/certificates/ai-tools-workshop.jpeg',
+        skills: ['ChatGPT Workflows', 'Generative AI', 'Prompt Engineering', 'AI Data Analysis', 'Automated Presentations', 'AI Code Debugging'],
+        description: 'Certificate of Completion awarded by be10x for mastering AI tools and ChatGPT productivity workflows — covering automated presentation building, advanced data analysis techniques, prompt engineering, and AI-assisted software coding & debugging.'
+    },
+    'java-fullstack': {
+        title: 'Java Full-Stack Training',
+        issuer: 'DPU | Dr. D.Y. Patil Vidyapeeth',
+        category: 'Full-Stack Development',
+        org: 'Dr. D.Y. Patil Vidyapeeth',
+        date: 'May 2026',
+        type: 'Professional Full-Stack Program',
+        image: 'images/certificates/java-fullstack-training-certificate.jpeg',
+        skills: ['Core & Advanced Java', 'Spring Boot', 'RESTful Microservices', 'Hibernate & JPA', 'React.js', 'MySQL Schema Design'],
+        description: 'Comprehensive full-stack engineering program covering Core and Advanced Java, Spring Boot microservices architecture, Object-Relational Mapping with Hibernate/JPA, RESTful API design, React frontend integration, and relational database management.'
+    },
+    'java-basics': {
+        title: 'Java Basics Certificate',
+        issuer: 'Unstop',
+        category: 'Core Java & Algorithms',
+        org: 'Unstop Technology Portal',
+        date: 'January 2025',
+        type: 'Verified Skill Assessment',
+        image: 'images/certificates/java-basics-certificate.jpg',
+        skills: ['Core Java Syntax', 'OOP Paradigms', 'Control Flow Logic', 'Arrays & Collections', 'Exception Handling'],
+        description: 'Foundational certification from Unstop establishing core competency in Java syntax, Object-Oriented Programming (OOP) principles, control structures, exception handling mechanisms, and foundational data structure logic.'
+    },
+    'innixo-overdrive': {
+        title: 'INNIXO OVERDRIVE',
+        issuer: 'INNIXO',
+        category: 'Technical Excellence',
+        org: 'INNIXO Technical Committee',
+        date: 'February 2026',
+        type: 'Technical Excellence Certification',
+        image: 'images/certificates/innixo-overdrive-certificate.jpg',
+        skills: ['Software Architecture', 'Rapid Problem Solving', 'Code Optimization', 'Algorithm Design', 'Team Collaboration'],
+        description: 'Advanced technical credential awarded by INNIXO for demonstrating software engineering best practices, algorithmic efficiency, clean code design, and rapid solution implementation in competitive technical challenges.'
+    },
+    'innohack-2.0': {
+        title: 'INNOHACK 2.0 National Hackathon',
+        issuer: 'INNOHACK',
+        category: 'National Hackathon',
+        org: 'INNOHACK Organizing Team',
+        date: 'October 2025',
+        type: 'National Hackathon Achievement',
+        image: 'images/certificates/innohack-2.0-certificate.png',
+        skills: ['Hackathon Prototyping', 'Full-Stack Development', 'AI API Integration', 'Database Design', 'Agile Product Sprint'],
+        description: 'National-level hackathon credential awarded for building innovative rapid-prototype software solutions under intensive 24-hour competitive sprint deadlines with real-time API integrations and interactive web UI.'
+    },
+    'cisco-analytics': {
+        title: 'Data Analytics Essentials',
+        issuer: 'Cisco Networking Academy',
+        category: 'Data Analytics & BI',
+        org: 'Cisco Networking Academy',
+        date: 'February 2, 2025',
+        type: 'Industry Certification',
+        image: 'images/certificates/data-analytics-essentials-certificate.jpg',
+        skills: ['Exploratory Data Analysis', 'Data Cleaning', 'Statistical Modeling', 'Business Intelligence', 'Data Visualization'],
+        description: 'Official Cisco Networking Academy certification certifying proficiency in exploratory data analysis, data cleaning pipelines, statistical modeling, data visual story-telling, and business intelligence analytics.'
+    },
+    'infosys-ml-beginner': {
+        title: 'Machine Learning Beginner',
+        issuer: 'Infosys | Springboard',
+        category: 'Machine Learning',
+        org: 'Infosys Springboard',
+        date: 'February 10, 2025',
+        type: 'Professional Learning Course',
+        image: 'images/certificates/machine-learning-beginner-certificate.jpg',
+        skills: ['Supervised Learning', 'Regression Models', 'Classification Algorithms', 'Feature Engineering', 'Model Evaluation'],
+        description: 'Foundational machine learning certification covering core supervised learning algorithms, regression and classification models, evaluation metrics (Accuracy, Precision, Recall), and data preprocessing pipelines.'
+    },
+    'infosys-ml-python': {
+        title: 'Explore ML in Python',
+        issuer: 'Infosys | Springboard',
+        category: 'Python Machine Learning',
+        org: 'Infosys Springboard',
+        date: 'February 11, 2025',
+        type: 'Practical Skill Certification',
+        image: 'images/certificates/explore-ml-python-certificate.jpg',
+        skills: ['Python ML Libraries', 'Scikit-Learn', 'Pandas & NumPy', 'Data Preprocessing', 'Model Pipeline'],
+        description: 'Practical machine learning implementation course using Python, Scikit-learn, Pandas, NumPy, and numerical data processing pipelines for real-world predictive modeling.'
+    },
+    'infosys-boosting-ml': {
+        title: 'Boosting ML Models',
+        issuer: 'Infosys | Springboard',
+        category: 'Advanced ML & Boosting',
+        org: 'Infosys Springboard',
+        date: 'February 14, 2025',
+        type: 'Advanced ML Specialization',
+        image: 'images/certificates/boosting-ml-python-certificate.jpg',
+        skills: ['Ensemble Learning', 'Gradient Boosting', 'XGBoost & AdaBoost', 'Hyperparameter Tuning', 'Overfitting Prevention'],
+        description: 'Advanced model boosting and hyperparameter optimization techniques covering Ensemble learning, Gradient Boosting, XGBoost algorithms, cross-validation strategies, and model accuracy optimization.'
+    }
+};
+
+let currentCertImageSrc = '';
+
+function openCertModal(certId) {
+    const data = CertsData[certId];
+    if (!data) return;
+
+    const modal = document.getElementById('certModal');
+    if (!modal) return;
+
+    currentCertImageSrc = data.image;
+
+    document.getElementById('cmTitle').textContent = data.title;
+    document.getElementById('cmIssuer').textContent = data.issuer;
+    document.getElementById('cmImage').src = data.image;
+    document.getElementById('cmImage').alt = data.title;
+
+    const catEl = document.getElementById('cmCategory');
+    if (catEl) {
+        catEl.textContent = data.category || 'Professional Credential';
+    }
+
+    document.getElementById('cmOrg').textContent = data.org;
+    document.getElementById('cmDate').textContent = data.date;
+    document.getElementById('cmType').textContent = data.type;
+
+    const skillsContainer = document.getElementById('cmSkills');
+    skillsContainer.innerHTML = data.skills.map(skill => `
+        <span class="cm-skill-badge"><i class='bx bx-check'></i> ${skill}</span>
+    `).join('');
+
+    document.getElementById('cmDescription').textContent = data.description;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function expandCertImage() {
+    const imageSrc = currentCertImageSrc || document.getElementById('cmImage').src;
+    const degreeModal = document.getElementById('degreeModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (degreeModal && modalImage && imageSrc) {
+        modalImage.src = imageSrc;
+        modalImage.alt = document.getElementById('cmTitle').textContent || 'Certificate Full Preview';
+        degreeModal.classList.add('active');
+    }
+}
+
+function closeDegreeModal() {
+    const degreeModal = document.getElementById('degreeModal');
+    if (degreeModal) {
+        degreeModal.classList.remove('active');
+    }
+}
+
+// Professional Skill Badges Dataset
+const BadgesData = {
+    'vertex-ai': {
+        title: 'Prompt Design in Vertex AI',
+        issuer: 'Google Cloud Platform',
+        category: 'Cloud & Generative AI',
+        org: 'Google Cloud',
+        date: 'May 2025',
+        platform: 'Credly (Verified)',
+        verifyUrl: 'https://www.credly.com/badges/f5b1b19e-b76a-4d8d-8712-0de0cd0832c4',
+        previewHtml: `
+            <div class="bm-badge-card-graphic google-theme">
+                <div class="bm-badge-icon-shield google-glow">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="bm-badge-card-info">
+                    <span class="bm-brand-tag">Google Cloud Certified</span>
+                    <h4 class="bm-badge-heading">Prompt Design in Vertex AI</h4>
+                    <span class="bm-badge-credly-seal"><i class='bx bx-check-shield'></i> Credly Verified Credential</span>
+                </div>
+            </div>
+        `,
+        skills: ['Vertex AI Studio', 'Gemini 1.5/2.5 Prompting', 'Multimodal Prompting', 'Few-Shot & Zero-Shot Learning', 'Parameter Tuning', 'Generative AI Workflows'],
+        description: 'Official Google Cloud skill badge validating hands-on expertise in prompt engineering using Vertex AI. Covers Gemini LLM parameter tuning, zero-shot and few-shot prompting techniques, multimodal prompt design, context window optimization, and integrating GenAI endpoints into software applications.'
+    },
+    'cisco-analytics': {
+        title: 'Data Analytics Essentials',
+        issuer: 'Cisco Networking Academy',
+        category: 'Data & Analytics',
+        org: 'Cisco Academy',
+        date: 'February 2, 2025',
+        platform: 'Credly (Verified)',
+        verifyUrl: 'https://www.credly.com/badges/aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f',
+        previewHtml: `
+            <div class="bm-badge-card-graphic cisco-theme">
+                <div class="bm-badge-icon-shield cisco-glow">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="bm-badge-card-info">
+                    <span class="bm-brand-tag">Cisco Networking Academy</span>
+                    <h4 class="bm-badge-heading">Data Analytics Essentials</h4>
+                    <span class="bm-badge-credly-seal"><i class='bx bx-check-shield'></i> Credly Verified Credential</span>
+                </div>
+            </div>
+        `,
+        skills: ['Data Cleaning & Transformation', 'Exploratory Data Analysis (EDA)', 'Statistical Analytics', 'Data Visualization', 'Business Intelligence', 'Data Storytelling'],
+        description: 'Verified Cisco digital credential certifying technical proficiency in exploratory data analysis (EDA), data cleaning pipelines, statistical analytics, interactive data visualization, and transforming complex datasets into actionable business intelligence.'
+    },
+    'oracle-java': {
+        title: 'Oracle Java Foundations',
+        issuer: 'Oracle University',
+        category: 'Core Programming',
+        org: 'Oracle University',
+        date: 'June 2026',
+        platform: 'Oracle MyLearn',
+        verifyUrl: 'https://mylearn.oracle.com/ou/learning-path/oracle-java-foundations-training-and-assessment/152239',
+        previewHtml: `
+            <div class="bm-badge-card-graphic oracle-theme">
+                <img src="images/oracle-java-foundations-badge.png" alt="Oracle Java Foundations badge" class="oracle-badge-img-v2" style="max-width: 170px;">
+            </div>
+        `,
+        skills: ['Java SE Architecture', 'Object-Oriented Programming (OOP)', 'Java Collections Framework', 'Exception Handling', 'Algorithm Design', 'JVM Fundamentals'],
+        description: 'Official Oracle University learning path credential certifying thorough proficiency in Core Java programming syntax, Object-Oriented Programming (OOP) principles, memory management, Java Collections framework, exception handling architectures, and fundamental software design patterns.'
+    }
+};
+
+function openBadgeModal(badgeId) {
+    const data = BadgesData[badgeId];
+    if (!data) return;
+
+    const modal = document.getElementById('badgeModal');
+    if (!modal) return;
+
+    document.getElementById('bmTitle').textContent = data.title;
+    document.getElementById('bmIssuer').textContent = data.issuer;
+    document.getElementById('bmCategory').textContent = data.category;
+    document.getElementById('bmOrg').textContent = data.org;
+    document.getElementById('bmDate').textContent = data.date;
+    document.getElementById('bmPlatform').textContent = data.platform;
+
+    const verifyBtn = document.getElementById('bmVerifyBtn');
+    if (verifyBtn) {
+        verifyBtn.href = data.verifyUrl;
+    }
+
+    const previewBox = document.getElementById('bmPreviewBox');
+    if (previewBox) {
+        previewBox.innerHTML = data.previewHtml;
+    }
+
+    const skillsContainer = document.getElementById('bmSkills');
+    if (skillsContainer) {
+        skillsContainer.innerHTML = data.skills.map(skill => `
+            <span class="cm-skill-badge"><i class='bx bx-check'></i> ${skill}</span>
+        `).join('');
+    }
+
+    document.getElementById('bmDescription').textContent = data.description;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBadgeModal() {
+    const modal = document.getElementById('badgeModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Global modal overlay & escape key handlers
+document.addEventListener('DOMContentLoaded', () => {
+    const certModal = document.getElementById('certModal');
+    if (certModal) {
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) {
+                closeCertModal();
+            }
+        });
+    }
+
+    const badgeModal = document.getElementById('badgeModal');
+    if (badgeModal) {
+        badgeModal.addEventListener('click', (e) => {
+            if (e.target === badgeModal) {
+                closeBadgeModal();
+            }
+        });
+    }
+
+    const degreeModal = document.getElementById('degreeModal');
+    if (degreeModal) {
+        degreeModal.addEventListener('click', (e) => {
+            if (e.target === degreeModal) {
+                closeDegreeModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCertModal();
+            closeBadgeModal();
+            closeDegreeModal();
+            closeProjectModal();
+        }
+    });
 });

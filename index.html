@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -762,27 +762,54 @@
     </section>
 
     <section class="projects" id="projects">
+        <div class="section-bg">
+            <div class="shape shape-project-1"></div>
+            <div class="shape shape-project-2"></div>
+        </div>
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="subtitle">My Portfolio</span>
-                <h2 class="heading">Featured <span class="highlight">Projects</span></h2>
+            <div class="section-header project-section-header" data-aos="fade-up">
+                <div class="project-header-pill">
+                    <i class='bx bx-rocket'></i>
+                    <span>Featured Portfolio</span>
+                </div>
+                <h2 class="heading">Featured <span class="highlight-gradient">Projects</span></h2>
                 <p class="skills-section-desc">
-                    Explore my real-world full-stack applications, enterprise platforms, and AI-powered web solutions.
+                    Explore my real-world full-stack applications, enterprise systems, and AI-powered web solutions.
                 </p>
+                <div class="project-meta-stats">
+                    <span class="p-stat-pill"><i class='bx bx-code-block'></i> 6 Production Systems</span>
+                    <span class="p-stat-pill"><i class='bx bx-check-shield'></i> 100% Verified Code</span>
+                </div>
             </div>
 
-            <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
-                <button type="button" class="filter-btn active" data-filter="all">All Projects</button>
-                <button type="button" class="filter-btn" data-filter="python">Python & AI</button>
-                <button type="button" class="filter-btn" data-filter="java">Java Systems</button>
-                <button type="button" class="filter-btn" data-filter="react">React & Node</button>
-                <button type="button" class="filter-btn" data-filter="php">PHP Systems</button>
+            <!-- Redesigned Glassmorphic Filter Toolbar with Tech Icons -->
+            <div class="project-filter-toolbar" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="filter-btn active" data-filter="all">
+                    <i class='bx bx-grid-alt'></i>
+                    <span>All Projects</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="python">
+                    <i class='bx bxl-python'></i>
+                    <span>Python & AI</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="java">
+                    <i class='bx bxl-java'></i>
+                    <span>Java Systems</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="react">
+                    <i class='bx bxl-react'></i>
+                    <span>React & Node</span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="php">
+                    <i class='bx bxl-php'></i>
+                    <span>PHP Systems</span>
+                </button>
             </div>
 
             <div class="project-container">
                 <!-- Project 1: BillBuddy -->
                 <div class="project-box show-more-item" data-category="python" data-aos="fade-up">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/billbuddy-energy-estimator.jpg" alt="BillBuddy energy estimator project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -801,12 +828,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">Python</span>
-                                <span class="p-tech-tag">Data Analytics</span>
-                                <span class="p-tech-tag">Full-Stack</span>
+                                <span class="p-tech-tag"><i class='bx bxl-python'></i> Python</span>
+                                <span class="p-tech-tag"><i class='bx bx-bar-chart-alt-2'></i> Analytics</span>
+                                <span class="p-tech-tag"><i class='bx bx-layer'></i> Full-Stack</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('billbuddy')" aria-label="View BillBuddy project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/Energy-Consumption-Estimator---Python.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View BillBuddy source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -818,7 +849,7 @@
 
                 <!-- Project 2: GoParcel -->
                 <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/goparcel-courier-service.jpg" alt="GoParcel courier service project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -837,12 +868,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">Python</span>
-                                <span class="p-tech-tag">Flask</span>
-                                <span class="p-tech-tag">Glassmorphism UI</span>
+                                <span class="p-tech-tag"><i class='bx bxl-python'></i> Python</span>
+                                <span class="p-tech-tag"><i class='bx bx-code-curly'></i> Flask</span>
+                                <span class="p-tech-tag"><i class='bx bx-palette'></i> Glassmorphism</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('goparcel')" aria-label="View GoParcel project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/Courier-Service---Python.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View GoParcel source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -854,7 +889,7 @@
 
                 <!-- Project 3: Insurance MS System -->
                 <div class="project-box show-more-item" data-category="java" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/insurance-management-system.jpg" alt="Insurance management system project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -873,12 +908,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">Java</span>
-                                <span class="p-tech-tag">Spring Boot</span>
-                                <span class="p-tech-tag">OOP Architecture</span>
+                                <span class="p-tech-tag"><i class='bx bxl-java'></i> Java</span>
+                                <span class="p-tech-tag"><i class='bx bx-server'></i> Spring Boot</span>
+                                <span class="p-tech-tag"><i class='bx bx-cog'></i> OOP System</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('insurance-ms')" aria-label="View Insurance MS System project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/Insurance-Management-System.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Insurance MS System source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -890,7 +929,7 @@
 
                 <!-- Project 4: Exam Portal -->
                 <div class="project-box show-more-item" data-category="react" data-aos="fade-up" data-aos-delay="0">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/exam-portal.jpg" alt="Exam portal project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -909,12 +948,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">React.js</span>
-                                <span class="p-tech-tag">Express.js</span>
-                                <span class="p-tech-tag">MongoDB</span>
+                                <span class="p-tech-tag"><i class='bx bxl-react'></i> React.js</span>
+                                <span class="p-tech-tag"><i class='bx bxl-nodejs'></i> Express.js</span>
+                                <span class="p-tech-tag"><i class='bx bxl-mongodb'></i> MongoDB</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('exam-portal')" aria-label="View Exam Portal project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/exam-portal-project-main.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Exam Portal source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -926,7 +969,7 @@
 
                 <!-- Project 5: Image Caption Generator -->
                 <div class="project-box show-more-item" data-category="python" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/image-caption-generator.jpg" alt="Image caption generator project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -945,12 +988,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">Gemini 2.5 AI</span>
-                                <span class="p-tech-tag">Python Flask</span>
-                                <span class="p-tech-tag">Computer Vision</span>
+                                <span class="p-tech-tag"><i class='bx bx-bot'></i> Gemini AI</span>
+                                <span class="p-tech-tag"><i class='bx bxl-python'></i> Flask</span>
+                                <span class="p-tech-tag"><i class='bx bx-scan'></i> Vision AI</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('image-caption')" aria-label="View Image Caption Generator project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/Image-Caption-Generator.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Image Caption Generator source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -962,7 +1009,7 @@
 
                 <!-- Project 6: Product Management -->
                 <div class="project-box show-more-item" data-category="php" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card-v2">
+                    <div class="project-card-v3">
                         <div class="project-card-banner">
                             <img src="images/projects/product-management-system.jpg" alt="Product management system project" loading="lazy">
                             <div class="project-overlay-gradient"></div>
@@ -981,12 +1028,16 @@
                             </p>
 
                             <div class="project-tech-tags">
-                                <span class="p-tech-tag">PHP</span>
-                                <span class="p-tech-tag">MySQL</span>
-                                <span class="p-tech-tag">CRUD Engine</span>
+                                <span class="p-tech-tag"><i class='bx bxl-php'></i> PHP</span>
+                                <span class="p-tech-tag"><i class='bx bx-data'></i> MySQL</span>
+                                <span class="p-tech-tag"><i class='bx bx-list-check'></i> CRUD Engine</span>
                             </div>
 
                             <div class="project-card-footer">
+                                <button type="button" class="project-btn-details" onclick="openProjectModal('product-ms')" aria-label="View Product Management project details">
+                                    <i class='bx bx-info-circle'></i>
+                                    <span>View Details</span>
+                                </button>
                                 <a href="https://github.com/mihirpatel0811/Product-Management-System.git" class="project-btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Product Management source code">
                                     <i class='bx bxl-github'></i>
                                     <span>View Source Code</span>
@@ -997,8 +1048,8 @@
                 </div>
             </div>
 
-            <div class="show-more-wrapper" data-aos="fade-up" style="margin-top: 40px; text-align: center;">
-                <button type="button" class="btn btn-toggle show-more-btn" data-section="projects">
+            <div class="show-more-wrapper" data-aos="fade-up">
+                <button type="button" class="btn btn-toggle show-more-btn show-more-btn-v3" data-section="projects">
                     <span class="btn-text">Show More Projects</span>
                     <i class='bx bx-chevron-down'></i>
                 </button>
@@ -1065,12 +1116,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/ai-tools-workshop.jpeg" alt="AI Tools & ChatGPT Workshop certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/ai-tools-workshop.jpeg')" aria-label="Preview AI Tools Workshop certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">AI & Productivity</span>
                     </div>
 
@@ -1081,9 +1126,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/ai-tools-workshop.jpeg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('ai-tools-workshop')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1108,12 +1153,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/java-fullstack-training-certificate.jpeg" alt="Java Full-Stack Training Program certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/java-fullstack-training-certificate.jpeg')" aria-label="Preview Java Full-Stack certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Full-Stack Development</span>
                     </div>
 
@@ -1124,9 +1163,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/java-fullstack-training-certificate.jpeg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('java-fullstack')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1151,12 +1190,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/java-basics-certificate.jpg" alt="Java Basics Certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/java-basics-certificate.jpg')" aria-label="Preview Java Basics certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Programming</span>
                     </div>
 
@@ -1167,9 +1200,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/java-basics-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('java-basics')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1194,12 +1227,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/innixo-overdrive-certificate.jpg" alt="INNIXO OVERDRIVE certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/innixo-overdrive-certificate.jpg')" aria-label="Preview INNIXO OVERDRIVE certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Technical Excellence</span>
                     </div>
 
@@ -1210,9 +1237,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/innixo-overdrive-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('innixo-overdrive')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1237,12 +1264,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/innohack-2.0-certificate.png" alt="INNOHACK 2.0 certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/innohack-2.0-certificate.png')" aria-label="Preview INNOHACK 2.0 certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">National Hackathon</span>
                     </div>
 
@@ -1253,9 +1274,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/innohack-2.0-certificate.png')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('innohack-2.0')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1280,12 +1301,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/data-analytics-essentials-certificate.jpg" alt="Data Analytics Essentials certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/data-analytics-essentials-certificate.jpg')" aria-label="Preview Cisco Data Analytics certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Data Analytics</span>
                     </div>
 
@@ -1296,9 +1311,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/data-analytics-essentials-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('cisco-analytics')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1323,12 +1338,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/machine-learning-beginner-certificate.jpg" alt="Machine Learning Beginner certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/machine-learning-beginner-certificate.jpg')" aria-label="Preview Machine Learning Beginner certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Machine Learning</span>
                     </div>
 
@@ -1339,9 +1348,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/machine-learning-beginner-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('infosys-ml-beginner')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1366,12 +1375,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/explore-ml-python-certificate.jpg" alt="Explore Machine Learning in Python certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/explore-ml-python-certificate.jpg')" aria-label="Preview Explore ML in Python certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Python & Machine Learning</span>
                     </div>
 
@@ -1382,9 +1385,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/explore-ml-python-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('infosys-ml-python')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1409,12 +1412,6 @@
 
                     <div class="cert-banner-box">
                         <img src="images/certificates/boosting-ml-python-certificate.jpg" alt="Boosting Machine Learning Models in Python certificate" loading="lazy">
-                        <div class="cert-banner-overlay">
-                            <button type="button" class="cert-preview-btn" onclick="openDegreeModal('images/certificates/boosting-ml-python-certificate.jpg')" aria-label="Preview Boosting ML Models certificate">
-                                <i class='bx bx-fullscreen'></i>
-                                <span>Preview</span>
-                            </button>
-                        </div>
                         <span class="cert-domain-tag">Advanced Machine Learning</span>
                     </div>
 
@@ -1425,9 +1422,9 @@
                     </div>
 
                     <div class="cert-card-footer-v2">
-                        <button type="button" class="cert-action-btn" onclick="openDegreeModal('images/certificates/boosting-ml-python-certificate.jpg')">
+                        <button type="button" class="cert-action-btn" onclick="openCertModal('infosys-boosting-ml')">
                             <i class='bx bx-show-alt'></i>
-                            <span>View Full Certificate</span>
+                            <span>View Details & Certificate</span>
                         </button>
                     </div>
                 </div>
@@ -1517,9 +1514,13 @@
                     </div>
 
                     <div class="badge-card-footer-v2">
-                        <a href="https://www.credly.com/badges/f5b1b19e-b76a-4d8d-8712-0de0cd0832c4" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                        <button type="button" class="badge-btn-details" onclick="openBadgeModal('vertex-ai')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Details</span>
+                        </button>
+                        <a href="https://www.credly.com/badges/f5b1b19e-b76a-4d8d-8712-0de0cd0832c4" target="_blank" rel="noopener noreferrer" class="badge-btn-verify">
                             <i class='bx bx-award'></i>
-                            <span>Verify Credly Badge</span>
+                            <span>Verify Credly</span>
                         </a>
                     </div>
                 </article>
@@ -1561,9 +1562,13 @@
                     </div>
 
                     <div class="badge-card-footer-v2">
-                        <a href="https://www.credly.com/badges/aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                        <button type="button" class="badge-btn-details" onclick="openBadgeModal('cisco-analytics')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Details</span>
+                        </button>
+                        <a href="https://www.credly.com/badges/aa570ecb-9dc6-41b9-8a9a-4f9f18f6fa7f" target="_blank" rel="noopener noreferrer" class="badge-btn-verify">
                             <i class='bx bx-award'></i>
-                            <span>Verify Credly Badge</span>
+                            <span>Verify Credly</span>
                         </a>
                     </div>
                 </article>
@@ -1602,9 +1607,13 @@
                     </div>
 
                     <div class="badge-card-footer-v2">
-                        <a href="https://mylearn.oracle.com/ou/learning-path/oracle-java-foundations-training-and-assessment/152239" target="_blank" rel="noopener noreferrer" class="badge-action-btn">
+                        <button type="button" class="badge-btn-details" onclick="openBadgeModal('oracle-java')">
+                            <i class='bx bx-show-alt'></i>
+                            <span>View Details</span>
+                        </button>
+                        <a href="https://mylearn.oracle.com/ou/learning-path/oracle-java-foundations-training-and-assessment/152239" target="_blank" rel="noopener noreferrer" class="badge-btn-verify">
                             <i class='bx bx-book-open'></i>
-                            <span>View Learning Path</span>
+                            <span>View Path</span>
                         </a>
                     </div>
                 </article>
@@ -2006,6 +2015,315 @@
         <div class="toast-text">
             <span class="toast-title">Success!</span>
             <span class="toast-message">Message sent successfully</span>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+     PROJECT DETAILS MODAL DIALOG
+    =========================================================== -->
+    <div class="project-modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+        <div class="project-modal-card">
+            <button type="button" class="project-modal-close" onclick="closeProjectModal()" aria-label="Close project modal">
+                <i class='bx bx-x'></i>
+            </button>
+
+            <div class="project-modal-banner" id="pmBannerContainer">
+                <img src="" alt="" id="pmImage">
+                <div class="pm-banner-overlay"></div>
+                <span class="pm-banner-badge" id="pmCategoryBadge">Category</span>
+            </div>
+
+            <div class="project-modal-body">
+                <div class="pm-header-row">
+                    <div>
+                        <span class="pm-provider-tag" id="pmSubtitle"><i class='bx bx-layer'></i> Domain</span>
+                        <h2 class="pm-title" id="pmTitle">Project Title</h2>
+                    </div>
+                    <span class="pm-status-pill" id="pmStatus"><i class='bx bx-check-circle'></i> Active</span>
+                </div>
+
+                <div class="pm-specs-grid">
+                    <div class="pm-spec-box">
+                        <i class='bx bx-category pm-spec-icon'></i>
+                        <div>
+                            <span class="pm-spec-label">Category</span>
+                            <span class="pm-spec-value" id="pmCategory">Category Name</span>
+                        </div>
+                    </div>
+                    <div class="pm-spec-box">
+                        <i class='bx bx-bar-chart-alt-2 pm-spec-icon'></i>
+                        <div>
+                            <span class="pm-spec-label">Complexity Level</span>
+                            <span class="pm-spec-value" id="pmLevel">Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="pm-spec-box">
+                        <i class='bx bx-code-alt pm-spec-icon'></i>
+                        <div>
+                            <span class="pm-spec-label">Stack Domain</span>
+                            <span class="pm-spec-value" id="pmStackType">Python / Web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pm-section">
+                    <h3 class="pm-section-title"><i class='bx bx-align-left'></i> Project Overview</h3>
+                    <p class="pm-text" id="pmOverview">Detailed description...</p>
+                </div>
+
+                <div class="pm-section">
+                    <h3 class="pm-section-title"><i class='bx bx-star'></i> Key Highlights</h3>
+                    <div class="pm-highlights-list" id="pmHighlights"></div>
+                </div>
+
+                <div class="pm-section">
+                    <h3 class="pm-section-title"><i class='bx bx-check-shield'></i> Key Features</h3>
+                    <div class="pm-features-grid" id="pmFeatures"></div>
+                </div>
+
+                <div class="pm-section">
+                    <h3 class="pm-section-title"><i class='bx bx-chip'></i> Technologies & Tools Used</h3>
+                    <div class="pm-tech-tags" id="pmTechTags"></div>
+                </div>
+            </div>
+
+            <div class="project-modal-footer">
+                <button type="button" class="pm-btn-secondary" onclick="closeProjectModal()">
+                    <i class='bx bx-x-circle'></i>
+                    <span>Close</span>
+                </button>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="pm-btn-primary" id="pmGithubBtn">
+                    <i class='bx bxl-github'></i>
+                    <span>View Source Code</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+     CERTIFICATE DETAILS MODAL DIALOG
+    =========================================================== -->
+    <div class="cert-modal-overlay" id="certModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+        <div class="cert-modal-card">
+            <!-- Decorative Ambient Glow Backgrounds -->
+            <div class="cm-bg-glow cm-bg-glow-1" aria-hidden="true"></div>
+            <div class="cm-bg-glow cm-bg-glow-2" aria-hidden="true"></div>
+
+            <button type="button" class="cert-modal-close" onclick="closeCertModal()" aria-label="Close certificate details">
+                <i class='bx bx-x'></i>
+            </button>
+
+            <div class="cert-modal-header">
+                <div class="cm-header-main">
+                    <div class="cm-header-badge-icon">
+                        <i class='bx bx-award'></i>
+                    </div>
+                    <div>
+                        <h2 class="cm-title" id="cmTitle">Certificate Title</h2>
+                        <span class="cm-subtitle" id="cmIssuer">Issuer Name</span>
+                    </div>
+                </div>
+                <div class="cm-header-badge-box">
+                    <span class="cm-verified-badge"><i class='bx bx-check-shield'></i> Verified Credential</span>
+                </div>
+            </div>
+
+            <div class="cert-modal-body">
+                <!-- Left: Certificate Image Preview Card -->
+                <div class="cm-image-col">
+                    <div class="cm-image-wrapper" onclick="expandCertImage()">
+                        <img src="" alt="Certificate Document Preview" id="cmImage">
+                    </div>
+
+                    <!-- Credential Quick Highlights Box -->
+                    <div class="cm-left-highlights">
+                        <div class="cm-highlight-card">
+                            <div class="cm-highlight-row">
+                                <div class="cm-hl-badge"><i class='bx bx-check-circle'></i> Official Record</div>
+                                <span class="cm-category-badge" id="cmCategory">AI & Web Development</span>
+                            </div>
+                            <div class="cm-recipient-box">
+                                <i class='bx bx-user-check'></i>
+                                <div>
+                                    <span class="cm-rcp-label">Awarded To</span>
+                                    <span class="cm-rcp-name">Mihir Ritinbhai Bhayani</span>
+                                </div>
+                            </div>
+                            <div class="cm-quick-actions">
+                                <span class="cm-status-pill"><i class='bx bxs-shield-check'></i> Authentic Credential</span>
+                                <button type="button" class="cm-quick-btn" onclick="expandCertImage()">
+                                    <i class='bx bx-fullscreen'></i>
+                                    <span>View Full Certificate</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Metadata & Details -->
+                <div class="cm-details-col">
+                    <div class="cm-specs-grid">
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box org-icon">
+                                <i class='bx bx-building-house'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Issuing Organization</span>
+                                <span class="cm-spec-value" id="cmOrg">Organization Name</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box date-icon">
+                                <i class='bx bx-calendar-alt'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Completion Date</span>
+                                <span class="cm-spec-value" id="cmDate">Date</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box type-icon">
+                                <i class='bx bx-certification'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Certification Type</span>
+                                <span class="cm-spec-value" id="cmType">Type</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cm-section">
+                        <h4 class="cm-section-title"><i class='bx bx-chip'></i> Skills & Competencies Gained</h4>
+                        <div class="cm-skills-tags" id="cmSkills"></div>
+                    </div>
+                </div>
+
+                <!-- Full-Width Horizontal Section: Certification Overview -->
+                <div class="cm-section cm-section-full">
+                    <h4 class="cm-section-title"><i class='bx bx-align-left'></i> Certification Overview</h4>
+                    <div class="cm-description-box">
+                        <p class="cm-description-text" id="cmDescription">
+                            Description text...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-modal-footer">
+                <button type="button" class="cm-btn-secondary" onclick="closeCertModal()">
+                    <i class='bx bx-x-circle'></i>
+                    <span>Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+     PROFESSIONAL BADGE DETAILS MODAL DIALOG
+    =========================================================== -->
+    <div class="cert-modal-overlay" id="badgeModal" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+        <div class="cert-modal-card">
+            <button type="button" class="cert-modal-close" onclick="closeBadgeModal()" aria-label="Close modal">
+                <i class='bx bx-x'></i>
+            </button>
+
+            <div class="cert-modal-header">
+                <div class="cm-header-content">
+                    <span class="cm-issuer-badge" id="bmIssuer">Issuing Body</span>
+                    <h2 class="cm-modal-title" id="bmTitle">Badge Title</h2>
+                </div>
+            </div>
+
+            <div class="cert-modal-body">
+                <!-- Left Column: Badge Embed & Highlights -->
+                <div class="cm-image-col">
+                    <div class="bm-preview-box" id="bmPreviewBox">
+                        <!-- Rendered dynamically by JS -->
+                    </div>
+
+                    <div class="cm-left-highlights">
+                        <div class="cm-highlight-card">
+                            <div class="cm-highlight-row">
+                                <div class="cm-hl-badge"><i class='bx bx-check-circle'></i> Verified Credential</div>
+                                <span class="cm-category-badge" id="bmCategory">Cloud & AI</span>
+                            </div>
+                            <div class="cm-recipient-box">
+                                <i class='bx bx-user-check'></i>
+                                <div>
+                                    <span class="cm-rcp-label">Awarded To</span>
+                                    <span class="cm-rcp-name">Mihir Ritinbhai Bhayani</span>
+                                </div>
+                            </div>
+                            <div class="cm-quick-actions">
+                                <span class="cm-status-pill"><i class='bx bxs-shield-check'></i> Authenticated</span>
+                                <a href="#" id="bmVerifyBtn" target="_blank" rel="noopener noreferrer" class="cm-quick-btn">
+                                    <i class='bx bx-link-external'></i>
+                                    <span>Verify Online</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Specs & Skills -->
+                <div class="cm-details-col">
+                    <div class="cm-specs-grid">
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box org-icon">
+                                <i class='bx bx-building-house'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Issuing Authority</span>
+                                <span class="cm-spec-value" id="bmOrg">Organization Name</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box date-icon">
+                                <i class='bx bx-calendar-alt'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Issued Date</span>
+                                <span class="cm-spec-value" id="bmDate">Date</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-spec-card">
+                            <div class="cm-spec-icon-box type-icon">
+                                <i class='bx bx-award'></i>
+                            </div>
+                            <div class="cm-spec-info">
+                                <span class="cm-spec-label">Credential Platform</span>
+                                <span class="cm-spec-value" id="bmPlatform">Platform</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cm-section">
+                        <h4 class="cm-section-title"><i class='bx bx-chip'></i> Skills & Competencies Verified</h4>
+                        <div class="cm-skills-tags" id="bmSkills"></div>
+                    </div>
+                </div>
+
+                <!-- Full-Width Bottom Overview -->
+                <div class="cm-section cm-section-full">
+                    <h4 class="cm-section-title"><i class='bx bx-align-left'></i> Badge Overview & Evaluation Criteria</h4>
+                    <div class="cm-description-box">
+                        <p class="cm-description-text" id="bmDescription">
+                            Overview description...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-modal-footer">
+                <button type="button" class="cm-btn-secondary" onclick="closeBadgeModal()">
+                    <i class='bx bx-x-circle'></i>
+                    <span>Close</span>
+                </button>
+            </div>
         </div>
     </div>
 
