@@ -65,6 +65,10 @@ const App = {
         this.initLocationSystem(); // Apply manual base location
         this.initVisualEffects();
         this.initContentLogic();
+        this.initSkillsSystem();
+        this.initProjectSystem();
+        this.initCertificationsSystem();
+        this.initProfessionalBadges();
         this.initFormHandlers();
         this.initScrollEngine();
         this.initAccessibility();
@@ -438,6 +442,40 @@ const App = {
     },
 
     /* ==========================================================================
+       9B. TECHNICAL SKILLS MANAGEMENT & FILTERING SYSTEM
+       ========================================================================== */
+    initSkillsSystem: function () {
+        const skillFilters = Array.from(document.querySelectorAll('.skills-filter-toolbar-v4 .skills-tab-btn'));
+        const skillCards = Array.from(document.querySelectorAll('.skills-card-v4'));
+
+        if (!skillFilters.length || !skillCards.length) return;
+
+        skillFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const activeFilter = btn.getAttribute('data-skill-category') || 'all';
+
+                skillFilters.forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
+
+                let count = 0;
+                skillCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const matches = activeFilter === 'all' || activeFilter === category;
+
+                    card.classList.toggle('filter-hidden', !matches);
+
+                    if (matches) {
+                        card.style.animation = 'none';
+                        void card.offsetWidth; // trigger reflow
+                        card.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${count * 0.08}s forwards`;
+                        count += 1;
+                    }
+                });
+            });
+        });
+    },
+
+    /* ==========================================================================
        10. PROJECT MANAGEMENT & FILTERING SYSTEM
        ========================================================================== */
     initProjectSystem: function () {
@@ -565,6 +603,40 @@ const App = {
     },
 
     /* ==========================================================================
+       10B. CERTIFICATION MANAGEMENT & FILTERING SYSTEM
+       ========================================================================== */
+    initCertificationsSystem: function () {
+        const certFilters = Array.from(document.querySelectorAll('.cert-tab-btn'));
+        const certCards = Array.from(document.querySelectorAll('.cert-card-v2'));
+
+        if (!certFilters.length || !certCards.length) return;
+
+        certFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const activeFilter = btn.getAttribute('data-cert-category') || 'all';
+
+                certFilters.forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
+
+                let count = 0;
+                certCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const matches = activeFilter === 'all' || activeFilter === category;
+
+                    card.classList.toggle('filter-hidden', !matches);
+
+                    if (matches) {
+                        card.style.animation = 'none';
+                        void card.offsetWidth; // trigger reflow
+                        card.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${count * 0.08}s forwards`;
+                        count += 1;
+                    }
+                });
+            });
+        });
+    },
+
+    /* ==========================================================================
        11. PROFESSIONAL BADGES SECTION
        ========================================================================== */
     initProfessionalBadges: function () {
@@ -580,12 +652,16 @@ const App = {
                 filterButtons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
 
+                let count = 0;
                 badgeCards.forEach(card => {
                     const category = card.getAttribute("data-category");
                     const isVisible = activeFilter === "all" || category === activeFilter;
                     card.classList.toggle("filter-hidden", !isVisible);
                     if (isVisible) {
-                        card.style.animation = 'fadeInUp 0.4s ease forwards';
+                        card.style.animation = 'none';
+                        void card.offsetWidth; // trigger reflow
+                        card.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${count * 0.08}s forwards`;
+                        count += 1;
                     }
                 });
             });
@@ -1024,6 +1100,32 @@ document.addEventListener('keydown', function (e) {
    PROJECT DETAILS MODAL SYSTEM & COMPREHENSIVE METADATA
    ========================================================================== */
 const ProjectsData = {
+    'vgb-banking': {
+        name: 'VGB Banking System',
+        subtitle: 'Financial & Banking Enterprise Platform',
+        category: 'Java / Servlets',
+        badgeClass: 'java-badge',
+        level: 'Enterprise / Full-Stack Web App',
+        stackType: 'Java JEE / JSP / MySQL',
+        status: 'Active',
+        image: 'images/projects/bank-management-system.jpg',
+        github: 'https://github.com/mihirpatel0811/VGB-Banking-System-Java',
+        overview: 'Full-stack Java enterprise banking solution featuring multi-role authentication for admins, bank tellers, and customers. Manages account operations, transaction histories, card issuance, automated bill payment, and cash counter operations with database security.',
+        highlights: [
+            'Architected using Java Web Technologies (JSP, Servlets, JDBC) following standard MVC patterns.',
+            'Features multi-role portals for Customer Self-Service, Cash Counter Tellers, and System Administrators.',
+            'Supports automated payment scheduling, debit/credit card management, and transaction auditing.'
+        ],
+        features: [
+            'Customer & Admin Auth Portal',
+            'Cash Counter Teller Operations',
+            'Debit & Credit Card Management Engine',
+            'Automated Bill & AutoPay Scheduler',
+            'Transaction Audit & Statement Generator',
+            'Relational Database & DAO Security Layer'
+        ],
+        technologies: ['Java', 'JSP & Servlets', 'MySQL', 'JDBC Architecture', 'HTML5 & CSS3', 'JavaScript']
+    },
     'billbuddy': {
         name: 'BillBuddy',
         subtitle: 'Energy & Utility Analytics Platform',

@@ -51,7 +51,7 @@ Portfolio-Website/
 1. **Home** - Hero section with animated introduction
 2. **About** - Personal information and quick facts
 3. **Skills** - Technical skills with icon showcase
-4. **Projects** - 6 featured projects with filtering capability
+4. **Projects** - 7 featured projects with filtering capability
 5. **Education** - Academic timeline
 6. **Certifications** - Professional certifications (7 total)
 7. **Contact** - Contact form with EmailJS integration
@@ -60,6 +60,7 @@ Portfolio-Website/
 
 | Project | Description | Technologies |
 |---------|-------------|--------------|
+| VGB Banking System | Enterprise Banking System | HTML/CSS/JS, Java, JSP, Servlets, MySQL |
 | BillBuddy | Energy Consumption Estimator | HTML/CSS/JS, Python, Flask, SQLite |
 | GoParcel | Couriers Service System | HTML/CSS/JS, Python, Flask, SQLite |
 | Product Management | Inventory Management System | HTML/CSS/JS, PHP, MySQL, Bootstrap |
