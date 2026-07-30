@@ -446,7 +446,7 @@ const App = {
        ========================================================================== */
     initSkillsSystem: function () {
         const skillFilters = Array.from(document.querySelectorAll('.skills-filter-toolbar-v4 .skills-tab-btn'));
-        const skillCards = Array.from(document.querySelectorAll('.skills-card-v4'));
+        const skillCards = Array.from(document.querySelectorAll('.skills-card-v4, .galaxy-planet'));
 
         if (!skillFilters.length || !skillCards.length) return;
 
@@ -467,13 +467,14 @@ const App = {
                     if (matches) {
                         card.style.animation = 'none';
                         void card.offsetWidth; // trigger reflow
-                        card.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${count * 0.08}s forwards`;
+                        card.style.animation = `fadeInUp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${count * 0.05}s forwards`;
                         count += 1;
                     }
                 });
             });
         });
     },
+
 
     /* ==========================================================================
        10. PROJECT MANAGEMENT & FILTERING SYSTEM

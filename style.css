@@ -2365,358 +2365,6 @@ body.dark-mode .about-contact-btn:hover {
   100% { transform: translate(0, 0) rotate(0); opacity: 1; }
 }
 
-/* ===== SKILLS SECTION ===== */
-/* ===== REDESIGNED SKILLS SECTION ===== */
-.skills {
-  padding: var(--section-padding);
-  background: linear-gradient(180deg, var(--gray-100) 0%, var(--gray-50) 100%);
-  overflow: hidden;
-  position: relative;
-}
-
-body.dark-mode .skills {
-  background: linear-gradient(180deg, var(--gray-800) 0%, var(--gray-900) 100%);
-}
-
-.skills-section-desc {
-  max-width: 700px;
-  margin: 14px auto 0;
-  text-align: center;
-  color: var(--gray-500);
-  font-size: var(--font-size-base);
-  line-height: 1.7;
-}
-
-body.dark-mode .skills-section-desc {
-  color: var(--gray-400);
-}
-
-/* Skills Category Filter Toolbar */
-.skills-filter-toolbar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 45px;
-}
-
-.skills-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--gray-600);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  cursor: pointer;
-}
-
-body.dark-mode .skills-tab-btn {
-  background: var(--gray-800);
-  border-color: var(--gray-700);
-  color: var(--gray-300);
-}
-
-.skills-tab-btn i {
-  font-size: 1.1rem;
-}
-
-.skills-tab-btn:hover,
-.skills-tab-btn.active {
-  background: var(--primary-500);
-  border-color: var(--primary-500);
-  color: var(--white);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Skills Grid Layout */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  width: 100%;
-}
-
-@media (max-width: 1024px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Skills Card V3 Tech Grid Style */
-.skills-card-v3 {
-  position: relative;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(99, 102, 241, 0.14);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-body.dark-mode .skills-card-v3 {
-  background: rgba(30, 41, 59, 0.88);
-  border-color: rgba(148, 163, 184, 0.16);
-  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.32);
-}
-
-.skills-card-v3:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.14);
-  border-color: var(--primary-400);
-}
-
-body.dark-mode .skills-card-v3:hover {
-  box-shadow: 0 20px 42px rgba(2, 6, 23, 0.48);
-}
-
-.skills-card-v3.filter-hidden {
-  display: none;
-}
-
-.card-top-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-}
-
-.skills-card-header-v3 {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.skills-cat-icon-v3 {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-size: 1.5rem;
-  color: var(--white);
-  flex-shrink: 0;
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
-}
-
-.frontend-bg { background: linear-gradient(135deg, #087ea4, #06b6d4); }
-.backend-bg  { background: linear-gradient(135deg, #f89820, #6DB33F); }
-.database-bg { background: linear-gradient(135deg, #00758f, #47a248); }
-.tools-bg    { background: linear-gradient(135deg, #f1502f, #8B5CF6); }
-
-.skills-card-header-v3 h3 {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--gray-900);
-  margin: 0;
-  line-height: 1.2;
-}
-
-body.dark-mode .skills-card-header-v3 h3 {
-  color: var(--white);
-}
-
-.skills-count-tag {
-  display: inline-block;
-  margin-top: 4px;
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  color: var(--primary-500);
-}
-
-body.dark-mode .skills-count-tag {
-  color: var(--primary-400);
-}
-
-/* Tech Tiles Grid */
-.tech-tiles-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-@media (max-width: 640px) {
-  .tech-tiles-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.tech-tile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
-}
-
-body.dark-mode .tech-tile {
-  background: var(--gray-800);
-  border-color: var(--gray-700);
-}
-
-.tech-tile:hover {
-  border-color: var(--tile-accent, var(--primary-500));
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-}
-
-body.dark-mode .tech-tile:hover {
-  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.35);
-}
-
-.tech-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.tech-tile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.tech-tile-info h4 {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  color: var(--gray-900);
-  margin: 0;
-}
-
-body.dark-mode .tech-tile-info h4 {
-  color: var(--white);
-}
-
-.tech-tile-info span {
-  font-size: 0.75rem;
-  color: var(--gray-500);
-  line-height: 1.3;
-}
-
-body.dark-mode .tech-tile-info span {
-  color: var(--gray-400);
-}
-
-/* Core Competencies Highlight Banner */
-.skills-competencies-banner {
-  margin-top: 45px;
-  padding: 30px 36px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(236, 72, 153, 0.03));
-  border: 1px solid rgba(99, 102, 241, 0.16);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.04);
-}
-
-body.dark-mode .skills-competencies-banner {
-  background: rgba(30, 41, 59, 0.45);
-  border-color: rgba(148, 163, 184, 0.15);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-}
-
-.banner-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: var(--font-size-sm);
-  font-weight: 800;
-  color: var(--gray-900);
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-body.dark-mode .banner-title {
-  color: var(--white);
-}
-
-.banner-title i {
-  color: var(--primary-500);
-  font-size: 1.35rem;
-  animation: heartPulse 1.8s ease-in-out infinite;
-}
-
-.competency-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.comp-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  color: var(--gray-700);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: default;
-}
-
-body.dark-mode .comp-tag {
-  background: rgba(15, 23, 42, 0.6);
-  border-color: rgba(148, 163, 184, 0.15);
-  color: var(--gray-300);
-}
-
-.comp-tag i {
-  color: var(--accent-emerald);
-  font-size: 1.05rem;
-  transition: transform 0.3s ease;
-}
-
-.comp-tag:hover {
-  transform: translateY(-4px) scale(1.02);
-  border-color: var(--primary-500);
-  color: var(--primary-600);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
-}
-
-body.dark-mode .comp-tag:hover {
-  border-color: var(--primary-400);
-  color: var(--primary-400);
-  box-shadow: 0 8px 20px rgba(129, 140, 248, 0.2);
-  background: rgba(15, 23, 42, 0.85);
-}
-
-.comp-tag:hover i {
-  transform: scale(1.25) rotate(5deg);
-  color: var(--primary-500);
-}
-
-body.dark-mode .comp-tag:hover i {
-  color: var(--primary-400);
-}
-
 /* ===== PROJECTS SECTION ===== */
 .projects {
   padding: var(--section-padding);
@@ -11412,13 +11060,19 @@ body:not(.dark-mode) .skills-count-badge {
     background: rgba(99, 102, 241, 0.08);
 }
 
-/* Skill Chips Grid inside Cards */
+/* Skill Chips Grid inside Cards - 2 skills per row line */
 .skill-chips-grid {
     padding: 24px 28px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .skill-chips-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Skill Chip Tile V4 */
@@ -11473,23 +11127,46 @@ body:not(.dark-mode) .skill-chip-v4:hover {
 .java-brand-glow      { background: linear-gradient(135deg, #ea580c, #f97316); }
 .python-brand-glow    { background: linear-gradient(135deg, #3776ab, #2b5b84); }
 .js-brand-glow        { background: linear-gradient(135deg, #f7df1e, #ca8a04); color: #000000; }
-.cpp-brand-glow       { background: linear-gradient(135deg, #00599c, #00447c); }
-.php-brand-glow       { background: linear-gradient(135deg, #777bb4, #4f5b93); }
 .html-brand-glow      { background: linear-gradient(135deg, #e34c26, #f06529); }
+.php-brand-glow       { background: linear-gradient(135deg, #777bb4, #4f5b93); }
 .spring-brand-glow    { background: linear-gradient(135deg, #6db33f, #478224); }
+.flask-brand-glow     { background: linear-gradient(135deg, #0f172a, #334155); color: #ffffff; }
+.flask-official-icon {
+    width: 1.45em;
+    height: 1.45em;
+    vertical-align: middle;
+    display: inline-block;
+    fill: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: transform 0.35s ease;
+}
+.galaxy-planet:hover .flask-official-icon {
+    transform: scale(1.18) rotate(-8deg);
+}
+.laravel-brand-glow   { background: linear-gradient(135deg, #ff2d20, #c81e1e); }
 .react-brand-glow     { background: linear-gradient(135deg, #087ea4, #06b6d4); }
-.node-brand-glow      { background: linear-gradient(135deg, #68a063, #43853d); }
-.bootstrap-brand-glow { background: linear-gradient(135deg, #7952b3, #563d7c); }
-.orm-brand-glow       { background: linear-gradient(135deg, #59666c, #3b454a); }
 .mysql-brand-glow     { background: linear-gradient(135deg, #00758f, #005b6e); }
-.mongo-brand-glow     { background: linear-gradient(135deg, #47a248, #347835); }
 .sqlite-brand-glow    { background: linear-gradient(135deg, #003b57, #002233); }
+.mongo-brand-glow     { background: linear-gradient(135deg, #47a248, #347835); }
 .admin-brand-glow     { background: linear-gradient(135deg, #00758f, #10b981); }
 .git-brand-glow       { background: linear-gradient(135deg, #f1502f, #c93618); }
+.docker-brand-glow    { background: linear-gradient(135deg, #2496ed, #0db7ed); }
 .vscode-brand-glow    { background: linear-gradient(135deg, #007acc, #005a9e); }
 .intellij-brand-glow  { background: linear-gradient(135deg, #fe315d, #a81c3a); }
 .postman-brand-glow   { background: linear-gradient(135deg, #ff6c37, #d94a18); }
-.maven-brand-glow     { background: linear-gradient(135deg, #c71a36, #911024); }
+.maven-brand-glow     { background: linear-gradient(135deg, #c71a36, #ea580c, #f97316); color: #ffffff; }
+.maven-official-icon {
+    width: 1.45em;
+    height: 1.45em;
+    vertical-align: middle;
+    display: inline-block;
+    fill: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: transform 0.35s ease;
+}
+.galaxy-planet:hover .maven-official-icon {
+    transform: scale(1.18) rotate(8deg);
+}
 .xampp-brand-glow     { background: linear-gradient(135deg, #fb7a24, #d45b0c); }
 
 .chip-content {
@@ -11501,6 +11178,7 @@ body:not(.dark-mode) .skill-chip-v4:hover {
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    flex-wrap: wrap;
     margin-bottom: 4px;
 }
 
@@ -11524,11 +11202,11 @@ body:not(.dark-mode) .skill-chip-v4:hover .chip-title {
     color: var(--primary-600, #4f46e5);
 }
 
-/* Level Tags */
+/* Level Tags (No percentages - clean level badges) */
 .chip-level-tag {
     font-size: 0.7rem;
     font-weight: 700;
-    padding: 2px 9px;
+    padding: 3px 10px;
     border-radius: 12px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -11551,6 +11229,12 @@ body:not(.dark-mode) .skill-chip-v4:hover .chip-title {
     color: #a855f7;
     background: rgba(168, 85, 247, 0.14);
     border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.chip-level-tag.basic {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.14);
+    border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .chip-desc {
@@ -11641,3 +11325,500 @@ body:not(.dark-mode) .skills-competencies-banner-v4 .comp-tag {
 .skills-competencies-banner-v4 .comp-tag:hover i {
     color: #ffffff;
 }
+
+/* ==========================================================================
+   SKILLS GALAXY ORBITAL SOLAR SYSTEM DESIGN
+   ========================================================================== */
+.skills-galaxy-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.galaxy-starlight-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(1.5px 1.5px at 15% 25%, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1.5px 1.5px at 75% 15%, rgba(99, 102, 241, 0.6), transparent),
+        radial-gradient(2px 2px at 45% 85%, rgba(236, 72, 153, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 85% 75%, rgba(6, 182, 212, 0.6), transparent);
+    background-size: 550px 550px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.skills-galaxy-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 720px;
+    margin: 35px auto 0 auto;
+    border-radius: var(--radius-xl, 28px);
+    background: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+body:not(.dark-mode) .skills-galaxy-wrapper {
+    background: radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.98) 100%);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08), 0 0 50px rgba(99, 102, 241, 0.08);
+}
+
+/* Central Core Hub */
+.galaxy-core-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.core-center-orb {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.8), 0 0 70px rgba(236, 72, 153, 0.5);
+    z-index: 3;
+    animation: coreGlowPulse 4s ease-in-out infinite alternate;
+}
+
+.core-atom-icon {
+    font-size: 2.4rem;
+    color: #ffffff;
+    animation: atomRotate 12s linear infinite;
+    display: inline-block;
+}
+
+@keyframes atomRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.react-spin-icon {
+    animation: reactSpin 8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes reactSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spring-leaf-icon {
+    animation: leafSway 3s ease-in-out infinite alternate;
+    display: inline-block;
+}
+
+@keyframes leafSway {
+    0% { transform: rotate(-8deg) scale(1); }
+    100% { transform: rotate(8deg) scale(1.1); }
+}
+
+.core-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(168, 85, 247, 0.4);
+    animation: coreRingSpin 12s linear infinite;
+}
+
+.core-ring-1 {
+    width: 95px;
+    height: 95px;
+    border-color: rgba(99, 102, 241, 0.5);
+    border-style: dashed;
+}
+
+.core-ring-2 {
+    width: 125px;
+    height: 125px;
+    border-color: rgba(236, 72, 153, 0.35);
+    animation-duration: 18s;
+    animation-direction: reverse;
+}
+
+.core-ring-3 {
+    width: 160px;
+    height: 160px;
+    border-color: rgba(6, 182, 212, 0.25);
+    animation-duration: 24s;
+}
+
+@keyframes coreGlowPulse {
+    0% { transform: scale(0.96); box-shadow: 0 0 30px rgba(99, 102, 241, 0.7), 0 0 60px rgba(236, 72, 153, 0.4); }
+    100% { transform: scale(1.06); box-shadow: 0 0 45px rgba(99, 102, 241, 0.9), 0 0 85px rgba(236, 72, 153, 0.7); }
+}
+
+@keyframes coreRingSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Concentric Orbit Ellipse Rings */
+.galaxy-orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    z-index: 1;
+}
+
+body:not(.dark-mode) .galaxy-orbit-ring {
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.orbit-ring-inner { width: 260px; height: 260px; }
+.orbit-ring-mid-1 { width: 440px; height: 440px; }
+.orbit-ring-mid-2 { width: 610px; height: 610px; }
+.orbit-ring-outer { width: 780px; height: 780px; }
+
+/* Domain Sector Labels */
+.domain-tag {
+    position: absolute;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.domain-frontend {
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.domain-backend {
+    top: 50%;
+    left: 45px;
+    transform: translateY(-50%);
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.domain-database {
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.domain-tools {
+    top: 50%;
+    right: 45px;
+    transform: translateY(-50%);
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Corner Floating Info Cards (from Reference Design Image) */
+.galaxy-info-card, .galaxy-stats-card {
+    position: absolute;
+    width: 240px;
+    background: rgba(30, 41, 59, 0.75);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    z-index: 6;
+    transition: all 0.35s ease;
+}
+
+body:not(.dark-mode) .galaxy-info-card, 
+body:not(.dark-mode) .galaxy-stats-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(15, 23, 42, 0.1);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.galaxy-info-card:hover, .galaxy-stats-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(99, 102, 241, 0.2);
+}
+
+.top-left     { top: 24px; left: 24px; }
+.top-right    { top: 24px; right: 24px; }
+.bottom-left  { bottom: 24px; left: 24px; width: 260px; }
+.bottom-right { bottom: 24px; right: 24px; }
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.info-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.icon-cyan   { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+.icon-purple { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+.icon-amber  { background: linear-gradient(135deg, #f59e0b, #ea580c); }
+
+.info-card-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+}
+
+body:not(.dark-mode) .info-card-label {
+    color: var(--gray-900, #0f172a);
+}
+
+.info-card-text {
+    font-size: 0.76rem;
+    color: var(--gray-400, #94a3b8);
+    line-height: 1.45;
+    margin: 0;
+}
+
+body:not(.dark-mode) .info-card-text {
+    color: var(--gray-600, #475569);
+}
+
+/* Stats Card Bottom Left */
+.galaxy-stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.galaxy-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.galaxy-stat-item i {
+    font-size: 1.35rem;
+}
+
+.stat-icon-cyan    { color: #06b6d4; }
+.stat-icon-pink    { color: #ec4899; }
+.stat-icon-emerald { color: #10b981; }
+
+.stat-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-meta .stat-number {
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+}
+
+body:not(.dark-mode) .stat-meta .stat-number {
+    color: var(--gray-900, #0f172a);
+}
+
+.stat-meta .stat-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--gray-400, #94a3b8);
+}
+
+body:not(.dark-mode) .stat-meta .stat-label {
+    color: var(--gray-500, #64748b);
+}
+
+/* Planet Nodes Positioning & Appearance */
+.galaxy-planet {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.galaxy-planet.filter-hidden {
+    opacity: 0.15 !important;
+    filter: blur(3px) grayscale(80%);
+    pointer-events: none;
+    transform: scale(0.8) !important;
+}
+
+.planet-sphere {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    color: #ffffff;
+    box-shadow: 0 0 22px var(--planet-accent, rgba(99, 102, 241, 0.6)), 0 8px 20px rgba(0, 0, 0, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.galaxy-planet:hover {
+    transform: scale(1.28) translateY(-6px) !important;
+    z-index: 25;
+}
+
+.galaxy-planet:hover .planet-sphere {
+    border-color: #ffffff;
+    box-shadow: 0 0 35px var(--planet-accent, rgba(99, 102, 241, 0.9)), 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.planet-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+body:not(.dark-mode) .planet-title {
+    color: var(--gray-900, #0f172a);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+.galaxy-planet:hover .planet-title {
+    color: var(--accent-cyan, #06b6d4);
+}
+
+.planet-level-badge {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.galaxy-planet:hover .planet-level-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Absolute Positions on Orbit Rings for Desktop Layout */
+/* FRONTEND (TOP AREA) */
+.planet-html   { top: 110px; left: 450px; }
+.planet-js     { top: 120px; left: 630px; }
+.planet-react  { top: 175px; left: 745px; }
+
+/* BACKEND (LEFT AREA) */
+.planet-java    { top: 220px; left: 180px; }
+.planet-spring  { top: 345px; left: 165px; }
+.planet-python  { top: 430px; left: 240px; }
+.planet-flask   { top: 290px; left: 290px; }
+.planet-php     { top: 480px; left: 335px; }
+.planet-laravel { top: 540px; left: 425px; }
+
+/* DATABASE (BOTTOM AREA) */
+.planet-mysql   { top: 550px; left: 560px; }
+.planet-sqlite  { top: 460px; left: 500px; }
+.planet-mongo   { top: 535px; left: 680px; }
+.planet-admin   { top: 440px; left: 615px; }
+
+/* TOOLS (RIGHT AREA) */
+.planet-git     { top: 275px; left: 815px; }
+.planet-docker  { top: 385px; left: 855px; }
+.planet-vscode  { top: 480px; left: 795px; }
+.planet-intellij{ top: 215px; left: 875px; }
+.planet-maven   { top: 150px; left: 320px; }
+.planet-xampp   { top: 350px; left: 960px; }
+.planet-postman { top: 470px; left: 915px; }
+
+/* RESPONSIVE LAYOUT FOR TABLETS AND MOBILE DEVICES */
+@media (max-width: 1024px) {
+    .skills-galaxy-wrapper {
+        height: auto;
+        min-height: auto;
+        padding: 40px 20px 50px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .galaxy-info-card, .galaxy-stats-card {
+        position: relative;
+        inset: auto !important;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .galaxy-core-hub {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 10px auto;
+    }
+
+    .galaxy-orbit-ring {
+        display: none;
+    }
+
+    .domain-tag {
+        position: relative;
+        inset: auto !important;
+        transform: none !important;
+        margin: 20px auto 10px auto;
+    }
+
+    /* Grid planets display on mobile/tablet */
+    .skills-galaxy-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        justify-items: center;
+        align-items: center;
+        gap: 25px 15px;
+    }
+
+    .galaxy-planet {
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+    }
+}
+
