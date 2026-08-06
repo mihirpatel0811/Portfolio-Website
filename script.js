@@ -1033,12 +1033,15 @@ if (PortfolioConfig.debug) {
 }
 
 // Degree Modal Functions
-function openDegreeModal(imageSrc) {
+function openDegreeModal(imageSrc, title) {
     const modal = document.getElementById('degreeModal');
     const modalImg = document.getElementById('modalImage');
     const modalContent = modal.querySelector('.degree-modal-content');
 
     if (modal && modalImg) {
+        if (title) {
+            modalImg.alt = title;
+        }
         if (imageSrc.toLowerCase().endsWith('.pdf')) {
             modalImg.style.display = 'none';
             if (!document.getElementById('pdfViewer')) {
@@ -1488,7 +1491,7 @@ const CertsData = {
         issuer: 'Unstop',
         category: 'Core Java & Algorithms',
         org: 'Unstop Technology Portal',
-        date: 'January 2025',
+        date: 'June 2026',
         type: 'Verified Skill Assessment',
         image: 'images/certificates/java-basics-certificate.jpg',
         skills: ['Core Java Syntax', 'OOP Paradigms', 'Control Flow Logic', 'Arrays & Collections', 'Exception Handling'],
@@ -1559,6 +1562,17 @@ const CertsData = {
         image: 'images/certificates/boosting-ml-python-certificate.jpg',
         skills: ['Ensemble Learning', 'Gradient Boosting', 'XGBoost & AdaBoost', 'Hyperparameter Tuning', 'Overfitting Prevention'],
         description: 'Advanced model boosting and hyperparameter optimization techniques covering Ensemble learning, Gradient Boosting, XGBoost algorithms, cross-validation strategies, and model accuracy optimization.'
+    },
+    'web-design-uiux': {
+        title: 'Web Designing Using UI/UX',
+        issuer: 'Finishing School | Marwadi University',
+        category: 'UI/UX & Web Design',
+        org: 'Finishing School, Marwadi University',
+        date: 'December 22, 2023',
+        type: 'Skill Certification Course',
+        image: 'images/certificates/Web Desining Using UI-UX.jpeg',
+        skills: ['UI/UX Design', 'Web Designing', 'Responsive Web Layouts', 'User Interface Design', 'Frontend Aesthetics'],
+        description: 'Certification of Course Completion awarded by Finishing School, Marwadi University (Rajkot) in association with Department of Science & Technology, Govt. of Gujarat for completing the intensive training program in Web Designing using UI/UX principles.'
     }
 };
 

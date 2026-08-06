@@ -4288,15 +4288,24 @@ body.dark-mode .edu-action-btn {
 }
 
 body.dark-mode .edu-degree-view-pill {
-  background: rgba(129, 140, 248, 0.14);
-  color: var(--primary-400) !important;
-  border-color: rgba(129, 140, 248, 0.4);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+body.dark-mode .edu-marksheet-view-pill {
+  background: linear-gradient(135deg, #06b6d4 0%, #10b981 50%, #3b82f6 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
 }
 
 .edu-degree-view-pill span,
-.edu-degree-view-pill i {
-  color: inherit !important;
+.edu-degree-view-pill i,
+body.dark-mode .edu-degree-view-pill span,
+body.dark-mode .edu-degree-view-pill i {
+  color: #ffffff !important;
   transition: color var(--transition-normal), transform var(--transition-normal);
 }
 
@@ -8674,6 +8683,11 @@ body:not(.dark-mode) .cert-card-v2:hover {
     box-shadow: 0 8px 20px rgba(0, 124, 195, 0.4);
 }
 
+.finishing-school-glow {
+    background: linear-gradient(135deg, #06b6d4, #10b981);
+    box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+}
+
 .cert-provider-name {
     display: block;
     font-size: 0.76rem;
@@ -10591,6 +10605,21 @@ body:not(.dark-mode) .edu-status-pill.pursuing {
 
 .edu-degree-view-pill:hover::after {
     animation: shineSweep 0.75s forwards;
+}
+
+/* Interactive Marksheet View Button Pill */
+.edu-marksheet-view-pill,
+body.dark-mode .edu-marksheet-view-pill {
+    background: linear-gradient(135deg, #06b6d4 0%, #10b981 50%, #3b82f6 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(6, 182, 212, 0.4) !important;
+}
+
+.edu-marksheet-view-pill:hover,
+body.dark-mode .edu-marksheet-view-pill:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #059669 50%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.55), 0 0 20px rgba(16, 185, 129, 0.4) !important;
 }
 
 /* Card Body V2 */

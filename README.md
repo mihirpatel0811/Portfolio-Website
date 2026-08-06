@@ -53,7 +53,7 @@ Portfolio-Website/
 3. **Skills** - Technical skills with icon showcase
 4. **Projects** - 7 featured projects with filtering capability
 5. **Education** - Academic timeline
-6. **Certifications** - Professional certifications (7 total)
+6. **Certifications** - Professional certifications (10 total)
 7. **Contact** - Contact form with EmailJS integration
 
 ## 💼 Projects Featured
