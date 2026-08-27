@@ -446,7 +446,7 @@ const App = {
        ========================================================================== */
     initSkillsSystem: function () {
         const skillFilters = Array.from(document.querySelectorAll('.skills-filter-toolbar-v4 .skills-tab-btn'));
-        const skillCards = Array.from(document.querySelectorAll('.skills-card-v4, .galaxy-planet'));
+        const skillCards = Array.from(document.querySelectorAll('.skills-card-v4, .galaxy-planet, .skill-matrix-card, .skill-vault-card, .skill-bento-card, .cli-skill-node'));
 
         if (!skillFilters.length || !skillCards.length) return;
 
@@ -1509,15 +1509,15 @@ const CertsData = {
         description: 'Advanced technical credential awarded by INNIXO for demonstrating software engineering best practices, algorithmic efficiency, clean code design, and rapid solution implementation in competitive technical challenges.'
     },
     'innohack-2.0': {
-        title: 'INNOHACK 2.0 National Hackathon',
-        issuer: 'INNOHACK',
+        title: 'Inno Hack 2.0 (3rd Rank Winner)',
+        issuer: 'Dr. D. Y. Patil School of Science & Technology, Tathawade Pune',
         category: 'National Hackathon',
-        org: 'INNOHACK Organizing Team',
-        date: 'October 2025',
-        type: 'National Hackathon Achievement',
-        image: 'images/certificates/innohack-2.0-certificate.png',
-        skills: ['Hackathon Prototyping', 'Full-Stack Development', 'AI API Integration', 'Database Design', 'Agile Product Sprint'],
-        description: 'National-level hackathon credential awarded for building innovative rapid-prototype software solutions under intensive 24-hour competitive sprint deadlines with real-time API integrations and interactive web UI.'
+        org: 'IIC, IQAC | DPU (Deemed to be University)',
+        date: 'September 26, 2025',
+        type: '3rd Rank Achievement & Silver Medal Winner',
+        image: 'images/certificates/hackathon__sih2025__innovation__dpu__smartagricul.jpg',
+        skills: ['Inno Hack 2.0 3rd Rank', 'Team Infinite Squad', 'Rapid Hackathon Prototyping', 'IIC & IQAC DPU Event', 'Full-Stack Solution Engineering'],
+        description: 'Certificate of Appreciation awarded to Mihir Bhayani from Team Infinite Squad for securing 3rd Rank in Inno Hack 2.0 organized by Dr. D. Y. Patil School of Science & Technology, Tathawade Pune under IIC, IQAC on September 26, 2025.'
     },
     'cisco-analytics': {
         title: 'Data Analytics Essentials',
